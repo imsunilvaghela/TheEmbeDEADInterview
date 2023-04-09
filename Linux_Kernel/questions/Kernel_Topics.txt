@@ -1,0 +1,143 @@
+1. Building the Kernel Source Code – Done
+2. Embedded Linux Kernels
+3. BSPs and SDKs
+4. Linux References (Books and Online)
+5. BSP Requirements
+6. U-Boot and Bootloader Development
+7. Embedded Linux BSP Development Basics
+8. Basic BSP Development
+9. Files and Filesystem Support
+10. The I/O Subsystem: Talking to Hardware
+11. Memory Management and Paging
+12. Error Handling in Embedded Linux BSPs
+13. Timing and Timers
+14. Interrupt and Exception Handling in BSPs
+15. BSP Deployment Issues and Practices
+16. Embedded Linux SDK Basics
+17. The 3 Pieces of an SDK
+18. Embedded Linux Distributions and the GNU Compiler Collection (GCC)
+19. Other Embedded Linux Development Tools
+20. Library Support, Glibc and Alternatives
+21. SDK Deployment and Support
+22. Debugging
+23. GDB, GDB Server and the GDB Server Debugger
+24. Other Debug and Test Tools
+25. An Eclipse Remote Debug Example
+26. Advanced Debug with printk and syslogd
+27. System-Level Debug
+28. System-Level Debug Tools
+29. The /proc and sys Filesystems
+30. Advanced Logging Methods
+31. KGDB and KDB
+32. Crash Dumps
+33. Debugging Embedded Linux Systems
+34. Configuring Embedded Linux
+35. Config Methods
+36. Config Syntax
+37. Adding Code to the Linux Kernel
+38. Booting Embedded Linux
+39. Processor Startup
+40. Initial Functions
+41. The initcalls
+42. Using __init Functions
+43. NFS Booting
+44. Root File Systems
+45. RAMdisk Booting with initrd
+46. RAMdisk Booting with initramfs
+47. initrd vs initramfs
+48. Root File System Development
+49. Busybox Development
+50. Building a RAMdisk for an initrd
+51. Building a RAMdisk for an initramfs
+52. Flash File System Development
+53. Testing and Debug of Embedded Linux BSPs
+54. Kernel Debug and Kernel Probes
+55. Kexec and Kdump
+56. The Linux Test Project (LTP)
+57. Performance Tuning Embedded Linux BSPs
+58. Virtualization
+59. Measuring Embedded Linux BSP Performance
+60. Common Considerations
+61. Uncommon Considerations
+62. BootLoader Optimizations
+63. Boot Time Measurements
+64. Effective Memory and Flash Usage
+65. Filesystem Performance Measurement
+66. Some Ideas on Performance Measurement
+67. The Original UNIX Device Driver Model
+68. The fops and file structs
+69. The inode and dentry structs
+70. Major and Minor Numbers
+71. Embedding Channel Information
+72. Deferring Work
+73. The /proc Filesystem
+74. Configuring the Device Driver
+75. A Simulated Device Driver
+76. Modularization Revisited
+77. The Evolution of a New Driver Model
+78. The Initial Object-Oriented Approach
+79. Platform Devices and Drivers
+80. A Generic Subsystem Model
+81. The Generic Subsystem Model in Detail
+82. Subsystem Registration
+83. The Probe and Init Functions
+84. The Show and Store Functions
+85. User Access via the /sys Filesystem
+86. Configuring the New Device Driver
+87. The udev Linux Application
+88. Comparing the Two Driver Models
+89. The Flattened Device Tree (FDT)
+90. openBoot and its Effect on Embedded Linux
+91. The Device Tree Script (dts) File
+92. The Device Tree Compiler (dtc)
+93. The Device Tree Blob (dtb) File
+94. Building a dtb File
+95. Hybrid Device Drivers
+96. Other fops Functions
+97. The Need for Ioctl
+98. Linux Device Driver Subsystems
+99. Direct Connect Device Drivers
+100. Serial/Console Drivers, I2C & SPI
+101. Real-Time Clocks and Watchdogs
+102. GPIO and the Pinmux
+103. Flash MTDs and Direct Memory Access
+104. USB, Power and CPU Management
+105. Video and Audio
+106. PCI and VME
+107. Block Devices
+108. RAMdisk and Flash Filesystems
+109. MMCs and SD Cards
+110. Network Device Drivers
+111. MAC and PHY Device Drivers
+112. net_device and net_device_stats
+113. Network Device Initialization
+114. Device Discovery and Dynamic Initialization
+115. Network Interface Registration
+116. Network Interface Service Functions
+117. Receiving and Transmitting Packets
+118. Notifier Chains and Device Status Notification
+119. Unwired Device Drivers
+120. Wireless Device Drivers (WiFi, WLAN)
+121. Bluetooth and BlueZ
+122. Infrared and IrDA
+123. Cellular from 2G to 5G
+124. Drivers in User Space
+125. Accessing I/O and Memory Regions
+126. User Mode SCSI, USB and I2C
+127. UIO
+128. High-Speed Interconnects
+129. PCIe
+130. iSCSI
+131. Infiniband
+132. FibreChannel
+133. Debugging Device Drivers
+134. kdb, kgdb and JTAG
+135. Kernel Probes
+136. Kexec and Kdump
+137. Kernel Profiling
+138. User Mode Linux
+139. Performance Tuning Device Drivers
+
+
+TOPICS:
+http://motionzen.com/training/embedded-linux-training-in-bangalore-chennai

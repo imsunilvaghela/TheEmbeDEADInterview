@@ -1,0 +1,19 @@
+1. Can I directly use C header files in CPP source file ? What changes I have to make in C header file in order to work with CPP ? 
+2. Write down a C program, that will not work in C++. 
+3. How does void* differs between C and C++?
+   >A>
+   C allows a void* pointer to be assigned to any pointer type without a cast, whereas C++ does not; this idiom appears often in C code using malloc memory allocation. For example, the following is valid in C but not C++:  
+   void* ptr; 
+   int *i = ptr; // Implicit conversion from void* to int*  
+4. Difference between C and C++ structures
+   >A>
+   - Member functions inside structure: Structures in C cannot have member functions inside structure but Structures in C++ can have member functions along with data members.
+   - Direct Initialization: We cannot directly initialize structure data members in C but we can do it in C++
+   - Using struct keyword: In C, we need to use struct to declare a struct variable. In C++, struct is not necessary.
+   - Static Members: C structures cannot have static members but is allowed in C++.
+   - sizeof operator: This operator will generate 0 for an empty structure in C whereas 1 for an empty structure in C++.
+   - Data Hiding: C structures does not allow concept of Data hiding but is permitted in C++ as C++ is an object oriented language whereas C is not.  
+   - Access Modifiers: C structures does not have access modifiers as these modifiers are not supported by the language. C++ structures can have this concept as it is inbuilt in the language.  
+5. Difference between pointers in C and reference in CPP 
+6. Difference between Malloc and New 
+7. Difference between delete and free

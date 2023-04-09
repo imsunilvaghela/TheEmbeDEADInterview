@@ -1,0 +1,40 @@
+1. What is difference between YUV and RGB ?  Why there will be need of YUV color format apart from RGB?
+   >A>
+   YUV: support different modes:
+        Packed: One memory region storing all components (Y, U and V)
+        Semiplanar: One memory region for Y component and one for UV components
+        Planar: One memory region for each component
+    Each memory region storing a frame component (Y, U or V) is called a plane
+2. NTSC, PAL, SD, HD, Full HD, 4K, DCI 4K and 8K – Give me exact width x height for each one.
+3. Difference between NTSC and PAL , 4K and DCI4K resolutions. ?
+4. Progressive vs Interlaced scanning
+5. Chrominance and luminance
+6. What are various image formats? What are 4:4:4, 4:2:2 etc. Sampling ?
+7. What are different color spaces like RGB, YUV ? How would YUV pixel values look like for a green, blue, red, black and white color pixels for suppose 8 bit per color space?
+8. What is difference between planar, semiplanar and multiplanar ?
+  >A>
+   - https://stackoverflow.com/questions/22215484/what-is-difference-between-planar-semi-planar-and-interleaved-format
+   - https://docs.kernel.org/userspace-api/media/v4l/pixfmt-yuv-planar.html
+9. What are Integer and Fractional framerate ? What is the need for fractional framerate ?
+10. Video formats and its understanding: e.g. NV12/YUV420 - How pixels are arranged
+11. YUV420, YUV422, YUV444 format understanding and single frame size calculation
+    >A>
+    YUV420 - 1 Cb & 1 Cr samples per 4 luma samples
+    YUV422 - 2 Cb & 2 Cr samples per 4 luma samples
+    YUV444 - 4 Cb & 4 Cr samples per 4 luma samples
+
+    Size of 1920 * 1080
+    YUV420 ==> 1920 * 1080 * (1 + 2/4) ==> 1920 * 1080 * 1.5
+    YUV422 ==> 1920 * 1080 * (1 + 4/4) ==> 1920 * 1080 * 2
+    YUV444 ==> 1920 * 1080 * (1 + 8/4) ==> 1920 * 1080 * 3
+12. What is I, P, B frames
+13. Difference between codec and container
+14. What's the purpose of encoding & decoding video?
+15. What is stride in video ?
+    >A>
+    The stride or pitch is the number of bytes from the first pixel of a line to the first pixel of the next line of video. In the simplest case, the stride equals the width multiplied by the bits per pixel, converted to bytes. For example, AR24 requires 32 BPP which is four bytes per pixel.
+    A video buffer with an active area of 1920 x 1080 pixels therefore has a stride of 4 x 1920 = 7,680 bytes.
+16. What is PSNR (peak signal-to-noise ratio)  ?
+17. HDR/HDR10, HDR10+, HLG
+18. Advantage of yuv over RGB format
+

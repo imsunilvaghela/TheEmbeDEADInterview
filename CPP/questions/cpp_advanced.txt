@@ -1,0 +1,4 @@
+1. RAII (Resource Acquisition Is Initialization)
+2. move semantics
+3. smart pointers
+4. STL containers

@@ -1,0 +1,175 @@
+1. C++ best strength (or most-liked feature)  
+2. C++ worst weakness (or least-liked convention, or most-desired missing feature) 
+3. Benefits of C++ over C Language 
+   1) C++ is an object oriented language whereas C language is a procedural language 
+4. What is Objects?  
+   Objects are the basic unit of OOP. They are instances of class, which have data members and uses various member functions to perform tasks. 
+5. What is Class? 
+   It is similar to structures in C language. Class can also be defined as user defined data type but it also contains functions in it. So, class is basically a blueprint for object. It declare & defines what data variables the object will have and what operations can be performed on the class's object. 
+6. What is Abstraction? 
+   Abstraction refers to showing only the essential features of the application and hiding the details. In C++, classes provide methods to the outside world to access & use the data variables, but the variables are hidden from direct access. This can be done access specifiers. 
+7. What is Encapsulation? 
+   It can also be said data binding. Encapsulation is all about binding the data variables and functions together in class. 
+8. What is Inheritance? 
+   Inheritance is a way to reuse once written code again and again. The class which is inherited is called base calls & the class which inherits is called derived class. So when, a derived class inherits a base class, the derived class can use all the functions which are defined in base class, hence making code reusable 
+9. What is Polymorphism? 
+   It is a feature, which lets us create functions with same name but different arguments, which will perform differently. That is function with same name, functioning in different way. Or, it also allows us to redefine a function to provide its new definition. 
+10. What is Exception Handling? 
+   Exception handling is a feature of OOP, to handle unresolved exceptions or errors produced at runtime. 
+11. Difference Between malloc and new 
+   - New calls consructor on memory allocation / malloc Does not call constructor 
+   - new is an operator / malloc is function 
+   - new returns exact data type / malloc returns void * 
+   - On failure throws / On failure returns NULL 
+   - new Memory allocation from free store / Memory allocation from heap 
+   - new can be overridden / malloc cannot be overridden 
+   - size is calculated by compiler / size is calculated manualy" 
+12. What is register storage class? 
+   This keyword is used to tell the compiler to make access to this variable as fast as possible. Variables are stored in registers to increase the access speed - you can never use or compute address of register variable - a register variable can be declared only within a block, that means, you cannot have global or static register variables. 
+13. Difference Between Structure in C and Class in C++ 
+   - Class in C++ are similar to structures in C, the only difference being, class defaults to private access control, whereas structure defaults to public.  
+   - Public Access control Public, means all the class members declared under public will be available to everyone. The data members and member functions declared public can be accessed by other classes too 
+   - Private Access control Private keyword, means that no one can access the class members declared private outside that class. If someone tries to access the private member, they will get a compile time error. 
+   - Protected Access control it is similar to private, it makes class member inaccessible outside the class. But they can be accessed by any subclass of that class. (If class A is inherited by class B, then class B is subclass of class A. We will learn this later.) 14. What is static member function    - Static member function can be acccess directly without object name    - These functions work for the class as whole rather than for a particular object of a class.    - These functions cannot access ordinary data members and member functions, but only static data members and static member functions." 15. What is const member function    When const key word used with member function, such member functions can never modify the object or its related data members. 
+16. What is friend functions? 
+   - Friend functions are actually not class member function 
+   - Friend functions are made to give private access to non-class functions 
+   - friend functions can access private data members by creating object of the class 
+   - we can also make function of other class as friend, or we can also make an entire class as friend class 
+   - Friend Functions is a reason, why C++ is not called as a pure Object Oriented language. Because it violates the concept of Encapsulation 
+17. Drawback of MACRO in C language 
+   - Problems with Spacing ( #define G (y) (y+1) ) 
+   - Complex Argument Problem 
+   - No way to access Private Members of Class" 
+18. Inline functions 
+   - Inline functions are actual functions, which are copied everywhere during compilation 
+   - All the functions defined inside class definition are by default inline" 
+19. Constructor 
+   - Constructors are special class functions which performs initialization of every object 
+   - The Compiler calls the Constructor whenever an object is created 
+   - Constructors iitialize values to object members after storage is allocated to the object." 
+20. Type of Constructor  
+   1) Default contructor: Default constructor is the constructor which doesn't take any argument. It has no parameter. 
+   2) Copy constructor: These are special type of Constructors which takes an object as argument, and is used to copy values of data members of one object into other object 
+   3) Parameterized constructor: These are the constructors with parameter. Using this Constructor you can provide different values to data members of different objects, by passing the appropriate values as argument" 
+21.  Constructor Overloading 
+   Just like other member functions, constructors can also be overloaded. Infact when you have both default and parameterized constructors defined in your class you are having Overloaded Constructors, one with no parameter and other with parameter. 
+22. Destructor 
+   Destructor is a special class function which destroys the object as soon as the scope of object ends. The destructor is called automatically by the compiler when the object goes out of scope. 
+23. Namespace 
+   Namespace is a container for identifiers. It puts the names of its members in a distinct space so that they don't conflict with the names in other namespaces or global namespace. 
+24. Static Variable 
+   - Static is a keyword in C++ used to give special characteristics to an element 
+   - Static elements are allocated storage only once in a program lifetime in static storage area 
+   - They have a scope till the program lifetime." 
+25. Static Object 
+   - Objects declared static are allocated storage in static storage area, and have scope till the end of program 
+   - Static object destructure gets called when main exists" 
+26. Const Variable 
+   - If you make any variable as constant, using const keyword, you cannot change its value 
+   - The constant variables must be initialized while declared" 
+27. Pointers with const 
+   When we use const with pointers, we can do it in two ways,  
+   1) either we can apply const to what the pointer is pointing toor  
+   2) we can make the pointer itself a const 
+   # Pointer to Const (int const*v) 
+   # Const Pointer (int *const v) 
+   # Const Pointer pointing to Const variable (const int* const x)" 
+28. Constant Member Function 
+   - A const member function never modifies data members in an object. 
+29. Const Object 
+   When an object is declared or created with const, its data members can never be changed, during object's lifetime. 
+   # Syntax : return_type function_name() const; 
+30. Mutable Keyword 
+   Mutable keyword is used with member variables of class, which we want to change even if the object is of const type. Hence, mutable data members of a const objects can be modified. 
+31. References 
+   References are like constant pointers that are automatically dereferenced. 
+32. References Vs Pointers 
+   - References must be initialized when it is created / Pointers can be initialized anytime 
+   - Once initialized, we cannot reinitialize a reference / Pointers can be reinitialized any number of time 
+   - You can never have a NULL reference / Pointers can have NULL reference 
+   - Reference is automatically dereferenced / '*' is required to dereference" 
+33. Constant Reference 
+   - Const reference is used in function arguments to prevent the function from changing the argument 
+   Note : we must use const reference type arguments. When we use, const reference, only an address is passed on stack, which is used inside the function and the function cannot change our argument because it is of const type." 
+34. Copy Constructor 
+   - Copy Constructor is a type of constructor which is used to create a copy of an already existing object of a class type 
+35. Public Inheritance 
+   - This is the most used inheritance mode 
+   - In this the protected member of super class becomes protected members of sub class 
+   - Public becomes public." 
+36. Private Inheritance 
+   - In private mode, the protected and public members of super class become private members of derived/Sub class 
+37. Protected Inheritance 
+   - In protected mode, the public and protected members of Super class becomes protected members of Sub class. 
+38. Types of Inheritance 
+   - Single Inheritance 
+   - Multiple Inheritance 
+   - Hierarchical Inheritance 
+   - Multilevel Inheritance 
+   - Hybrid Inheritance (also known as Virtual Inheritance) 
+39. Single Inheritance 
+   - In this type of inheritance one derived class inherits from only one base class 
+   - It is the most simplest form of Inheritance" 
+40. Multiple Inheritance 
+   - In this type of inheritance a single derived class may inherit from two or more than two base classes 
+41. Hierarchical Inheritance 
+   - In this type of inheritance, multiple derived classes inherits from a single base class 
+42. Multilevel Inheritance
+   - In this type of inheritance the derived class inherits from a class, which in turn inherits from some other class. The Super class for one, is sub class for the other. 
+43. Hybrid(Virtual) Inheritance 
+   - Hybrid Inheritance is combination of Hierarchical and Multilevel Inheritance  
+44. Order to Constructor Base class constructors are always called in the derived class constructors. Whenever you create derived class object, first the base class default constructor is executed and then the derived class's constructor finishes execution. 
+45. Upcasting in C++ Upcasting is using the Super class's reference or pointer to refer to a Sub class's object 
+46. Downcasting in C++ Downcasting is to convert Super class's reference or pointer into derived class's reference or pointer 
+47. Functions that are never inherited 
+   - Constructors and Destructors are never inherited and hence never overridden. 
+48. assignment operator = is never inherited. It can be overloaded but can't be inherited by sub class." 
+49. Virtual Inheritence 
+   - In Multiple Inheritance, the derived class inherits from more than one base class. Hence, in Multiple Inheritance there are a lot chances of ambiguity 
+   ## For Ex. Class A is super class having public function ""show"" -> Class B and C is publicly derived from class A -> 
+   - In this case both class B and C inherits function show() from class A 
+   - Hence class D has two inherited copies of function show() 
+   - In main() function when we call function show(), then ambiguity arises, because compiler doesn't know which show() function to call 
+   - Hence we use ""Virtual"" keyword while inheriting class 
+   - Adding virtual keyword, we tell compiler to call any one out of the two show() funtions" 
+50. Polimorphism 
+   - Polymorphism means having multiple forms of one thing 
+   - In inheritance, polymorphism is done, by method overriding, when both super and sub class have member function with same declaration but different definition." 
+51. Function Overriding 
+   If we inherit a class into the derived class and provide a definition for one of the base class's function again inside the derived class, then that function is said to be overridden, and this mechanism is called Function Overriding 
+52. Static Binding 
+   - Connecting the function call to the function body is called Binding 
+   - When it is done before the program is run, it's called Early Binding or Static Binding or Compile-time Binding" 
+53. Late Binding 
+   - In Late Binding function call is resolved at runtime 
+   - Hence, now compiler determines the type of object at runtime, and then binds the function call 
+   - Late Binding is also called Dynamic Binding or Runtime Binding." 
+54. Virtual Function 
+   Virtual Function is a function in base class, which is overridden in the derived class, and which tells the compiler to perform Late Binding on this function 
+55. How Late Binding occurs 
+   - To accomplish late binding, Compiler creates VTABLEs, for each class with virtual function  
+   - The address of virtual functions is inserted into these tables  
+   - Whenever an object of such class is created the compiler secretly inserts a pointer called vpointer, pointing to VTABLE for that object 
+   - Hence when function is called, compiler is able to resolve the call by binding the correct function using the vpointer 
+56. Abstract Class 
+   - Abstract Class is a class which contains atleast one Pure Virtual function in it 
+   - Abstract classes are used to provide an Interface for its sub classes 
+   - Classes inheriting an Abstract Class must provide definition to the pure virtual function, otherwise they will also become abstract class." 
+57. Pure Virtual Function 
+   - Pure virtual Functions are virtual functions with no definition 
+   - They start with virtual keyword and ends with = 0.  
+   - Here is the syntax for a pure virtual function, 
+   ## virtual void f() = 0;" 
+58. Why can't we create Object of Abstract Class ? 
+   When we create a pure virtual function in Abstract class, we reserve a slot for a function in the VTABLE(studied in last topic), but doesn't put any address in that slot. Hence the VTABLE will be incomplete. 
+   As the VTABLE for Abstract class is incomplete, hence the compiler will not let the creation of object for such class and will display an error message whenever you try to do so." 
+59. Virtual Destructor 
+   - Destructors in the Base class can be Virtual 
+   - Whenever Upcasting is done, Destructors of the Base class must be made virtual for proper destruction of the object when the program exits 
+60. Operator Overloading 
+   Operator overloading is an important concept in C++. It is a type of polymorphism in which an operator is overloaded to give user defined meaning to it. Overloaded operator is used to perform operation on user-defined data type. 
+61. is a - has relationship 
+   https://www.researchgate.net/post/What_is_a_difference_in_Is-a_and_has-a_relationship_of_inheritance_of_c 
+62. Singleton Design Pattern/Singleton Class 
+   A class whose number of instances that can be instantiated is limited to one is called a singleton class. Thus, at any given time only one instance can exist, no more. 

@@ -1,0 +1,3 @@
+- https://www.ksrce.ac.in/admin/file_manager/source/BE%20(CSE)/UG-CSE/2019-2020/Multimedia%20.pdf
+- http://interview-questions.motionzen.com/linux-device-driver/advanced-linux-character-driver-operations
+- https://ecomputernotes.com/computer-graphics/basic-of-computer-graphics/what-is-frame-buffer

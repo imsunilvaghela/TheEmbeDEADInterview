@@ -1,0 +1,367 @@
+1. How logs are printed in linux kernel and what are the logs level available in linux.
+   >A>
+   printk used to print kernel logs. One can also use pr_ APIs. e.g. pr_debug, pr_warning, pr_err etc
+   e.g. printk(KERN_DEBUG "Hello World\n");
+   Kernel Log levels:
+   KERN_EMERG   0 - Emergency: The system is unusable
+   KERN_ALERT   1 - Alert: Actions that must be taken care of immediately
+   KERN_CRIT    2 - Critical: Critical conditions
+   KERN_ERR     3 - Error: Non-critical error conditions
+   KERN_WARNING 4 - Warning: Warning conditions that should be taken care of.
+   KERN_NOTICE  5 - Notice: Normal, but significant events.
+   KERN_INFO    6 - Info: Informational messages that require no action.
+   KERN_DEBUG   7 - Debug: Kernel debugging messages, output by the kernel if the developer enabled debugging at compile time
+
+   Trick to remember above sequence:
+   Everyone Always Complains Even When Nothing Is Different
+                      OR
+   Every Awesome Cisco Engineer Will Need Icecream Daily
+   1.1 Which kernel log messages has the highest priority ?
+       >A> KERN_EMERG  - Emergency messages when system is about to crash or is unstable
+   1.2 Which kernel log messages has the lowest priority ?
+       >A> KERN_DEBUG – Debug messages
+   1.3 How to print Kernel logs without new line (in same line)
+       >A>
+       Use KERN_CONT with printk.
+       printk(KERN_ERR "Driver Probe ");      >> Don't use \n at the end
+       printk(KERN_CONT "Failed!\n");         >> will print "Driver probe Failed!"
+2. What is difference between a library function and  system call ?
+3. What is context switching?
+4. What is virtual memory?
+5. Monolithic kernel vs Microlithic kernel
+6. Explain about about ksets, kobjects and ktypes. How are they related?
+7. As kernel can access user space memory, why should copy_from_user is needed?
+8. What is udev (Unique device identification) ?
+9. User application will block on IOCTL, in kernel until interrupt arrives this IOCTL will be blocked. When interrupt comes IOCTL should return. Desing this mechanism.
+10. What is IOCTL, how it is used in user and kernel driver code ?
+11. What is difference between sleep_on() and interruptible_sleep_on() APIs in linux kernel ? When should use which one, how it should be decided ?
+12. Explain about Kconfig build system?
+13. Explain about the init call mechanism.
+14. What is the difference between early init and late init?
+15. Early init functions are called when only the boot processor is online.
+16. Run before initializing SMP.
+17. Only for built-in code, not modules.
+18. Late init functions are called _after_ all the CPUs are online.
+19. How are the atomic functions implemented in case of ARM architecture?
+20. How is container_of( ) macro implemented?
+21. Explain about system call flow in case of ARM Linux.
+22. Main Advantages and disadvantages of having separate user space and kernel space?
+23. What is re-entrant function
+24. How User space buffer can be accessed from kernel level and vice versa?
+25. Diff SLAB and Vmalloc
+26. What are the best synchronization techniques used in linux kernel?
+27. How SpinkLocks work in SMP and UP architectures. what happens when a interrupt is received ? what is contained inside an interrupt handler What is the process of system call ,what happens exactly and how the mode toggles between user/kernel mode and vice versa?
+28. What are spin locks, are they better then mutex ?
+29. What are the differences between spinlock and mutex?
+30. What is difference between wake_up() and wake_up_interruptible() APIs in linux kernel ?
+31. When should should use which one, how it should be decided ?
+32. Why do we need synchronization mechanisms in Linux kernel?
+33. What are the different synchonization mechanisms present in Linux kernel?
+34. What is lockdep?
+35. Which synchronization mechanism is safe to use in interrupt context and why?
+36. Explain about the implementation of spinlock in case of ARM architecture.
+37. Explain about the implementation of mutex in case of ARM architecture.
+38. Explain about the notifier chains.
+39. Explain about RCU locks and when are they used?
+40. Explain about RW spinlocks locks and when are they used?
+41. Which are the synchronization technoques you use 'between processes', 'between processes and interrupt' and 'between interrupts'; why and how ?
+43. What are the differences between semaphores and spinlocks?
+44. Diff between mutex and semaphore? Can semaphore be used for data synchronisation purpose?
+45. What is deadlock? How to come out of deadlock?
+46. About Synchronization mechanism where you used in real time(examples)
+47. what happen if you use mutex in ISR, how you over come with that problem ?
+48. what is critical section?
+49. Semaphore internal code behavior in a way semaphore implementation ?
+50. spinlock vs mutex vs semaphore
+51. Working of spinlocks
+52. Can Spinlocks works on mutliprocessor system.
+53. In what scenarios mutex is used and semaphore is used.
+54. What is the difference between Mutex and Binary semaphore
+55. When a Mutex lock is aquired by a low priority task and High priority trys to acquires the lock will the low priority task will be pre emitted .
+56. The same above scenario is with sema and spinlock
+57. How do you establish a sync mechanism in above hard disk scenarios.
+58. Write a simple with crtical section, mutex lock and mutex unlock.
+59. Spin locks behavior?
+60. If spin locks what flavor of spin locks will you use.
+61. Explain Shared memory, Message Queue Synchronization techniques in Linux
+62. How can you make part of driver code is allowed to be executed and not executed depending upon condition?
+63. Different synchronization techniquies ?how do you chose the best sync mechanisam fits the scenario?
+64. how to divided critical work and non critcal work based on top half and bottom Half
+65. What is task_struct and how are task states maintained ?
+66. What is rwlock and spinlock ? Briefly explain about both of them ?
+67. When will you use rwlock instead of spinlock ?
+68. Can spinlock/rwlock be used in Interrupt handler ?
+69. What are jiffies and HZ?
+70. What is the initial value of jiffies when the system has started?
+71. Explain about HR timers and normal timers?On what hardware timers, does the HR timers are based on?
+72. How to declare that a specific hardware timers is used for kernel periodic timer interrupt used by the scheduler?
+73. How software timers are implemented?
+74. how to manage memory in linux kernel?
+75. what is bus error? common causes of bus errors?
+76. what is memory leak ?
+77. Write code for page fault handler in Linux
+78. What is cache ? How it is used and mapped the physical address cache and virtual address cache ?
+79. DMA controller.
+80. Write a pseudo code for page fault handler.
+81. What is virtual memory ? What is the pre-requisite in hardware for supporting virtual memory ?
+82. What are the differences between vmalloc and kmalloc? Which is preferred to use in device drivers?
+83. What are the differences between slab allocator and slub allocator?
+84. What is boot memory allocator?
+85. How do you reserve block of memory?
+86. What is virtual memory and what are the advanatages of using virtual memory?
+87. What's paging and swapping?
+88. Is it better to enable swapping in embedded systems? and why?
+89. What is the page size in Linux kernel in case of 32-bit ARM architecture?
+90. What is page frame?
+91. What are the different memory zones and why does different zones exist?
+92. What is high memory and when is it needed?
+93. Why is high memory zone not needed in case of 64-bit machine?
+94. How to allocate a page frame from high memory?
+95. In ARM, an abort exception if generated, if the page table doesn't contain a virtual to physical map for a particular page. How exactly does the MMU know that a virtual to physical map is present in the pagetable or not?
+96. What's a segementation fault and what are the scenarios in which segmentation fault is triggered?
+97. If the scenarios which triggers the segmentation fault has occurred, how the kernel identifies it and what
+98. are the actions that the kernel takes?
+99. memory leak deduction and various ways of handling
+100. How to write own malloc call
+101. About memory mapped files
+102. what is cache coherence?
+103. what is protection mechanism?
+104. what is DMA?
+105. what is a page fault?
+106. What is page write back?
+107. why not directly the physical address?
+108. What is MMU?
+109. Memory map of RAM
+110. When cahche is enabled in a operating system ,DMA is enabled,how does DMA access the cache?
+111. Explane MM - Segmentation, paging, swapping
+112. Paging vs swapping
+113. Different segments in a program
+114. Does linux use segmentation
+115. Memory alloc in linux - kmalloc vs vmalloc
+116. Physical Virtual and logical addresses
+117. Thrashing
+118. What is DMA. Modes - cycle stealing/burst (blk transfer)/transparent
+119. Cache coherency during dma. Which component handles it
+120. Explain MMU in Linux
+121. What is concept of virtual address or physical address?
+122. what is the entry points in kernel?
+123. how to create a major number dynamically?
+124. Diff of Kmalloc and Vmalloc
+125. How Memory Management works in KERNEL?(In total about Kernel Memory management)
+126. What are the possible ways that memory leaks can happen in a program ?(Apart from allocation and not freeing)
+127. How a memory leak can happen in a linked list?
+128. What is the difference between kmalloc and vmalloc?
+129. how to get physically contiguousness memory allocation if kmalloc is giving logical contiguousness allocations?
+130. How do a driver get registered to kernel?
+131. What is page fault? How page fault exception raises?
+132. Tell about the Memory Layout of a Process in Linux .
+133. How will you trace the system calls made into the kernel of lInux ?
+134. What is mmap ? MMAP & malloc ? MMAP & brk ? MMAP adv & dis-adv.
+135. Tell the relation between Malloc and MMAP
+136. Advantages of MMAP over Read ?
+137. Tell the role of brk() in malloc / Tell the relation between heap and brk?
+138. Example of using MMAP and MUNMAP in C ?
+139. Tell about the method/steps in Linux Kernel Compilation.
+140. What is Kmalloc and how does it differ from normal malloc ? or Why can't we use malloc in kernel code ?
+141. Explain about the interrupt mechanims in linux?
+142. What are the APIs that are used to register an interrupt handler?
+143. How do you register an interrupt handler on a shared IRQ line?
+144. Explain about the flags that are passed to request_irq().
+145. Explain about the internals of Interrupt handling in case of Linux running on ARM.
+146. What are the precautions to be taken while writing an interrupt handler?
+147. Explain interrupt sequence in detail starting from ARM to registered interrupt handler.
+148. What is bottom half and top half.
+149. What is request_threaded_irq()
+150. If same interrupts occurs in two cpu how are they handled?
+151. How to synchronize data between 'two interrupts' and 'interrupts and process'.
+152. How are nested interrupts handled?
+153. How is task context saved during interrupt?
+154. What is bottom halves and Top half.? Whats their functionality?
+155. What are upper half and bottom half in device drivers.Why are they used?
+156. What is the difference between ISR and interrupt handler.(Both are the same)
+157. What is an ISR? What are the basic operations there?
+158. How would you handle sleeping or blocking instructions in an Interrupt Service Routine(if unavoidable) or basically if the length of ISR is long?
+159. Can u have reentrant code inside interrupt handler. (NO)
+160. Cache coherency.- MESI /MSI protocol
+161. What does a interrupt handler take in as input... and what does it return.( it does not accept or return anything)
+162. What is the disadvantage of dynamic device number assignment ?
+163. Data sharing between ISR and threads?
+164. How interrupts are generated?
+165. How to Enabling & Disabling of interrupts
+166. softirq vs tasklet vs workqueue
+167. How are interrupts handled in linux
+168. Top and bottom halves. Examples
+169. what is an interrupt and difference between exceptions and signals
+170. When a signal is raised on a interrupt line what will be passed to processor either interrupt number or anything else?
+171. How kernel comes to know which device raised an interrupt when interrupt is shared.
+172. What all the things to be taken care while handling an interrupt?
+173. Main difference between Tasklets and workqs?
+174. When an interrupt can be disabled? When an interrupt can be enabled again?( Not asked but better to find the answer
+175. How a interrupt is registered?
+176. how you select the bottom half mechanism and what are the differences between them
+177. what in interrupt context and process context
+178. Interrupt based driver.
+179. How a interrupt will be handled in Linux.
+180. Explain about shared interrupt and how an corresponding interrupt Handler is called while an interrupt is shared?
+181. What is software interrupt and hardware interrupt with examples?
+182. explain how an interrupt of hardware device is handled
+183. Interrupt handler ? how interrupt is serviced?
+184. How to register an interrupt handler?
+185. How to know whether a interrupt is an edge triggered or level triggered from registering an interrupt handler?
+186. what is softirq and tasklet and work queues?
+187. what are kernel synchronization techniques
+188. In detail about top half and bottom Half?
+189. In which interrupt context the interrupt will run?
+190. spin_lock_bh() diff spin_lock_irq()?
+191. ISR descriptor Table
+192. Top half and bottom half interrupt approach?
+193. Tell about interrupts handling in kernel?
+194. When a interrupt is handled whether that specific interrupt is disabled or not? If disabled why ? if not disabled why not disabled?
+195. When a interrupt is handled tell whether all interrupts are disabled or not ?if yes why ?if no why?
+196. As device driver developer when you will you disable or enable particular interrupt or all interrupts What is the functionality of save_interrupts?
+197. what is the first function called when interrupt is handled?
+198. Have you heard about â€œHandle_interruptâ€ ?
+199. what are the methods or functions to raise execute the interrupt process when interrupt occurs.
+200. What is the difference between IRQ & FIQ.
+201. how the synchronisation works in single processor system(spinlock_irq_save).
+202. Do_irq?
+203. How a delayed execution in interrupt is handled?
+204. A global data member is programmed to get modified in a thread and Interrupt, so what kind of synchronization mechanism will you use?
+205. Can interrupts sleep?why?
+206. Types of interrupts?
+207. What actually happens while interrupt occurs exactly explain in terms of context switching ,what happens to the current running process?
+208. As their no code written to do context saving when a interrupt happens in any of the functions then which is responsible in doing this context saving and switching context?
+209. Interrupts, Bottom half.
+210. How buffer is copied to user level
+211. Explain working of interrupts
+212. Function Signature of registering Interrupt handler? and Flags used while requesting IRQ?
+213. How Intrrupts are executed?.
+214. What are software interrupts? What are hardware interrupts? Can you mention the names and explain?
+215. What are different caches [L1 and L2 cache]?
+216. What is the role of interrupts in a device driver ? How are interrupts handled in device driver ?
+217. How will you make interrupt handlers as fast as possible ?
+218. What are the types of softirqs ?
+219. Difference between Timer Softirq and Tasklet Softirq ?
+220. What are tasklets ? How are they activated ? when and How are they initialized ?
+221. How do you improve performance of kernel code.?
+222. How can one change the value of the Kernel Variables during the runtime?
+223. Entry points into kernel?
+224. System call? What happens in low level.
+225. How to add system call in kernel
+226. How system call causes change from user to kernel space
+227. Unix script to find the specific string from the given file?
+228. How would you debug kernel code.?
+229. How we can modify the default behaviour of setsockopt() parameters.?
+230. Describe the steps to add a new global sysctl() or fnctl() paramater. How can make Mutex global to All CPUs in your Board? Because spinlock is global to all CPUs in SMP system. Just make Mutex work like spinlock?
+231. What happens when function1 calls function2 with it.(like where does the linkage register stuff get stored.. and resume execution)
+232. Differance between macro & micro Kernel.
+233. what you observed difference between QNX & Linux
+234. What part of kernel driver worked. Explain
+235. Why driver code in not written in C++/Java
+236. Run Time optimization
+237. How to define the process of QNX/Arch delivery integration
+238. Details of performance related optimisation?
+239. How you Evaluate the Driver
+240. How to handle situation when a program is too large for code space? (edit linker file)
+241. What is big endian and little endian? implement a function changes the endians
+242. scheduler in linux
+243. Explain about file system in linux kernel and how a kernel handles any file when it was created.
+244. what is file descriptor and what informtion it contains in file descriptor
+245. How do u see system messages and how do find the issues in system by reading the proc file system or dmsg queues or sysfs information.
+246. what all kind of info is present in procfs.
+247. Deadlock â€“ example
+248. In a Process Address Space what if stack or heap collide?
+249. Advantages and disadvantages of Polling & Interrupt drivers.
+250. What are the different modes in ARM.
+251. Behavior of system call from user level to kernel level.
+252. how to synchronize devices which operates at different frequencies
+253. What is kernel thread?
+254. what is pthread?
+255. How to give memory of 250Mb to kernel (high zone memory)
+256. what all Debugging techniques you
+257. What is an re-entrant function?
+258. Overall knowledge of kernel building knowledge.
+259. basics of board support package
+260. How can you rate yourself in KERNEL?
+261. System call flow?
+262. Points you will inquiry when a driver from one platform to be ported to another platform?
+263. How do you pass data between kernel modules?
+264. What are different embedded design patters?
+265. Explain about any Device Driver project your good at?
+266. Comfort level in Assembly level language?
+267. What are the kernel structures and which kernel structure used in device driver development?
+268. What is interrupt nesting, How IRQ priority handled?
+269. What is SERDES?
+270. What is Partition on DO-178B document?
+271. What is Real time system
+272. How the data integrity check is done in case of network packets or I2c driver communication?
+273. Have you checked linux lib code
+274. How to debug kernel code
+275. What is x86 and what are the registers used
+276. How to write a makefile to build a customized kernel
+277. More questions on debug and crash point related
+278. What is Dead code and Deactivated code and diff b/w them?
+279. Level of software as per DO-178B?
+280. Memory allocation using Kmalloc with FLAGS?
+281. How to create buffers in Kernel?
+282. What is the difference b/w kmalloc and vmalloc
+283. How to build the vmlinux image
+284. How to speed up the memcpy, have you seen memcpy code in kernel ?
+285. Power Management Techniques - Experience.
+286. What is preemption disabling and what is the use of this.
+287. How can we disable the preemption in the kernel?
+288. What is preemption? Do we need preemption for multitasking?
+289. Where the PCB of the current running process is located?
+290. How the kernel refers the PCB of the current running process?
+291. What is the use of strace command?
+292. What is syscalls.
+293. How system calls are implemented in linux.
+294. What happens when process in userspace calls a syscall.
+295. What is the need of verifying parameter in definition of syscall.
+296. What is system calls context.
+297. Why it is not recommended to writing new syscall
+298. What is interrupt latency?
+299. What happen if you use mutex in ISR, how you over come with that problem ?
+302. What is race condition.
+303. Why we need to take care of synchronization
+304. What is various synchronization techniques in linux.
+305. What is deadlocks.
+306. What is atomic operations.
+307. What is reader-writer spin lock.
+308. Explain about cpuidle framework.
+309. Explain about cpufreq framework.
+310. Explain about clock framework.
+311. Explain about regulator framework.
+312. Explain about suspened and resume framwork.
+313. Explain about early suspend and late resume.
+314. Explain about wakelocks
+315. What is interrupt
+316. What is interrupt handler or ISR.
+317. What is top halves and bottom halves.
+318. How interrupt is registered.
+319. What are different interupt handler flags.
+320. How interrupt are freed.
+321. What are the considerations needs to taken care while writing interrupt handler.
+322. What are shared handlers.
+323. What is interrupt context.
+324. How to disable and enale interrupts.
+325. What are different bottom halves techniques in linux.
+326. What is tasklets , softirq and workqueus and difference among them.
+327. When to choose which bottom halves.
+328. How to implements softirq , tasklets and workwues.
+329. How to schedule tasklt.
+330. What is ksoftirq.
+331. How to disable bottom halves.
+332. How locking between botomhalves handled.
+333. Why we need preemption.
+334. Timeslice, jiffy
+335. What actually does a system does in a tick?
+336. What is tick?
+337. When is that we we want to use "user virtual address" instead of "kernel virtual address"?
+338. List some situations when we cannot go with kernel virtual address.?
+339. How mb differ from wmb in Linux? Is mb equal to wmb & rmb ?
+340. What is tick rate and jiffies.
+341. What are the various way of applying delay in linux.
+342. What is blocking and non blocking call
+343. What is Real time clock (RTC).
+344. How busy looping is implemented in linux.

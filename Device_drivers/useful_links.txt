@@ -1,0 +1,2 @@
+- https://www.tutorialsdaddy.com/courses/linux-device-driver-and-linux-kernel-interview-question/lessons/linux-device-driver-interview-questions/
+- https://climbtheladder.com/linux-device-drivers-interview-questions/

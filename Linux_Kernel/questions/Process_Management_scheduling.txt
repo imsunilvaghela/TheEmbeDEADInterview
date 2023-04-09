@@ -1,0 +1,86 @@
+1 . Given a pid, how will you distinguish if it is a process or a thread ?  
+2 . What is the difference between kill-6 and kill -9?  
+3 . Differentiate between threads and processes  
+4 . how a function from one user process can be called in other user process?  
+5 . Cache coherency mechanism.  
+6 . How to find a child process in linux/unix.?  
+7 . context switch.. when do u need it.  
+8 . What are the different schedulers class present in the linux kernel?  
+9 . How to create a new process?  
+10. What is the difference between fork( ) and vfork( )?  
+11. Which is the first task what is spawned in linux kernel?  
+12. What are the processes with PID 0 and PID 1?  
+13. How to extract task_struct of a particular process if the stack pointer is given?  
+14. What is process kernel stack and process user stack? What is the size of each and how are they allocated?  
+15. Why do we need seperate kernel stack for each process?  
+16. What all happens during context switch?  
+17. What is thread_info? Why is it stored at the end of kernel stack?  
+18. What is the use of preempt_count variable?  
+19. What is the difference between interruptible and uninterruptible task states?  
+20. How processes and threads are created? (from user level till kernel level)  
+21. How to proceed if system is sluggish  
+22. How system call causes change from user to kernel space  
+23. How to determine if some high prio task is hogging CPU 
+24. Priority inversion, priority inheritance, priority ceiling 
+25. How priority inheritance will work 
+26. What is Process preemption 
+27. About priority inversion & priority inheritance 
+28. Process Memory Layout 
+29. Explain about process address space with data seg,code seg..  
+30. how much memory is occupied by process address spcae.  
+31. When a same executable is excuted in two terminals like terminal 1 execute ./a.out and terminal 2 executed ./a.out what will the programe address space look like on RAM 
+32. If a global variable defined as int V1=100 in programm_1 and modified this V1=200 in programme_2. what will be printed in Programme_1 and Programme_2.  
+33. what is diff b/w process and threads?  
+34. Will threads have their own stack space?  
+35. can one thread access the address space of another thread?  
+36. What is task_struct and how are task states maintained ?  
+37. how to manipulate the current process.  
+38. what are kernel thread.  
+39. how threads are implemented in linux kernel.  
+40. What are different state of a process in lunix.  
+41. what is difference between process and thread.  
+42. generally what resources are shared between threads.  
+43. what is process descriptor  
+44. what is task_struct.  
+45. what is therad_info structure for.  
+46. what was the need of thread_info structure.  
+47. difference betwen fork() and vfork()  
+48. what is process context.  
+49. what is zombie process.  
+50. how parent less process is handles in linux.  
+51. what is process scheduling 
+52. what is cooperative multitasking and pre-emptive multitasking. 
+53. what is yielding. 
+54. what is limitation of cooperative multitasking. 
+55. I/O bound versus Processor bound process. 
+56. what is process priority. 
+57. What kind of priority is maintained in linux. 
+58. what is nice value 
+59. what is virtual run time 
+60. what are the available scheduling classes in linux. 
+61. which type os scheduling used in linux. 
+62. how next task is picked for scheduling. 
+63. what is scheduler entry point in linux. 
+64. what is waitqueus. 
+65. How context switching is handled in linux. 
+66. what is user preemption and kernel preemption 
+67. How does scheduler picks particular task?  
+68. When does scheduler picks a task?  
+69. How is timeout managed?  
+70. How does load balancing happens?  
+71. Explain about any scheduler class?  
+72. Explain about wait queues and how they implemented? Where and how are they used?  
+73. What is process kernel stack and process user stack? What is the size of each and how are they allocated?  
+74. Why do we need seperate kernel stack for each process?  
+75. What all happens during context switch?  
+76. What is thread_info? Why is it stored at the end of kernel stack?  
+77. What is the use of preempt_count variable?  
+78. What is the difference between interruptible and uninterruptible task states?  
+79. How processes and threads are created? (from user level till kernel level)  
+80. How is virtual run time (vruntime) calculated?  
+81. Different types of schedulers (round robin, pre-emptive)  
+82. what is scheduler algoritham?  
+83. what is scheduler?  
+84. Can a scheduler can be locked?  
+85. who schedules the scheduler?  
+86. At what frequency scheduler looks for threads/processes ready for schedule?  

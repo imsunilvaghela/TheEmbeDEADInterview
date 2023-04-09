@@ -1,0 +1,99 @@
+1. Give me one line definition of Device tree. What was the actual need for it ?
+   >A>
+   - A DeviceTree(DT) , is a data structure and language for describing hardware.
+   - More specifically, it is a description of hardware that is readable by an operating system so that the operating system doesn’t need to hard code details of the machine.
+   - The primary purpose of Device Tree in Linux is to provide a way to describe non-discoverable hardware. This information was previously(before kernel v2.6) hard-coded in source code
+2. What are the major reasons linux uses device-tree ?
+   >A>
+   1. platform identification,
+   2. runtime configuration, and
+   3. device population.
+3. What are .dts, .dtb and .dtsi files  ?
+   >A>
+   .dtb : For compiled device-tree.
+   .dts : Files for board-level definitions
+   .dtsi : Files for included files, generally containing SoC-level definitions
+4. Can we split device tree files in several files ? How ?
+   >A> Yes, Using .dtsi files.
+5. What is Flattened Device Tree (FDT) and Expanded Device Tree (EDT) ?
+   >A>
+   - The device tree source is compiled into a binary format contained in a .dtb blob file. The format of the data in the .dtb blob file is commonly referred to as a Flattened Device Tree.
+   - The Linux operating system uses the device tree data to find and register the devices in the system.
+   - The FDT is accessed in the raw form during the very early phases of boot, but is expanded into a kernel internal data structure known as the Expanded Device Tree (EDT) for more efficient access for later phases of the boot and after the system has completed booting.
+6. How to generate device tree binary file using device tree source file ? And vice-versa ?
+   >A>
+   Using dtc - device tree compiler
+   dtc -I dtb -O dts -o system.dts system.dtb > Generate system.dts from system.dtb
+   dtc -I dts -O dtb -o system.dtb system.dts > Generate system.dtb from system.dts
+7. What are the base set of device nodes required in a DTSpec-compliant device-tree ?
+   >A>
+   - root node
+   - One /cpus node
+   - At least one memory node
+8. What is unit-address of the Node ? From where to get it ?
+   >A>
+   - The unit-address component of the node identifies the base address of the bus on which the node sits. It is the primary address used to access the device.
+   - You can find it from Peripheral memory map of corresponding device's datasheet / reference manual.
+9. What is "compatible" property  ? And what is use of it ?
+   >A>
+   - Used to bind a device with the driver.
+   - The compatible property value consists of one or more strings that define the specific programming model for the device. This list of strings should be used by a client program for device driver selection.
+   - The property value consists of a concatenated list of null terminated strings, from most specific to most general.
+   - They allow a device to express its compatibility with a family of similar devices, potentially allowing a single device driver to match against several devices.
+10. Give me device-tree syntax for defining below use-cases ?
+    >A>
+    1. A list of strings
+       a-string-list-property = "first string", "second string";
+    2. A list of byte/binary data
+       a-byte-date-property = [0x12, 0x34, 0x56, 0x78];
+11. What is the use "phandle" property ?
+    >A>
+    - A phandle value is a way to reference another node in the device-tree.
+    - Any node that can be referenced defines a phandle property with a unique <u32> value. That number is used for the value of properties with a phandle value type.
+    - Most device-trees in DTS will not contain explicit phandle properties. The DTC tool automatically inserts the phandle properties when the DTS is compiled into the binary DTB format.
+12. What is the use "reg" property ?
+   >A>
+   Defines address and length of the register area.
+   The reg property describes the address of the device’s resources within the address space defined by its parent bus.
+   Most commonly this means the offsets and lengths of memory-mapped IO register blocks, but may have a different meaning on some bus types. Addresses in the address space defined by the root node are CPU real addresses.
+13. Suppose a device within a system-on-a-chip had two blocks of registers, a 32-byte block at offset 0x3000 in the SOC and a 256-byte block at offset 0xFE00. What would be reg encoded property ?
+    >A> reg = <0x3000 0x20 0xFE00 0x100> ;
+14. How can we define a node with label in device-tree ?
+    >A>
+    node_label : node_name@unit_address  // if there is reg space
+    node_label : node_name //if no reg space
+15. How can I identify root node in device tree ?
+    >A> It has no node-name or unit-address, and starts with forward slash (/)
+16. Is it okay to have two nodes with same name ?
+    >A> It is Okay If both have different unit-addresses or one has unit-address and one have no unit-address.
+17. Explain #address-cells and #size-cells properties
+    >A>
+    - The #address-cells and #size-cells properties may be used in any device node that has children in the device-tree hierarchy and describes how child device nodes should be addressed.
+    - The #address-cells property defines the number of <u32> cells used to encode the address field in a child node’s reg property.
+    - The #size-cells property defines the number of <u32> cells used to encode the size field in a child node’s reg property.
+18. Does #address-cells and #size-cells inherited from ancestors in device-tree ?
+    >A> No. They shall be explicitly defined.
+19. What is Device tree bindings ? What its location in kernel source ?
+    >A>
+    It describes the syntax used to describe specific types and classes of devices.
+    Location: <kernel-source>/Documentation/devicetree/bindings/
+20. Which device-tree property/ies used for address translation/mapping between child and parent bus?
+    >A>
+    - ranges and dma-ranges
+    read: https://elinux.org/Device_Tree_Usage#Ranges_.28Address_Translation.29
+21. What is interrupt controller ? Which DT property is used to define a device as interrupt controller in device-tree ?
+    >A> An interrupt controller is a physical device and will need a driver to handle interrupts routed through it. It may also cascade into another interrupt domain. An interrupt controller is specified by the presence of an "interrupt-controller" property on that node in the device-tree.
+22. What is "#interrupt-cells" property ?
+    >A> Indicates the number of cells in the interrupts property for the interrupts managed by the selected interrupt controller.
+23. What are "interrupt-parent" and "interrupts" property ?
+    >A>
+    - The physical wiring of an interrupt source to an interrupt controller is represented in the device-tree with the interrupt-parent property. It is a phandle that points to the interrupt controller for the current node.
+    - Nodes that represent interrupt-generating devices contain an interrupt-parent property which has a phandle value that points to the device to which the device’s interrupts are routed, typically an interrupt controller. If an interrupt-generating device does not have an interrupt-parent property, its interrupt parent is assumed to be its device-tree parent.
+    - Each interrupt generating device contains an interrupts property with a value describing one or more interrupt sources for that device.
+24. What is need of "interrupt-extended" property ?
+    >A> The interrupts-extended property lists the interrupt(s) generated by a device. "interrupts-extended" should be used instead of "interrupts" when a device is connected to multiple interrupt controllers as it encodes a parent "phandle" with each interrupt specifier.
+25. What is interrupt nexus ?
+    >A> https://elinux.org/Device_Tree_Mysteries#Interrupt_Nexus_.2F_Interrupt_Mapping
+26. Nexus node and specifier mapping
+    >A> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#nexus-nodes-and-specifier-mapping
+

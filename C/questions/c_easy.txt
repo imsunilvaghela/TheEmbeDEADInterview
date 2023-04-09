@@ -1,0 +1,140 @@
+Questions/Topics:
+-----------------
+
+1. Memory layout of C program
+2. Compilation stages of C program
+  2.1. Difference between compiler and interpreter ?
+  2.2. What is preprocessor ? What does it do while compiling a C program ?
+  2.3. Which is the last stage of C compilation stages ? What happens in it ?
+  2.4  What is role of assembler ?
+3. Header files in c and its usage.
+  3.1. What is the use of Header guard ?
+4. Data types in C
+  4.1. Types of data types and use-cases of each, size and range of each data types
+  4.2. What are user defined data types ?
+  4.3. What is the size of character variable ? and integer variable ?
+5. Types of operators and examples of each – can ask about operator precedence
+  5.1. Post-increment vs pre-increment.. Ask for example
+6. Useful C library functions - strlen, strcpy, strstr, strncpy, atoi, itoa, sprintf, sscanf etc etc...
+  6.1. Difference between memcpy and strcpy
+  6.2. I want to search a string in another string – which string function I can use ?
+  6.3. Which library function you will use to parse this data in "Name : marks" format ? Where Name is in string form, and marks is in integer ...e.g "Sunil : 50"
+7. C Variables
+  7.1. What is lifetime and scope of variable ?
+  7.2. Scope of a variables in c – Global, Local and function scope
+  7.3. Variable declaration and variable definition. Which one of below is/are declaration ? Explain.
+        int a;
+        int a = 10;
+        extern int a;
+     >A> ONLY c is declaration, as declaring variable as extern does not allocate any memory for that variable.. Other two cases are declaration + definition.
+8. Conditions and loops..
+  8.1. Difference between while (0) and while (1)
+  8.2. Difference between do.. while and while loop
+  8.3. Write different conditions for infinite loop
+  8.4. Explain:  for(;;)  { printf ("Hello world\n"); }
+  8.5. Can we declare a variable inside switch case? What is its scope?
+9. Difference between little endian and big-endian system.
+  9.1. Representation of 0x11223344 in big-endian and little endian
+      >A>
+	    Big-endian:
+        0x1000  0x1001  0x1002  0x1003
+        0x11       0x22      0x33       0x44
+        Little-endian:
+        0x1000  0x1001  0x1002  0x1003
+        0x44       0x33      0x22       0x11
+  9.2. What are bi-endians?
+      >A> Bi-endian processors can run in both modes little and big endian.
+  9.3. Does endianness affects file formats?
+      >A> File formats which have 1 byte as a basic unit are independent of endianness e.g., ASCII files. Other file formats use some fixed endianness format e.g, JPEG files are stored in big endian format.
+10.  Difference between const int*, const int * const, and int const *
+11.  C Libraries / linkage
+  11.1. Difference between static and dynamic library
+  11.2. Commands to generate static and dynamic library. Ask for explanation about command
+12.  Macros, typedef and inline function in C
+  12.1. Macro defined function Vs inline function .
+  12.2. Difference between macro and typedef
+13.  Array/2d array.. Ask for declaration and definition..
+14.  Function calling methods in C – call by reference, call by value
+15.  Type casting in C
+16.  Recursion in C.. When you can use it ? Advantage and disadvantage.. What to take care while using?
+17.  Pointers
+  17.1. What is Pointers in laymen term ? What is use of it ?
+  17.2. Types of pointers in C (NULL, dangling, wild & void)
+  17.3. What is a dangling pointer in C ? Give examples.
+  17.4. What is wild pointer in C ? Give examples.
+  17.5. What is the size of Void pointers ?
+  17.6. How to access elements from array using pointers.
+18.  Storage classes in c and example
+  18.1. What are different storage classes in C ? What is the difference between extern and static ?
+  18.2. Where does auto variables get stored ?
+  18.3. What if a static variable used in the function or in file, or as a global variable ? what will its
+  18.4. scope be in all three use cases ?
+  18.5. What is the use of extern storage class ? How to use a variable declared in another file in a
+  18.6. current file using extern ?
+  18.7. What is register storage class ? When to use it?
+19.  Const and Volatile specifiers, and their examples
+  19.1. What is the use of Volatile specifiers ? Ask for examples ?
+20.  Memory allocation/free
+  20.1. what is the difference between malloc and calloc ? syntax and return type of malloc/calloc
+  20.2. How to free allocated memory ? syntax and return type
+  20.3. How does malloc work ? Where does it allocate a memory ? what if there is no memory left for allocation ?
+  20.4. What are possible scenarios for memory leakage ?
+21.  C Structure and union
+  21.1. Difference between structure and union
+  21.2. size of structure / union in different structures
+  21.3. A structure within union and its use cases
+  21.4. Structure Bit fields and its use cases & examples
+  21.5. What is size of below structure ? Explain.
+   struct student
+   {
+       char a;
+       char b;
+       int c;
+   }
+  21.6. What is memory alignment/padding in structures ? How to avoid padding in structure ?
+22.  Enums in C
+23. How to check what are the system call made by any C library function ?
+   >A> Using strace
+
+
+
+Programs:
+---------
+
+1. Patterns programs using loops
+*
+* *
+* * *
+* * * *
+* * * * *
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+2. write a program to check if given number is even or odd
+3. write a program to count the number of 1's in a given number.
+4. what is output of below programs
+   for(unsigned char i=0; i<256; i++)
+   {
+     printf("Hello world\n");
+   }
+5. Write a code to check MSB of a integer is 1 or not
+6. Write a program to find factorial of given number using recursion / w/o using recursion
+7. Program to copy a string from one char array to another char array (without using strcpy)
+8. Program to count number of characters in C / string length. (without using strlen)
+9. Program to search a string from one char array in another char array. return 0 on match, else return -1. (Don't use inbuilt string library APIs)
+10. Program to sort a given int array into ascending order / descending order
+11. Program to reverse a given string
+12. Swap two variables without using third variable
+13. Program to convert a decimal number to binary / or vice-versa
+14. Program to check if the given year is leap year or not
+15. Program to print prime numbers from 1 to 100
+16. Custom atoi implementation
+17. Implement ARRAY_LEN(array) macro - which returns length of array
+18. Implement macros for SET_BIT(data, pos), RESET_BIT(data, pos), and TOGGLE_BIT(data, pos)
+19. Program to check whether given string is Palindrome  / number is palindrome
+20. Check if given number is prime or not
+21. Program to find endianness of the system – I.e. Little endian or Big endian ?

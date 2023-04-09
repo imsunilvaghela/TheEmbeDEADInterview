@@ -1,0 +1,20 @@
+1. tell me about time management  
+2. tell me your best/worst time with a team  
+3. most rewarding thing you've worked on 
+4. what was the most painful lesson you've learned on a project 
+5. what's your process for keeping organized if you have lots of things to switch to 
+6. if you have too many things to work on, how do you decide what to do right now 
+7. tell me about your experience working with other teams 
+8. have you ever taught other students or helped other people work through understanding a problem? 
+9. what class have you liked the most (Intern/Fresher) 
+10. tell me about your project management 
+11. most/least favorite languages on your list?  why?  (Intern/Fresher) 
+12. why do you think you are self-sufficient in debugging concepts? 
+13. example of a day where everything went wrong 
+14. what was the worst team you've worked on.  why was it the worst 
+15. what was the best team you've worked on.  why was it the best. 
+16. whats an example of a time you realized there was a communication problem, and what did you do to fix it? 
+17. you need help from another group.  they ignore your emails. what do you do ? 
+18. give me a 2 minute summary of the XYZ project 
+19. give me an example of a project you had to research, plan out and schedule tasks for other engineers to accomplish. how did you explain and summarize it to managers in meetings? 
+  

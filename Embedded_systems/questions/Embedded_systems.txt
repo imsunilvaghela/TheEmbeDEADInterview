@@ -1,0 +1,47 @@
+1. what embedded systems experience do you have  
+2. Difference between Microcontroller and Microprocessor  
+3. Address bus / Data bus  
+4. What is clock in controller ? Types of clocks in controller.  
+5. What is Embedded system  
+6. Types of memory and difference between them  
+7. Difference between OS and RTOS  
+8. Basic protocols understanding, pins, difference, limitations and how they works : UART, SPI, I2C,
+9. UART 
+   9.1. UART protocol understanding. How data being transferred using UART. ?  
+   9.2. what is baudrate? Difference between bitrate and baudrate? On which baudrate you have used UART ?
+   9.3. What maximum baudrate supported for UART.
+   9.4. Ever heard of USART. What is it ?
+10. I2C 
+   10.1. How to read/write data between I2C bus  
+   10.2. Does it supports multi-master ? How ? 
+11. SPI 
+   11.1. Does it supports multi-master ? >A> NO: 
+	11.1.1. why it is not supporting ? 
+   11.2. How to xfer data between multiple slave/master using SPI  
+   11.3. Is there any acknowledgement received for data that we sent using SPI ? Is there in I2C ? 
+12. What is DMA ?  
+13. What is interrupt ? How to use it ?  
+14. What is ISR ?
+    14.1. Is it okay to use sleep in ISR ?
+    14.2. Can we pass parameters/return type in ISR ?
+    14.3. Can we use any function in ISR ?  
+15. What happened when interrupt occurs ?  
+16. Interrupt latency and turnover time  
+17. Timers in Microcontroller. How to generate 1sec. of timer ?  
+18. Watchdog timer. Use of it.  
+19. What is IoT ?  
+20. What is a segmentation fault ? What are the reasons of occurrence of the same ?  
+21. Types of Endianness. Difference between them. How to check Endianness using C program. 
+22. What is Flash memory ? NAND flash vs NOR flash difference.  
+23. Difference bet Asynchronous and Synchronous communication
+    >A>
+    - No common clk in Async, In sync shared clk
+    - Async send 1 byte at a time, sync sends data in form of blocks/frames 
+    - Async slower compared to sync 
+    - Async can communicate longer distance  
+    - Async use start/stop bit for data sync 
+    - Async: RS232, RS485   Sync: I2C, SPI 
+ 
+ 
+ 
+ 

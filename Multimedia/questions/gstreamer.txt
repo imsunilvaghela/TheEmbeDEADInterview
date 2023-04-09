@@ -1,0 +1,35 @@
+1. Generic
+  1.1. Your work involves using GStreamer can you tell us something about GStreamer? Anything else you want to add or share?
+  1.2. Developed any application using GStreamer ?
+  1.3. Used Command line tools for the quick testing of GStreamer pipelines ?
+  1.4. Any experience in Linux Audio/Video sub-system internals and frameworks like, ALSA, V4L2 internals and driver development.
+  1.5. Worked on challenges in the past on Audio/Video performance measurement ?
+  1.6. Audio/Video tuning and code optimization to achieve maximum throughput.
+2. What is bin, what is a pipeline, is pipeline a bin?
+   >A> A bin is a container for a collection of elements. A pipeline is a top-level bin. It provides a bus for the application and manages the synchronization for its children.
+3. What is src pad? what is sink pad? Buffers are traveling from src pad to sink pad.
+4. Element states in GStreamer ? NULL, READY, PAUSE, PLAYING.
+5. How does communication happen between plugin and application?
+6. What is difference between request pad vs sometimes pad ?
+7. What is difference between stream time and running time ?
+8. How can we inject data from outside world (another application) to GStreamer and vice versa ?
+9. Dynamic pad and request pad
+10. Caps negotiation
+11. what is pre-rolling
+12. Capture -> encoded -> stream-out how pre-rolling will be done?
+13. How Audio Video sync? and how clock is getting sync, sync=true?
+14. base time ? running time? stream time ?
+15. Latency  of pipeline?
+16. Gst messege, bus, event, ?
+17. What is appsrc and appsink ?
+18. 720p I422 frame size ?
+19. What is need of tee element ? Please explain using sample pipeline.
+20. Difference between fakesink and fakevideosink
+21. PTS and DTS
+22. On pausing pipeline how is event propagated in pipeline
+23. ffmpeg
+24. Developed any GStremaer plugin from scractch ? Plugin architecture
+25. GStreamer application development
+    25.1 Top level coding steps to develop app for below pipeline
+         gst-launch-1.0  videotestsrc ! capsfilter ! autovideosink ts-offset=10
+26.

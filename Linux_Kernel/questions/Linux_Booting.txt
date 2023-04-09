@@ -1,0 +1,16 @@
+1. What is booting process of linux Kernel. Explain each stage.
+   >A> BIOS -> MBR -> GRUB -> Kernel -> Init -> Run-levels
+2. What is primary and secondary bootloader. Why we need two bootloader. ?
+3. Explain about the Linux boot sequence in case of ARM architecture?  
+4 . How are the command line arguments passed to Linux kernel by the u-boot (bootloader)?  
+5 . Explain about ATAGS?  
+6 . Explain about command line arguments that are passed to linux kernel and how/where they are parsed in kernel code?  
+7 . which process / directory is responsible for the kernel is decompresed during boot up ?  
+8 . Diff b/w MLO & IPL.  
+9 . What is greb loader  
+10. Embedded board Booting sequence  
+11. Booting Sequence of a board ?  
+12. How a user mode is transferred to kernel mode?  
+13. Why primary boot loader and secondary boot loader required?  
+14. What are types of boot loader?  
+15. How to decrease the time of booting processes 

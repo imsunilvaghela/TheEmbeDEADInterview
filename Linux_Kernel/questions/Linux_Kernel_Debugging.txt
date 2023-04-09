@@ -1,0 +1,30 @@
+1. Kernel Debugging techniques. ?
+2. What is Oops and kernel panic?
+3. Does all Oops result in kernel panic?
+4. What are the tools that you have used for debugging the Linux kernel?
+5. What are the log levels in printk?
+6. Can printk's be used in interrupt context?
+7. How to print a stack trace from a particular function?
+8. What's the use of early_printk( )?
+9. Explan about the various gdb commands.
+10. How to debug crash.
+11. How debug prints/system trace could help solve above issues
+12. How to debug while system is running
+13. Have you worked in crash dump? How will you solve memory crash, what steps would you take if a crash occurs?
+14. how to debug your driver if u had any buffer issues
+15. Kernel crash dump analysis. Have analyzed kernel panic code dump(what all
+data it dumps and what do you understand from it) ?
+16. How to debug crash, what is the first line you see when you see a crash/oops message, explain crash console
+17. How do u debug when an process aborted.
+18. have u debug any issues using jtag/ any other debugger. if yes, how can we get the call stack in the debugger.
+19. Tool/s to watch the kernel logs?
+20. Dynamic debug using printk
+    >A>
+    Most kernel debugging is done via printk. The kernel supports changing the enable state of the printk on the fly using the dynamic debug feature. Some examples:
+    dmesg -n 8
+    echo "module xilinx_hdmi_rx +p" > /sys/kernel/debug/dynamic_debug/control
+    echo "file drivers/media/* +p" > /sys/kernel/debug/dynamic_debug/control
+    echo "file talon4k60.c +p" > /sys/kernel/debug/dynamic_debug/control
+    echo "file xilinx-axis-switch.c +p" > /sys/kernel/debug/dynamic_debug/control
+    echo "file media-entity.c +p" > /sys/kernel/debug/dynamic_debug/control
+    echo 2 > /sys/class/video4linux/video0/dev_debug

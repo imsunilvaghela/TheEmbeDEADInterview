@@ -1,0 +1,36 @@
+1.  Benefit of using Yocto over any other build tools
+    >A> 
+    Architecture agnostic
+    supports partial build
+    Uses a layer model, so development parallelism can be achieve
+    easily build stripped images for constrained embedded and IoT devices
+    comprehensive toolchain large support & ecosystem 
+2.  What is Open-Embedded & poky in Yocto?
+    >A>
+	Open-Embedded: Open source build engine
+    poky: Open source reference embedded distribution
+3.  Difference between DEPENDS & RDEPENDS?
+4.  What is shared state cache in yocto?
+    >A>  Stores build generated intermediate files to speed up build process
+5.  What do u mean by task, function & class in yocto recipe?
+6.  What is PN in gstreamer1.0-plugins-good_1.16.3.bb?  
+7.  What is PV in Yocto? 
+8.  What is SRC_URI & FILESEXTRAPATHS? 
+9.  What is WORKDIR? 
+    >A>  Directory where bitbake compiles & build package. 
+10. What is S variable?
+    >A>  Directory where yocto unpack the source code. e.g. for git it is S = ${WORKDIR}/git 
+11. What is D variable?
+    >A>  Directory where components are installed by do_install task. e.g. Default it'll be at ${WORKDIR}/image 
+12. What is AUTOREV?
+    >A>  Takes latest source revision from repo 
+13. Difference between SRC_URI += and SRC_URI_append(override style)?
+    >A>  In append no additional space is added, just concatenating strings, while += adds additional space between strings.
+    override style provides guaranteed operations. (+= does not append variable defined in class, while override style does) 
+14. What's the meaning of var ?= val 
+15. Set the default value of var to val. 
+16. Role of pkg-config
+    >A>  The primary use of pkg-config is to provide the necessary details for compiling and linking a program to a library. This metadata is stored in pkg-config files. 
+17. What is .bb and .bbappend file 
+18. Selecting particular version of a recipe
+    >A>  Using PREFREED_VERSION_recipename = "x.x.x"  

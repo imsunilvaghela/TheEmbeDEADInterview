@@ -1,0 +1,6 @@
+1. what is /proc entry and how it is useful 
+2. What is file system , how to create  
+3. How to register file system  
+4. When fine system registered what happens  
+5. What are the diffirent types of file systems are there, give example  
+6. What is VFS? explain briefly?  

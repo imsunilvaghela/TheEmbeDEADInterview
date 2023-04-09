@@ -1,0 +1,12 @@
+1. Using “static” keyword? Static class members: static data and static functions. Belong to class but not the objects of the class. When can you access class static data? Before any objects are created! How to access class static data? ClassName::dataName. 
+2. Is “new” in C++ any better than old malloc()? new/delete? malloc()/free()? 
+>A> Yes! It does more: 
+ - Object construction: “new” and “delete” create and destroy objects, while malloc() and free() merely allocate and deallocate memory.
+ - Safety: “new” returns a correct type of pointer while malloc() return s void* which can be converted to any other types of point and it isn’t type safe.
+ - Flexibility: “new” can be overloaded by a class. But malloc() can’t. 
+ Can we use “new” & free() or malloc() & delete? No. 
+3. What is dynamic binding (run-time) instead of static binding(compile time)? Polymorphism? Why is it needed? How to use it? Virtual keyword. 
+4. How does C++ compiler achieve dynamic binding or polymorphism? The cost? Virtual table “vtable” per class. Virtual point “vpointer” per object. 
+5. Using any C++ STL containers? vector? deque? list? What differences are among them? list vs forward_list? set vs multiset? set vs unordered_set? set vs map? 
+6. Using any C++ smart pointers? raw-pointer? unique_ptr? shared-ptr? weak_ptr? Why are they needed? How do they work? What differences are among them? Class destructor to release memory, reference count to share_ptr. Why weak_ptr? Ring or cycle of objects. 
+7. Using any C++ design patterns? Singleton? Factory? Or others? Give me an example. Why? How? 
