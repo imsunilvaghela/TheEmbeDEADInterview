@@ -1,0 +1,9 @@
+1. If there is a speech audio data to be received by USB device what type of data transfers will you chose.
+2. What are the different types of device descriptors?
+3. How many END point descriptors can be present per device?
+4. What is a configuration descriptor?
+5. What is a control type of data transfer?
+6. USB driver project?
+7. blocking and non-blocking USB calls
+8. Explain about USB device Deriver?
+9. How USB driver is registration mechanism?

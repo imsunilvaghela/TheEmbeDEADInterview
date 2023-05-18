@@ -1,0 +1,72 @@
+1. DRM and KMS - Definition
+>A>
+    - DRM stands for Direct Rendering Manager and was introduced to deal with graphic cards embedding GPUs
+    - KMS stands for Kernel Mode Setting and is a sub-part of the DRM API
+    - KMS provide a way to configure the display pipeline of a graphic card (or an embedded system)
+2. How to display things in the Linux world ?
+>A>
+    - FBDEV: Framebuffer Device
+    - DRM/KMS: Direct Rendering Manager / Kernel Mode Setting
+    - V4L2: Video for Linux 2
+3. How to choose one from above:
+>A>
+    - Each subsytsem provides its own set of features
+    - Different levels of complexity
+    - Different levels of activity
+4. Why to choose DRM/KMS over other two ?
+>A>
+    - Actively maintained
+    - Provides fine grained control on the display pipeline
+    - Widely used by user-space graphic stacks
+    - Provides a full set of advanced features
+5. Why not FBDEV ?
+>A>
+    - Less actively maintained
+    - Does not provides all the features we needed (overlays, hwcursor, ...)
+    - Developers are now encouraged to move to DRM/KMS
+6. Why not V4L2 ?
+    >A> Well suited for video capture and specific video output devices but not for ”complex” display controllers
+7. GPU vs. Graphics Card: What’s the Difference?
+>A>
+    - While the terms GPU and graphics card (or video card) are often used interchangeably, there is a subtle
+    distinction between these terms. Much like a motherboard contains a CPU, a graphics card refers to an add-in board
+    that incorporates the GPU. This board also includes the raft of components required to both allow the GPU to
+    function and connect to the rest of the system.
+    - GPUs come in two basic types: integrated and discrete. An integrated GPU does not come on its own separate card
+    at all and is instead embedded alongside the CPU. A discrete GPU is a distinct chip that is mounted on its own
+    circuit board and is typically attached to a PCI Express slot.
+8. What is Framebuffer ?
+9. GEM and TTM - Memory Manager
+>A>
+    - TTM stands for Translation Table Manager and is a generic memory-manager provided by the kernel.
+    It does not provide a common user-space API so you need to look at each driver interface if you want to use it.
+    See for instance the radeon manpages for more information on memory-management with radeon and TTM.
+    - GEM stands for Graphics Execution Manager and is a generic DRM memory-management framework in the kernel,
+    that is used by many different drivers. Gem is designed to manage graphics memory, control access to the graphics
+    device execution context and handle essentially NUMA environment unique to modern graphics hardware. Gem allows multiple
+    applications to share graphics device resources without the need to constantly reload the entire graphics card.
+    Data may be shared between multiple applications with gem ensuring that the correct memory synchronization occurs.
+10. What is FourCC (Four character code) ?
+    >A> is a 4-byte identifier which specifies the format of a video stream
+    - Every codec has its own unique FourCC. Commonly, each byte corresponds to a printable character in the ASCII
+    character set, making the sequence human-readable.
+    - describes the memory buffer organization
+11. What is CRTC (CRT controller) ?
+    - Configure the appropriate display settings:
+        Display timings
+        Display resolution
+    - Scan out frame buffer content to one or more displays
+    - Update the frame buffer
+    - Implemented through struct drm_crtc funcs and struct drm_crtc_helper funcs
+
+
+Related Terms:
+    - GPU and Graphics card
+    - Framebuffer
+    - GEM (Graphics Execution Manager)
+    - TTM (Translation Table Manager )
+    - IOMMU ( Inout Output Memory Management Unit)
+    - FourCC (four-character code)
+    - RGB vs YUV vs C8(Uses a conversion table to map a value to an RGB tuple)
+
+

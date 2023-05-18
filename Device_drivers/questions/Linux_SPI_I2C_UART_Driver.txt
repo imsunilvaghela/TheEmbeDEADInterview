@@ -1,0 +1,27 @@
+1. What is the difference between I2C & SPI
+2. How will you chosse which protocal to be used on board communication
+3. How the communication difference b/w I2C & SPI
+4. Is clock stretching is for Master or Slave in I2C protocol
+5. What is Bit Binding in I2C protocol
+6. What is i2c clock stretching
+7. what is repeate sequence in I2C? How this signal will look on CRO?
+8. How will you know if the I2C lines are noisy?
+9. What monitoring tools have you used like I2C sniffer
+10. how will you verify I2C communication?How will you know if there was a software or hw problem?
+11. what is i2c bus error
+12. I2C- dummy write, repeated start, arbitration, synchronization between masters
+13. Lm475 temperature driver project
+14. How can two slaves can communicate with master in i2c protocol at a time?
+15. How can we address different devices from same vendor i2c?
+16. What is the clock frequency used in your I2C driver designed?
+17. What is the start bit condition in I2C?
+18. How I2C protocol works?
+19. What are different speeds the I2C had?
+20. How the master knows what is the start condition ?
+21. while in between I2C communication what happens if clocks happens to be dragged low which is not as per i2c standard?
+22. What if the slave device is not responding or no acknowledge bit is sent by slave device?
+23. I2C : what is I2C Clock Stretch, Bus line clear.
+24. How many lines required for SPI communication?
+25. Do you need to change Clock polarity and phase for SPI?
+26. Who has control of SPI clock?
+27. Diff btwn SPI & I2C

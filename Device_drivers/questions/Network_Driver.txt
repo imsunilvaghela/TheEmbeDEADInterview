@@ -1,0 +1,8 @@
+1. How to send information over network? (structure packing)
+2. Ethernet driver how a packet get transferred in Ethernet drivers?
+3. How a Reception of packet performed in a Ethernet device driver? (Explain from starting to reception of packet)
+4. How Ethernet device is registered
+5. How many interrupt lines you have been used in your driver development. 1. UART : 1 (RX). 2. Ethernet: 2 (RX & TX)
+6. How to register, allocate NIC.
+7. How a packet is sent in ethernet driver?
+8. What happens as soon as a packet arrives from the network in Linux ?
