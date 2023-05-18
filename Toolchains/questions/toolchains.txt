@@ -1,0 +1,20 @@
+1. What is a toolchain in software development?
+2. Explain the components of a typical toolchain.
+3. What is the purpose of a compiler in a toolchain?
+4. How does a linker fit into the toolchain?
+5. What role does the assembler play in the toolchain?
+6. What are cross-compilers, and when are they used?
+7. Describe the significance of the build system in a toolchain.
+8. What is the purpose of a debugger in the toolchain?
+9. How does the version control system integrate with the toolchain?
+10. What is continuous integration, and how does it relate to the toolchain?
+11. Can you explain the concept of static vs. dynamic linking in the context of a toolchain?
+12. How does the toolchain support code optimization?
+13. Discuss the importance of code profiling and how it is facilitated by the toolchain.
+14. Explain the concept of target platforms and how they are handled in a toolchain.
+15. What are the challenges or considerations when integrating different tools within a toolchain?
+16. How do you ensure compatibility and interoperability between the tools in a toolchain?
+17. Discuss the benefits and challenges of customizing or extending a toolchain.
+18. How does the toolchain contribute to the software development life cycle?
+19. Can you provide an example of a popular toolchain used in a specific programming language or framework?
+20. How do you evaluate and select a suitable toolchain for a particular development project?

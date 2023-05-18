@@ -1,0 +1,21 @@
+1. What is a proof of concept (PoC), and why is it important in the development process?
+2. Can you explain the typical process of creating a proof of concept?
+3. What are the key objectives of a proof of concept?
+4. How do you determine the scope and success criteria for a proof of concept?
+5. What factors do you consider when selecting technologies or approaches for a proof of concept?
+6. How do you gather and analyze requirements for a proof of concept?
+7. What challenges or risks do you anticipate when working on a proof of concept, and how do you address them?
+8. How do you validate and test the feasibility of a proof of concept?
+9. How do you measure and evaluate the success of a proof of concept?
+10. Can you provide an example of a successful proof of concept that you have worked on in the past?
+11. How do you document and communicate the findings and results of a proof of concept to stakeholders?
+12. What role does collaboration play in the development of a proof of concept?
+13. How do you handle feedback and iterate on a proof of concept to improve its outcomes?
+14. Can you discuss any limitations or potential pitfalls when working on a proof of concept?
+15. How do you estimate the resources and timeline required for a proof of concept?
+16. Have you ever encountered a failed proof of concept? If so, what were the reasons, and what did you learn from it?
+17. How do you ensure that the insights and lessons learned from a proof of concept are effectively
+    transitioned into the subsequent development phases?
+18. How do you balance the need for speed in developing a proof of concept with ensuring quality and reliability?
+19. How do you stay updated with emerging technologies and innovative approaches for conducting proof of concepts?
+20. Can you share your approach to managing multiple proof of concepts simultaneously and prioritizing them effectively?
