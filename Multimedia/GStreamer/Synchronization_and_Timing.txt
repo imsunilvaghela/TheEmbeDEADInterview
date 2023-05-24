@@ -1,0 +1,93 @@
+01. How do you ensure synchronization between audio and video elements in a GStreamer pipeline?
+02. Explain how you handle timing and playback synchronization in a GStreamer application.
+03. Have you dealt with real-time multimedia data streams in GStreamer? Share your experience.
+04. How does GStreamer handle synchronization of audio and video streams in a pipeline?
+05. Explain the concept of pipeline clock in GStreamer and its role in maintaining synchronization.
+06. Discuss the different clock types supported by GStreamer and their characteristics.
+07. How does GStreamer handle synchronization with external clocks or time sources?
+08. Describe your experience with handling synchronization between multiple pipelines or pipeline branches in GStreamer.
+09. Explain the role of pipeline buffering in achieving synchronization in GStreamer.
+10. Discuss the challenges and techniques for achieving lip synchronization in GStreamer pipelines.
+11. How does GStreamer handle synchronization with real-time data sources, such as live streams or hardware inputs?
+12. Describe your experience with adjusting the playback speed or rate of media streams in GStreamer while maintaining synchronization.
+13. Explain the concept of pipeline latency in GStreamer and its impact on synchronization and timing.
+14. Discuss the techniques for handling timestamping and buffering of data packets in GStreamer for accurate synchronization.
+15. How does GStreamer handle synchronization when dealing with variable network or transmission delays?
+16. Describe your experience with synchronizing audio and video playback across multiple display screens or devices in GStreamer.
+17. Explain the concept of adaptive synchronization in GStreamer and how it handles timing variations in media streams.
+18. Discuss the challenges and techniques for achieving lip synchronization in scenarios involving
+    transcoding or format conversion in GStreamer.
+19. How does GStreamer handle synchronization in scenarios involving multiple input sources with varying clock rates or frequencies?
+20. Describe your experience with synchronizing audio and video streams when dealing with different media formats or codecs in GStreamer.
+21. Explain the role of buffering and latency management in achieving synchronization in GStreamer.
+22. Discuss the techniques for handling synchronization between audio and video effects or processing operations in GStreamer pipelines.
+23. How does GStreamer handle synchronization when dealing with network jitter or varying network conditions?
+24. Describe your experience with synchronizing audio and video streams in scenarios involving
+    dynamic pipeline configuration or reconfiguration in GStreamer.
+25. Explain the concept of timestamp propagation and clock synchronization across elements in a GStreamer pipeline.
+26. Discuss the challenges and techniques for achieving synchronization when mixing multiple media streams or tracks in GStreamer.
+27. How does GStreamer handle synchronization in scenarios involving dynamic changes in media stream
+    properties, such as bitrate or frame rate?
+28. Describe your experience with synchronizing audio and video streams in interactive multimedia
+    applications or real-time communication systems using GStreamer.
+29. Explain the concept of audio/video drift correction in GStreamer and the techniques used to maintain synchronization over extended periods.
+30. Discuss the challenges and techniques for achieving synchronization when working with media streams that have different clock domains in GStreamer.
+31. How does GStreamer handle synchronization when dealing with media streams that have variable frame rates or variable audio sample rates?
+32. Describe your experience with synchronizing audio and video streams in scenarios involving time-stamped metadata or auxiliary data in GStreamer.
+33. Explain the concept of presentation time in GStreamer and how it relates to synchronization of media streams.
+34. Discuss the challenges and techniques for achieving synchronization in scenarios involving media stream editing or splicing in GStreamer.
+35. How does GStreamer handle synchronization in scenarios involving multi-channel audio or surround sound formats?
+36. Describe your experience with synchronizing audio and video streams in scenarios involving live video mixing or switching in GStreamer.
+37. Explain the concept of clock slaving in GStreamer and how it enables synchronization between multiple pipelines or elements.
+38. Discuss the challenges and techniques for achieving synchronization when working with media
+    streams that have variable or non-linear playback rates in GStreamer.
+39. How does GStreamer handle synchronization when dealing with media streams that have variable audio or video latency?
+40. Describe your experience with synchronizing audio and video streams in scenarios involving media stream capture or recording in GStreamer.
+41. Explain the concept of inter-stream synchronization in GStreamer and the techniques used to achieve synchronization between different media streams.
+42. Discuss the challenges and techniques for achieving synchronization in scenarios involving media
+    stream playback across multiple devices or platforms in GStreamer.
+43. How does GStreamer handle synchronization when dealing with media streams that have non-uniform frame or sample durations?
+44. Describe your experience with synchronizing audio and video streams in scenarios involving media
+    stream playback over network protocols or streaming technologies in GStreamer.
+45. Explain the concept of clock providers and clock distribution in GStreamer and their role in synchronization.
+46. Discuss the challenges and techniques for achieving synchronization in scenarios involving media stream playback with variable latency or delay in GStreamer.
+47. How does GStreamer handle synchronization when dealing with media streams that have varying presentation time stamps or non-monotonic timestamps?
+48. Describe your experience with synchronizing audio and video streams in scenarios involving media stream time-shifting or pausing/resuming in GStreamer.
+49. Explain the concept of stream time in GStreamer and its role in synchronization and timing.
+50. Discuss the challenges and techniques for achieving synchronization when working with media
+    streams that have different clock domains or timing references in GStreamer.
+51. How does GStreamer handle synchronization when dealing with media streams that have variable or dynamic synchronization requirements?
+52. Describe your experience with synchronizing audio and video streams in scenarios involving media stream seeking or skipping in GStreamer.
+53. Explain the concept of jitter buffering in GStreamer and how it helps to handle timing variations and fluctuations in media streams.
+54. Describe your experience with handling synchronization and timing in GStreamer pipelines that involve multiple audio or video tracks.
+55. Explain how GStreamer handles synchronization between audio and video streams when the streams have different sample rates or frame rates.
+56. Discuss the challenges and techniques for achieving synchronization in GStreamer pipelines that involve hardware-accelerated decoding or encoding.
+57. How does GStreamer handle synchronization when dealing with media streams that have variable playback speeds or rates?
+58. Describe your experience with synchronizing audio and video streams in GStreamer pipelines that
+    involve live streaming or real-time communication protocols.
+59. Explain the concept of timestamp correction in GStreamer and how it helps maintain synchronization in the presence of timing errors.
+60. Discuss the challenges and techniques for achieving synchronization in GStreamer pipelines that
+    involve media stream editing or post-processing operations.
+61. How does GStreamer handle synchronization when dealing with media streams that have different clock drift rates or time bases?
+62. Describe your experience with handling synchronization and timing in GStreamer pipelines that involve distributed or networked audio/video processing.
+63. Explain the concept of pipeline latency compensation in GStreamer and how it is used to achieve accurate synchronization.
+64. Discuss the challenges and techniques for achieving synchronization in GStreamer pipelines that
+    involve media stream playback with variable network latency.
+65. How does GStreamer handle synchronization when dealing with media streams that have varying or non-uniform keyframe intervals?
+66. Describe your experience with synchronizing audio and video streams in GStreamer pipelines that involve real-time video effects or image processing.
+67. Explain the concept of buffer timestamping and synchronization in GStreamer and how it ensures proper alignment of data packets.
+68. Discuss the challenges and techniques for achieving synchronization in GStreamer pipelines that
+    involve media stream playback on low-powered or embedded devices.
+69. How does GStreamer handle synchronization when dealing with media streams that have variable frame durations or audio/video sync points?
+70. Describe your experience with handling synchronization and timing in GStreamer pipelines that involve media stream multiplexing or demultiplexing.
+71. Explain the concept of dynamic jitter buffers in GStreamer and how they help mitigate timing variations and fluctuations in media streams.
+72. Discuss the challenges and techniques for achieving synchronization in GStreamer pipelines that
+    involve media stream playback with variable network bandwidth.
+73. How does GStreamer handle synchronization when dealing with media streams that have variable or non-linear playback rates?
+74. Describe your experience with synchronizing audio and video streams in GStreamer pipelines that involve media stream playback with subtitle overlays.
+75. Explain the concept of synchronization priority in GStreamer and how it helps prioritize synchronization accuracy in complex pipeline scenarios.
+76. Discuss the challenges and techniques for achieving synchronization in GStreamer pipelines that
+    involve media stream playback with dynamic buffering or rate control.
+77. How does GStreamer handle synchronization when dealing with media streams that have variable or non-monotonic timestamps?
+78. Describe your experience with handling synchronization and timing in GStreamer pipelines that
+    involve media stream playback with dynamic resolution changes.

@@ -1,0 +1,123 @@
+01. Describe a scenario where you needed to dynamically reconfigure a GStreamer pipeline during runtime. How did you approach it?
+02. What techniques or tools do you use for adding or removing elements from a running GStreamer pipeline?
+03. How do you handle parameter adjustments or changes in a GStreamer pipeline without interrupting the data flow?
+04. What is dynamic pipeline configuration in GStreamer? How does it differ from static pipeline configuration?
+05. Explain the concept of dynamic element linking and unlinking in GStreamer pipelines.
+06. How does GStreamer handle runtime modification of pipeline elements, such as adding, removing, or replacing elements during execution?
+07. Discuss the role of element pads in dynamic pipeline configuration and how they enable flexible data flow between elements.
+08. Describe your experience with dynamically configuring the properties of GStreamer elements based on runtime requirements.
+09. Explain the concept of dynamic pipeline state changes in GStreamer, such as
+    pausing, resuming, or stopping the pipeline during execution.
+10. Discuss the considerations and techniques for dynamically selecting and
+    configuring different sinks or outputs in a GStreamer pipeline.
+11. How does GStreamer handle dynamic reconfiguration of pipeline elements when encountering format or codec changes in media streams?
+12. Describe your experience with dynamically switching between different audio or video sources in a GStreamer pipeline.
+13. Explain the concept of dynamic pipeline branching and merging in GStreamer
+    and how it enables parallel processing or complex pipeline topologies.
+14. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on external events or user interactions.
+15. How does GStreamer handle dynamic negotiation and adjustment of media stream formats and capabilities between pipeline elements?
+16. Describe your experience with dynamically adjusting the playback speed or seeking within a media stream in a GStreamer pipeline.
+17. Explain the concept of dynamic buffer allocation and management in GStreamer pipelines for efficient data processing.
+18. Discuss the considerations and techniques for dynamically configuring and
+    controlling the latency or buffer sizes in a GStreamer pipeline.
+19. How does GStreamer handle dynamic reconfiguration of pipeline elements when encountering network or device availability changes?
+20. Describe your experience with dynamically configuring and controlling the bitrate or quality of media streams in a GStreamer pipeline.
+21. Explain the concept of dynamic pipeline profiling and monitoring in GStreamer for real-time performance analysis and optimization.
+22. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on runtime resource constraints, such as CPU or memory usage.
+23. How does GStreamer handle dynamic reconfiguration of pipeline elements when encountering error conditions or failure scenarios?
+24. How does GStreamer handle dynamic adaptation of pipeline elements when
+    encountering changes in network bandwidth or network conditions?
+25. Describe your experience with dynamically configuring and controlling the
+    encoding or decoding parameters of media streams in a GStreamer pipeline.
+26. Explain the concept of dynamic pipeline synchronization in GStreamer and how
+    it ensures proper timing and alignment of multiple elements.
+27. Discuss the considerations and techniques for dynamically adjusting the
+    playback volume or audio levels in a GStreamer pipeline.
+28. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in device capabilities or availability?
+29. Describe your experience with dynamically configuring and controlling the video aspect ratio or display modes in a GStreamer pipeline.
+30. Explain the concept of dynamic pipeline monitoring and fault tolerance in
+    GStreamer for detecting and recovering from errors or failures.
+31. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on user preferences or user-defined parameters.
+32. How does GStreamer handle dynamic reconfiguration of pipeline elements when encountering changes in input sources or data streams?
+33. Describe your experience with dynamically configuring and controlling the audio routing or channel mapping in a GStreamer pipeline.
+34. Explain the concept of dynamic pipeline load balancing in GStreamer for
+    efficient utilization of system resources across multiple elements.
+35. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on real-time analytics or machine learning insights.
+36. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in display resolutions or orientation?
+37. Describe your experience with dynamically configuring and controlling the
+    video overlays or graphical elements in a GStreamer pipeline.
+38. Explain the concept of dynamic pipeline fault isolation and recovery in
+    GStreamer for maintaining stability and resilience in complex setups.
+39. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on user preferences or runtime configuration files.
+40. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in network protocols or streaming formats?
+41. Describe your experience with dynamically configuring and controlling the subtitle selection or rendering in a GStreamer pipeline.
+42. Explain the concept of dynamic pipeline prioritization and resource
+    allocation in GStreamer for optimizing performance and responsiveness.
+43. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on external control signals or automation systems.
+44. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in input devices or hardware interfaces?
+45. Describe your experience with dynamically configuring and controlling the metadata extraction or embedding in a GStreamer pipeline.
+46. Explain the concept of dynamic pipeline synchronization across distributed
+    systems in GStreamer for synchronized playback or processing.
+47. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on real-time feedback or user interactions.
+48. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in audio hardware or audio routing configurations?
+49. Describe your experience with dynamically configuring and controlling the
+    media stream multiplexing or demultiplexing in a GStreamer pipeline.
+50. Explain the concept of dynamic pipeline scheduling and prioritization in
+    GStreamer for managing real-time constraints and deadlines.
+51. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on energy efficiency or power management requirements.
+52. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in display devices or multi-screen setups?
+53. Describe your experience with dynamically configuring and controlling the
+    video effects or post-processing operations in a GStreamer pipeline.
+54. Explain the concept of dynamic pipeline fault detection and reporting in GStreamer for proactive error handling and troubleshooting.
+55. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on network congestion or QoS (Quality of Service) parameters.
+56. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in audio output devices or audio routing configurations?
+57. Describe your experience with dynamically configuring and controlling the
+    audio effects or signal processing operations in a GStreamer pipeline.
+58. Explain the concept of dynamic pipeline security and access control in
+    GStreamer for protecting sensitive data or enforcing content protection.
+59. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on runtime resource availability or system load.
+60. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in video capture devices or camera configurations?
+61. Describe your experience with dynamically configuring and controlling the
+    media stream synchronization or A/V lip-sync in a GStreamer pipeline.
+62. Explain the concept of dynamic pipeline error handling and recovery
+    strategies in GStreamer for ensuring robustness and fault tolerance.
+63. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on real-time feedback from sensors or external devices.
+64. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in video output devices or display configurations?
+65. Describe your experience with dynamically configuring and controlling the
+    network streaming protocols or adaptive streaming in a GStreamer pipeline.
+66. Explain the concept of dynamic pipeline metadata processing and extraction
+    in GStreamer for extracting meaningful information from media streams.
+67. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on real-time environmental conditions or context awareness.
+68. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in audio input devices or microphone configurations?
+69. Describe your experience with dynamically configuring and controlling the
+    media stream encryption or decryption in a GStreamer pipeline.
+70. Explain the concept of dynamic pipeline synchronization with external clock
+    sources in GStreamer for precise timing and synchronization across devices.
+71. Discuss the considerations and techniques for dynamically adapting the
+    pipeline behavior based on user accessibility requirements or assistive technologies.
+72. How does GStreamer handle dynamic reconfiguration of pipeline elements when
+    encountering changes in video input devices or camera configurations?
+73. Describe your experience with dynamically configuring and controlling the
+    media stream transcoding or format conversion in a GStreamer pipeline.

@@ -1,0 +1,126 @@
+01. How do you handle media format conversion, encoding, decoding, and transcoding in GStreamer pipelines?
+02. Explain the concept of caps negotiation and its role in media format handling.
+03. Have you worked with specific media formats or codecs in GStreamer? Share your experience.
+04. What is a media format? How does GStreamer handle different media formats?
+05. Explain the concept of codecs in the context of multimedia processing. How does GStreamer support various codecs?
+06. Discuss the role of GStreamer's demuxer elements in extracting media streams from container formats.
+07. How does GStreamer handle media synchronization when working with different media formats and codecs?
+08. Explain the concept of caps negotiation in GStreamer and its importance in media format and codec handling.
+09. Describe your experience with handling popular audio codecs, such as MP3, AAC, or FLAC, in GStreamer pipelines.
+10. Discuss the considerations and techniques for handling media formats with variable frame rates in GStreamer.
+11. How does GStreamer handle media formats that require specific hardware acceleration or specialized decoders/encoders?
+12. Explain the process of negotiating and selecting the appropriate codec for a given media stream in a GStreamer pipeline.
+13. Describe your experience with handling popular video codecs, such as H.264, VP9, or AV1, in GStreamer pipelines.
+14. Discuss the considerations and techniques for handling media formats with different color spaces
+    and chroma subsampling in GStreamer.
+15. How does GStreamer handle media formats that require DRM (Digital Rights Management) protection or encryption?
+16. Explain the concept of codec profiling in GStreamer and how it can be used for optimizing media processing pipelines.
+17. Describe your experience with handling media formats and codecs for adaptive streaming protocols, such as HLS or DASH, in GStreamer.
+18. Discuss the considerations and techniques for handling media formats with different sample rates and bit depths in GStreamer.
+19. How does GStreamer handle media formats that require specific post-processing or filtering
+    operations, such as deinterlacing or noise reduction?
+20. Explain the concept of codec negotiation and fallback mechanisms in GStreamer for handling unsupported or incompatible media formats.
+21. Describe your experience with handling media formats and codecs for live streaming protocols, such as RTP or RTSP, in GStreamer.
+22. Discuss the considerations and techniques for handling media formats with different channel
+    configurations (mono, stereo, surround sound) in GStreamer.
+23. How does GStreamer handle media formats that require specific metadata extraction or manipulation, such as ID3 tags or subtitles?
+24. Explain the process of handling media formats with multiple audio or video streams in a GStreamer pipeline.
+25. Describe your experience with handling media formats and codecs for container formats, such as MP4, Matroska, or AVI, in GStreamer.
+26. Discuss the considerations and techniques for handling media formats with different compression
+    ratios and quality levels in GStreamer.
+27. How does GStreamer handle media formats that require specific timecode or timestamp handling for synchronization and seeking?
+28. Explain the concept of codec interoperability in GStreamer and how it enables seamless
+    processing of media streams with different codecs.
+29. Describe your experience with handling media formats and codecs for streaming protocols, such as UDP or HTTP, in GStreamer.
+30. Discuss the considerations and techniques for handling media formats with different audio/video
+    frame sizes and aspect ratios in GStreamer.
+31. How does GStreamer handle media formats that require specific adaptive streaming features, such
+    as bitrate switching or segment-based playback?
+32. Explain the concept of codec parameters and options in GStreamer and how they can be utilized
+    for fine-tuning media processing pipelines.
+33. Describe your experience with handling media formats and codecs for archival and preservation
+    purposes, such as FFV1 or FLAC, in GStreamer.
+34. Discuss the considerations and techniques for handling media formats with different subtitles and caption formats in GStreamer.
+35. How does GStreamer handle media formats that require specific error resilience or error
+    correction mechanisms, such as FEC (Forward Error Correction)?
+36. Explain the process of handling media formats with different transport mechanisms, such as UDP, TCP, or HTTP, in GStreamer pipelines.
+37. Describe your experience with handling media formats and codecs for streaming protocols with
+    adaptive bitrate switching, such as MPEG-DASH, in GStreamer.
+38. Discuss the considerations and techniques for handling media formats with different audio
+    channel layouts and speaker configurations in GStreamer.
+39. How does GStreamer handle media formats that require specific DRM integration for content protection, such as Widevine or PlayReady?
+40. Explain the concept of codec configuration and parameter negotiation in GStreamer pipelines for optimal performance and compatibility.
+41. Describe your experience with handling media formats and codecs for real-time communication
+    protocols, such as WebRTC or SIP, in GStreamer.
+42. Discuss the considerations and techniques for handling media formats with different video frame
+    rates and interlacing modes in GStreamer.
+43. How does GStreamer handle media formats that require specific hardware acceleration, such as
+    VAAPI (Video Acceleration API) or NVENC (NVIDIA Encoder)?
+44. Explain the process of handling media formats with different audio sample rates and bit depths in a GStreamer pipeline.
+45. Describe your experience with handling media formats and codecs for media archiving and
+    restoration, such as JPEG2000 or DV, in GStreamer.
+46. Discuss the considerations and techniques for handling media formats with different color spaces
+    and HDR (High Dynamic Range) formats in GStreamer.
+47. How does GStreamer handle media formats that require specific content analysis or metadata
+    extraction, such as face detection or scene classification?
+48. Explain the concept of codec optimizations in GStreamer and how they can be applied for
+    efficient media processing on different hardware platforms.
+49. Describe your experience with handling media formats and codecs for video surveillance systems or CCTV applications in GStreamer.
+50. Discuss the considerations and techniques for handling media formats with different audio coding
+    techniques, such as PCM, MP3, or Opus, in GStreamer.
+51. How does GStreamer handle media formats that require specific audio/video synchronization
+    mechanisms, such as PTS (Presentation Time Stamp) or AV sync clocks?
+52. Explain the process of handling media formats with different video coding techniques, such as
+    MPEG-2, VP8, or HEVC, in a GStreamer pipeline.
+53. Describe your experience with handling media formats and codecs for digital signage or
+    multimedia playback on embedded devices in GStreamer.
+54. How does GStreamer handle media formats that require specific audio/video filters or
+    transformations, such as equalization or video scaling?
+55. Describe your experience with handling media formats and codecs for virtual reality (VR) or
+    360-degree video applications in GStreamer.
+56. Discuss the considerations and techniques for handling media formats with different audio codecs and bitrates in GStreamer.
+57. How does GStreamer handle media formats that require specific audio/video synchronization
+    techniques, such as lip-sync correction or audio delay compensation?
+58. Explain the concept of codec profiles and levels in GStreamer and how they ensure compatibility
+    and interoperability across different devices.
+59. Describe your experience with handling media formats and codecs for multimedia streaming
+    servers, such as Icecast or Shoutcast, in GStreamer.
+60. Discuss the considerations and techniques for handling media formats with different video codecs and resolutions in GStreamer.
+61. How does GStreamer handle media formats that require specific video post-processing operations, such as deinterlacing or denoising?
+62. Explain the concept of codec-specific metadata and how it can be utilized for advanced media processing tasks in GStreamer.
+63. Describe your experience with handling media formats and codecs for video conferencing or telephony applications in GStreamer.
+64. Discuss the considerations and techniques for handling media formats with different audio codecs and sample rates in GStreamer.
+65. How does GStreamer handle media formats that require specific audio/video encoding or decoding
+    parameters, such as bitrate or quality settings?
+66. Explain the concept of codec bitstream parsing in GStreamer and how it ensures correct decoding and processing of media streams.
+67. Describe your experience with handling media formats and codecs for video surveillance systems
+    with advanced features like motion detection or object tracking in GStreamer.
+68. Discuss the considerations and techniques for handling media formats with different video codecs and frame rates in GStreamer.
+69. How does GStreamer handle media formats that require specific audio post-processing operations,
+    such as equalization or noise reduction?
+70. Explain the concept of codec-specific side data and how it can be used for conveying additional
+    information or metadata alongside media streams in GStreamer.
+71. Describe your experience with handling media formats and codecs for video-on-demand (VOD) or
+    streaming platforms, such as Netflix or YouTube, in GStreamer.
+72. Discuss the considerations and techniques for handling media formats with different audio codecs
+    and channel configurations in GStreamer.
+73. How does GStreamer handle media formats that require specific audio/video synchronization
+    techniques, such as A/V drift correction or clock synchronization across multiple streams?
+74. Explain the concept of codec-specific bitstream filtering in GStreamer and how it can be used
+    for modifying or analyzing media stream data.
+75. Describe your experience with handling media formats and codecs for digital radio or broadcasting applications in GStreamer.
+76. Discuss the considerations and techniques for handling media formats with different video codecs and color depths in GStreamer.
+77. How does GStreamer handle media formats that require specific video post-processing operations,
+    such as color correction or image stabilization?
+78. Explain the concept of codec-specific error resilience techniques in GStreamer and how they
+    ensure robustness in media transmission and playback.
+79. Describe your experience with handling media formats and codecs for interactive multimedia
+    applications, such as interactive kiosks or interactive TV, in GStreamer.
+80. Discuss the considerations and techniques for handling media formats with different audio codecs
+    and compression ratios in GStreamer.
+81. How does GStreamer handle media formats that require specific audio/video synchronization
+    techniques, such as lip-sync correction or adaptive delay adjustment?
+82. Explain the concept of codec-specific rate control algorithms in GStreamer and how they ensure
+    efficient encoding or decoding of media streams.
+83. Describe your experience with handling media formats and codecs for augmented reality (AR) or
+    mixed reality (MR) applications in GStreamer.

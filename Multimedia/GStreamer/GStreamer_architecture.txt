@@ -1,0 +1,58 @@
+01. What are the main components of a GStreamer pipeline and their roles?
+02. How does the GStreamer bus facilitate communication between pipeline elements?
+03. How would you explain the concept of a GStreamer pipeline to a non-technical person?
+04. Can you explain the concept of a GStreamer bin and how it differs from a pipeline?
+05. How does GStreamer handle dynamic pipeline creation and destruction?
+06. Explain the concept of GStreamer elements and their relationship to the pipeline.
+07. What is the function of the GStreamer clock and how does it maintain synchronization in a pipeline?
+08. Describe the different types of pads in GStreamer and their roles in data flow.
+09. How does GStreamer handle media data flow between elements in a pipeline?
+10. Can you discuss the concept of states in GStreamer and their significance in pipeline control?
+11. Explain how GStreamer handles threading and concurrency in a pipeline.
+12. What is the role of the GStreamer pipeline state change function and how is it used?
+13. Describe the process of handling seek operations in a GStreamer pipeline.
+14. Can you explain how GStreamer handles latency and buffering in a pipeline?
+15. Discuss the concept of ghost pads in GStreamer and their purpose in pipeline design.
+16. How does GStreamer handle media data synchronization between different elements in a pipeline?
+17. Explain the concept of GStreamer plugins and how they contribute to the functionality of the framework.
+18. Can you discuss the role of the GStreamer bus in handling messages and events within a pipeline?
+19. How does GStreamer handle media format negotiation between elements in a pipeline?
+20. Describe the role of the GStreamer clock in maintaining synchronization and timing accuracy in a pipeline.
+21. How does GStreamer handle pipeline state changes, such as transitioning from the NULL state to the PLAYING state?
+22. Explain the concept of GStreamer pads and their significance in connecting elements within a pipeline.
+23. Describe the process of linking and unlinking elements in a GStreamer pipeline.
+24. How does GStreamer handle dynamic pipeline reconfiguration, such as adding or removing elements during runtime?
+25. Can you discuss the concept of element factories in GStreamer and their role in creating and managing elements?
+26. Explain the concept of GStreamer element messages and their importance in pipeline control and communication.
+27. How does GStreamer handle error handling and recovery in a pipeline?
+28. Discuss the concept of event handling in GStreamer and its significance in controlling the flow of data within a pipeline.
+29. Can you explain the purpose and usage of the GStreamer pipeline state change functions, such as gst_element_set_state()?
+30. Explain the concept of GStreamer plugins and their classification based on functionality and element type.
+31. Describe the role of the GStreamer element factory and how it is used in creating and managing elements.
+32. Can you discuss the concept of GStreamer element pads and their role in data flow and format negotiation?
+33. Describe the role of the GStreamer ghost pad and how it can be used to simplify pipeline connections.
+34. How does GStreamer handle clock synchronization and timing accuracy across different elements in a pipeline?
+35. Discuss the concept of GStreamer message passing and how it facilitates communication between elements.
+36. Explain the significance of the GStreamer bus and how it can be used to handle asynchronous events and messages.
+37. Describe the process of dynamic pipeline reconfiguration in GStreamer, including adding or removing elements at runtime.
+38. Can you discuss the GStreamer state change mechanism and the different states a pipeline can transition through?
+39. Explain the purpose and usage of the GStreamer pipeline query mechanism and its role in retrieving pipeline information.
+40. Describe the concept of GStreamer caps (capabilities) and their significance in format negotiation and element linking.
+41. Discuss the role of GStreamer plugins in handling media formats and codecs, including encoding, decoding, and transcoding.
+42. Explain how GStreamer manages buffering and latency within a pipeline to ensure smooth data flow.
+43. Describe the role of the GStreamer registry and how it manages the discovery and loading of plugins and element factories.
+44. Discuss the role of GStreamer's pipeline states (NULL, READY, PAUSED, PLAYING) and their significance in managing the lifecycle of a pipeline.
+45. Explain the concept of GStreamer elements and how they process and manipulate media data within a pipeline.
+46. Describe the role of GStreamer's bin element and its use cases in organizing and managing groups of elements.
+47. Discuss the concept of GStreamer's element factories and their role in creating instances of elements.
+48. Explain how GStreamer handles media format negotiation and conversion between elements in a pipeline.
+49. Discuss the role of GStreamer's caps (capabilities) and their importance in describing and matching media formats.
+50. Explain how GStreamer handles asynchronous events and messages using its bus system.
+51. Describe the purpose and usage of GStreamer's clocking mechanism in maintaining synchronization across elements.
+52. Discuss the concept of GStreamer's pads and their role in connecting and transferring data between elements.
+53. Explain the concept of GStreamer's dynamic pipelines and how they allow for runtime reconfiguration and flexibility.
+54. Describe GStreamer's buffering mechanism and how it ensures a smooth and uninterrupted data flow.
+55. Discuss the role of GStreamer's bin flags and how they influence the behavior and processing of elements within a bin.
+56. Explain the purpose and usage of GStreamer's queries and how they provide information about pipeline capabilities and status.
+57. Describe the role of GStreamer's ghost pads and how they facilitate the connection of elements in complex pipeline structures.
+58. Discuss GStreamer's error handling and recovery mechanisms, including the propagation of error messages and error handling strategies.
