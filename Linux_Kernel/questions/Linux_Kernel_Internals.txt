@@ -365,3 +365,4 @@
 342. What is blocking and non blocking call
 343. What is Real time clock (RTC).
 344. How busy looping is implemented in linux.
+345. What are likely() and unlikely() macros in Kernel.

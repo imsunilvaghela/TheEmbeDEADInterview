@@ -83,3 +83,5 @@
 78. Describe your experience with implementing custom media format negotiation strategies in GStreamer plugins.
 79. How do GStreamer plugins handle dynamic bitrate adaptation and quality control?
 80. Discuss the role of GStreamer's plugin documentation and how it helps developers in plugin integration and usage.
+81. Assume you have developed a plugin. Now, on what basis you decide its location in gstreamer
+    plugins repositories: which are gst-plugins-good, *-bad, *-base, *-ugly etc.

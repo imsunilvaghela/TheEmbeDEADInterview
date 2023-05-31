@@ -1,35 +1,357 @@
-1. Generic
-  1.1. Your work involves using GStreamer can you tell us something about GStreamer? Anything else you want to add or share?
-  1.2. Developed any application using GStreamer ?
-  1.3. Used Command line tools for the quick testing of GStreamer pipelines ?
-  1.4. Any experience in Linux Audio/Video sub-system internals and frameworks like, ALSA, V4L2 internals and driver development.
-  1.5. Worked on challenges in the past on Audio/Video performance measurement ?
-  1.6. Audio/Video tuning and code optimization to achieve maximum throughput.
-2. What is bin, what is a pipeline, is pipeline a bin?
-   >A> A bin is a container for a collection of elements. A pipeline is a top-level bin. It provides a bus for the application and manages the synchronization for its children.
-3. What is src pad? what is sink pad? Buffers are traveling from src pad to sink pad.
-4. Element states in GStreamer ? NULL, READY, PAUSE, PLAYING.
-5. How does communication happen between plugin and application?
-6. What is difference between request pad vs sometimes pad ?
-7. What is difference between stream time and running time ?
-8. How can we inject data from outside world (another application) to GStreamer and vice versa ?
-9. Dynamic pad and request pad
-10. Caps negotiation
-11. what is pre-rolling
-12. Capture -> encoded -> stream-out how pre-rolling will be done?
-13. How Audio Video sync? and how clock is getting sync, sync=true?
-14. base time ? running time? stream time ?
-15. Latency  of pipeline?
-16. Gst messege, bus, event, ?
-17. What is appsrc and appsink ?
-18. 720p I422 frame size ?
-19. What is need of tee element ? Please explain using sample pipeline.
-20. Difference between fakesink and fakevideosink
-21. PTS and DTS
-22. On pausing pipeline how is event propagated in pipeline
-23. ffmpeg
-24. Developed any GStremaer plugin from scractch ? Plugin architecture
-25. GStreamer application development
+01. What is bin, what is a pipeline, is pipeline a bin?
+   >A>
+   - A bin is a container for a collection of elements(manages the state of all elements within it).
+     It forwards bus messages from contained elements (errors, tags, EOS). It simplifies implementing
+     complex pipelines by allowing the break up of the pipeline into smaller blocks
+   - A pipeline is a top-level bin. A generic container that manages the synchronization and bus
+     messages of the contained elements. It provides a bus for the application and manages the
+     synchronization for its children.
+02. What is Caps negotiation
+   >A> Caps negotiation is the act of finding a media format (GstCaps) between elements that they can handle.
+03. What is (GST)Bus ?
+    >A> A bus is a simple system that forwards messages from the streaming thread to an application in its own thread context.
+04. GStreamer application development
     25.1 Top level coding steps to develop app for below pipeline
          gst-launch-1.0  videotestsrc ! capsfilter ! autovideosink ts-offset=10
-26.
+05. What is GstMiniObject ? what does it contains ?
+    >A>
+    All streams of data in GStreamer are chopped up into chunks that are passed from a source pad on
+    one element to a sink pad on another element. GstMiniObject is the structure used to hold these
+    chunks of data.
+
+    GstMiniObject contains the following important types:
+    - An exact type indicating what type of data (event, buffer, ...) this GstMiniObject is.
+    - A reference count indicating the number of elements currently holding a reference to the
+      miniobject. When the reference count falls to zero, the miniobject will be disposed, and its
+      memory will be freed in some sense (see below for more details).
+
+    For data transport, there are two types of GstMiniObject defined: events (control) and buffers (content).
+06. What is buffer in Gstreamer ? What does it contain?
+    >A>
+    - buffers are objects for passing streaming data between elements in the pipeline. Buffers always
+      travel from sources to sinks (downstream).
+    - Buffers may contain any sort of data that the two linked pads know how to handle. Normally, a
+      buffer contains a chunk of some sort of audio or video data that flows from one element to
+      another.
+    - Buffers also contain metadata describing the buffer's contents. Some of the important types of metadata are:
+      -- Pointers to one or more GstMemory objects. GstMemory objects are refcounted objects that
+      encapsulate a region of memory.
+      -- A timestamp indicating the preferred display timestamp of the content in the buffer.
+07. What is event in GStreamer? What information does events contains?
+    >A>
+    - events are objects sent between elements or from the application to elements. Events can
+      travel upstream and downstream. Downstream events can be synchronised to the data flow.
+    - Events contain information on the state of the stream flowing between the two linked pads.
+    - Events are used to indicate, for example, a media type, the end of a media stream or that the
+      cache should be flushed
+    - Events may contain several of the following items:
+      -- A subtype indicating the type of the contained event.
+      -- The other contents of the event depend on the specific event type
+08. What is GstMemory ? How Gst Memory objects are created?
+    >A>
+    - GstMemory is an object that manages a region of memory.
+    - GstMemory objects are created by a GstAllocator object. Most allocators implement the default
+      gst_allocator_alloc() method but some might implement different ones.
+09. gst_memory_map() and gst_memory_unmap()?
+    >A>
+    Data access to the memory wrapped by the GstMemory object is always protected with a gst_memory_map()
+    and gst_memory_unmap() pair.
+10. What are different GST communication mechanisms? explain each in short.
+    >A>
+    Buffer: objects for passing streaming data between elements in pipeline
+        - travel downstream
+    Events: objects sent between elements or from the application to elements
+        - travel downstream and upstream
+    Messages: objects posted by elements on pipeline’s message bus (element to application)
+        - Handled synchronously from pipeline to bus; asynchronously from bus to application
+    Queries: allow applications to request information from pipeline
+        - Travel downstream and upstream; always handled synchronously
+11. What are different GST Bus messages ? Explain each in short.
+    >A>
+    All messages contain a message source, type, and time-stamp.
+
+    - Error: fatal message that terminate data-passing
+    - Warning: non-fatal message, but user-visible problems will happen
+    - Information: non-problem notification
+    - End of Stream: emitted when the stream had ended
+    - Tags: emitted when metadata is found in the stream
+    - State-changes: emitted after a successful state change
+    - Buffering: emitted during caching of network-streams
+    - Element: special messages that are unique to certain elements and usually represent additional features.
+    - Application-specific: primarily meant for internal use in applications in case the application
+      needs to marshal information from some thread into the main thread
+12. Different types of GStreamer plugins
+    >A>
+    Codec Plugins: Codec plugins implement specific audio or video codecs for encoding or decoding
+    media data. They allow GStreamer to support various formats such as H.264, MPEG-4, AAC, MP3,
+    etc.
+
+    Filter Plugins: Filter plugins apply specific processing operations to the audio or video data
+    flowing through the pipeline. They can perform tasks like noise reduction, equalization, color
+    correction, image transformations, and more.
+
+    Sink Plugins: Sink plugins handle the output or final destination of media data in a pipeline. They
+    can display video frames on the screen, play audio on speakers, save data to a file, or send data to
+    a network stream.
+
+    Source Plugins: Source plugins provide input data to the pipeline. They can read from files, capture
+    data from devices like cameras or microphones, or receive data from network sources.
+
+    Demuxer Plugins: Demuxer plugins are responsible for splitting container formats (e.g., MP4, MKV)
+    into separate audio and video streams or other components for further processing.
+
+    Muxer Plugins: Muxer plugins combine separate audio and video streams or other components into a
+    single container format for output or storage.
+
+    Parser Plugins: Parser plugins analyze media data to extract essential information such as
+    timestamps, frame boundaries, metadata, or subtitles. They are often used in combination with
+    demuxers and decoders.
+
+    Sink Bin Plugins: Sink bin plugins are higher-level elements that encapsulate multiple sinks and
+    handle synchronization or distribution of data to those sinks. They are useful for complex scenarios
+    involving multiple output destinations.
+
+    Source Bin Plugins: Source bin plugins are higher-level elements that encapsulate multiple sources
+    and provide a unified interface to access the data from those sources.
+
+    Library Plugins: Library plugins integrate third-party libraries or APIs into GStreamer, enabling
+    access to specialized functionality or hardware acceleration.
+
+    Transform Plugins: Transform plugins convert media data from one format to another. They can perform
+    tasks like scaling, resizing, resampling, converting color spaces, or changing audio sample rates.
+
+    Protocol Plugins: Protocol plugins handle the streaming of media data over specific network
+    protocols such as HTTP, RTP, RTSP, or UDP.
+
+    Visualization Plugins: Visualization plugins generate visual representations of audio data, such as
+    spectrograms, waveforms, or graphical equalizers.
+13. Gstreamer source package
+    >A>
+    GStreamer is packaged into
+    - gstreamer: the core package
+    - gst-plugins-base: an essential exemplary set of elements
+    - gst-plugins-good: a set of good-quality plug-ins under LGPL
+    - gst-plugins-ugly: a set of good-quality plug-ins that might pose distribution problems
+    - gst-plugins-bad: a set of plug-ins that need more quality
+    - gst-libav: a set of plug-ins that wrap libav for decoding and encoding
+      & a few others packages
+14. which object model does Gstreamer uses ? tell me about it.
+    >A>
+    - GStreamer adheres to GObject, the GLib 2.0 object model. A programmer familiar with GLib 2.0 or
+      GTK+ will be comfortable with GStreamer.
+    - GStreamer uses the mechanism of signals and object properties. All objects can be queried at
+      runtime for their various properties and capabilities.
+    - GStreamer intends to be similar in programming methodology to GTK+. This applies to the object
+      model, ownership of objects, reference counting, etc.
+15. How does GStreamer obtains high performace ?
+    >A>
+    - Using GLib's GSlice allocator
+    - Extremely light-weight links between plugins
+    - Providing a mechanism to directly work on the target memory
+    - Refcounting and copy on write minimize usage of memcpy
+    - Dedicated streaming threads, with scheduling handled by the kernel
+    - Allowing hardware acceleration by using specialized plugins
+    - Using a plugin registry with the specifications of the plugins so that the plugin loading can
+      be delayed until the plugin is actually used.
+16. What is query in Gstreamer? use ? flow ?
+    >A>
+    - queries allow applications to request information such as duration or current playback position
+      from the pipeline.
+    - Queries are always answered synchronously.
+    - Elements can also use queries to request information from their peer elements (such as the file size or duration).
+    - It can be used both ways within a pipeline, but upstream queries are more common.
+17. What are messages in Gstreamer?
+    >A>
+    - messages are objects posted by elements on the pipeline's message bus, where they will be held
+      for collection by the application.
+    - Messages can be intercepted synchronously from the streaming thread context of the element posting
+      the message, but are usually handled asynchronously by the application from the application's main thread.
+    - Messages are used to transmit information such as errors, tags, state changes, buffering state,
+      redirects etc. from elements to the application in a thread-safe way.
+18. What are elements in GStreamer ? Explain.
+    >A>
+    - Elements are at the core of GStreamer.
+    - In the context of plugin development, an element is an object derived from the GstElement class.
+    - Elements provide some sort of functionality when linked with other elements:
+      For example, a source element provides data to a stream, and a filter element acts on the data in a stream.
+      Without elements, GStreamer is just a bunch of conceptual pipe fittings with nothing to link.
+    - Just writing a new element is not entirely enough, however: You will need to encapsulate your
+      element in a plugin to enable GStreamer to use it.
+19. What is a plugin in Gstreamer ?
+    >A>
+    - A plugin is essentially a loadable block of code, usually called a shared object file or a
+    dynamically linked library.
+    - A single plugin may contain the implementation of several elements, or just a single one.
+20. What are pads in GStreamer ? Explain using example.
+    >A>
+    - Pads are used to negotiate links and data flow between elements in GStreamer. A pad can be
+      viewed as a “place” or “port” on an element where links may be made with other elements, and
+      through which data can flow to or from those elements.
+    - Pads have specific data handling capabilities: A pad can restrict the type of data that flows through it.
+    - Links are only allowed between two pads when the allowed data types of the two pads are compatible.
+    - Example:
+	A pad is similar to a plug or jack on a physical device. Consider, for example, a home theater
+    	system consisting of an amplifier, a DVD player, and a (silent) video projector. Linking the DVD
+    	player to the amplifier is allowed because both devices have audio jacks, and linking the
+    	projector to the DVD player is allowed because both devices have compatible video jacks. Links
+    	between the projector and the amplifier may not be made because the projector and amplifier have
+    	different types of jacks. Pads in GStreamer serve the same purpose as the jacks in the home
+    	theater system.
+    - For the most part, all data in GStreamer flows one way through a link between elements. Data
+      flows out of one element through one or more source pads, and elements accept incoming data through one or more sink pads.
+    - Source and sink elements have only source and sink pads, respectively.
+21. What is GstBuffer ? and what does it contains?
+    >A>
+    - A GstBuffer is a lightweight object that is passed from an upstream to a downstream element and contains memory and metadata
+    - It represents the multimedia content that is pushed to or pulled by downstream elements
+    - A GstBuffer contains one or more GstMemory objects. These objects hold the buffer's data.
+    - Metadata in the buffer consists of:
+      -- DTS and PTS timestamps.
+      -- The duration of the buffer contents
+      -- Media-specific offset and offset_end values. For video this is the frame number in the
+         stream, for audio, the sample number. Other media might use different definitions
+      -- Arbitrary structures via GstMeta, see below
+22. How to make GstBuffer writable ?
+    >A>
+    - A GstBuffer is writable when the refcount of the object is exactly 1, meaning that only one
+      object is holding a ref to the buffer.
+    - You can only modify the buffer when it is writable. This means that you need to call gst_buffer_make_writable()
+      before changing the timestamps, offsets, metadata or adding and removing memory blocks.
+23. gst_memory_map() and gst_buffer_map()
+24. Provide an example of creating a GstMemory object and using the gst_memory_map() to access the memory region
+    >A>
+
+    [...]
+
+    GstMemory *mem;
+    GstMapInfo info;
+    gint i;
+
+    /* allocate 100 bytes */
+    mem = gst_allocator_alloc (NULL, 100, NULL);
+
+    /* get access to the memory in write mode */
+    gst_memory_map (mem, &info, GST_MAP_WRITE);
+
+    /* fill with pattern */
+    for (i = 0; i < info.size; i++)
+      info.data[i] = i;
+
+    /* release memory */
+    gst_memory_unmap (mem, &info);
+
+    [...]
+25. Provide an example of how to create a buffer and access its memory
+    >A>
+
+    [...]
+    GstBuffer *buffer;
+    GstMemory *mem;
+    GstMapInfo info;
+
+    /* make empty buffer */
+    buffer = gst_buffer_new ();
+
+    /* make memory holding 100 bytes */
+    mem = gst_allocator_alloc (NULL, 100, NULL);
+
+    /* add the buffer */
+    gst_buffer_append_memory (buffer, mem);
+
+    [...]
+
+    /* get WRITE access to the memory and fill with 0xff */
+    gst_buffer_map (buffer, &info, GST_MAP_WRITE);
+    memset (info.data, 0xff, info.size);
+    gst_buffer_unmap (buffer, &info);
+
+    [...]
+
+    /* free the buffer */
+    gst_buffer_unref (buffer);
+
+    [...]
+26. What is the use of GstMeta ?
+    >A>
+    - With the GstMeta system you can add arbitrary structures to buffers. These structures describe
+      extra properties of the buffer such as cropping, stride, region of interest, etc.
+    - The metadata system separates API specification (what the metadata and its API look like) and its
+      implementation (how it works).
+    - This makes it possible to have different implementations of the same API, for example,
+      depending on the hardware you are running on.
+27. What is GstBufferPool ?
+    >A>
+    - The GstBufferPool object provides a convenient base class for managing lists of reusable buffers. Essential
+      for this object is that all the buffers have the same properties such as size, padding, metadata and alignment.
+    - A GstBufferPool can be configured to manage a minimum and maximum amount of buffers of a specific size.
+    - It can also be configured to use a specific GstAllocator for the memory of the buffers.
+    - There is also support in the bufferpool to enable bufferpool specific options, such as adding GstMeta
+      to the pool's buffers or enabling specific padding on the buffers' memory.
+    - A GstBufferPool can be either inactivate or active. In the inactive state, you can configure the pool.
+      In the active state, you can't change the configuration anymore but you can acquire and release buffers from/to the pool.
+28. Types of pads based on availability and direction
+    >A>
+    Availability: Always, Sometimes(Dynamic), & on request
+    Direction: Source, Sink
+29. What is Always pad ? example
+    >A>
+    An "always" pad is continuously active and available for data flow at all times. It allows data to flow
+    continuously from one element to another without any specific trigger.
+    e.g.
+      -- autovideosink - This plugin creates an "always" pad that continuously displays video on the screen.
+      -- autoaudiosink - An "always" pad that continuously plays audio.
+30. What is Sometimes/Dynamic pad ? Example.
+    >A>
+    A "sometimes" or dynamic pad is created or destroyed dynamically during runtime based on specific conditions
+    or events within the pipeline. It provides flexibility in the pipeline structure.
+    e.g.
+      -- tee - This plugin creates dynamic pads, allowing data to be split and sent to multiple branches
+               in the pipeline. The number of dynamic pads can change dynamically based on the runtime conditions.
+      -- queue2 - A dynamic pad that buffers data and allows for dynamic buffering and synchronization within the pipeline.
+31. What is On-Request pad ? Example.
+    >A>
+    An "on request" pad is initially inactive and requires a specific trigger, such as a function call or an event,
+    to activate it and start processing data. Data is generated or processed only when explicitly requested.
+    e.g.
+      -- appsrc - This plugin creates an "on request" pad that can be triggered to provide data from
+                  an application. It allows applications to push data into the GStreamer pipeline when required.
+      -- appsink - An "on request" pad that can be triggered to retrieve data from the GStreamer
+                   pipeline. It allows applications to pull data from the pipeline when needed.
+32. What is Ghost pad ?
+    >A> A pad from some element in the bin that can be accessed directly from the bin as well.
+33. Two types of communication control flow in GStreamer
+    >A>
+    1. Downstream : src element to sink element
+    2. Upstream: sink element to src element
+34. Types of GStreamer elements
+    >A>
+    1. Source: generates data
+    2. Filter: performs task on input data to send proper output data (convertors, demuxers, muxers, codecs etc)
+    3. Sink: receives data
+35. State of the elements
+    >A>
+    1. GST_STATE_NULL: default state; no resources are allocated in this state
+    2. GST_STATE_READY: an element has allocated all of its global resources within the stream, but the stream is NOT open yet.
+    3. GST_STATE_PAUSED: an element has opened the stream, but no actively processing it. (clock does NOT run)
+    4. GST_STATE_PLAYING: an element maintains the open stream while processing it. (clock starts)
+36. What are types of caps negotiation use cases for the source pads ?
+    >A>
+    1. Fixed negotiation: An element can output one format only.
+    2. Transform negotiation: There is a (fixed) transform between the input and output format of the
+       element, usually based on some element property. The caps that the element will produce depend
+       on the upstream caps and the caps that the element can accept depend on the downstream caps.
+    3. Dynamic negotiation: An element can output many formats.
+37. How does communication happen between plugin and application?
+38. What is difference between stream time and running time ?
+39. How can we inject data from outside world (another application) to GStreamer and vice versa ?
+40. What is pre-rolling
+41. Capture -> encoded -> stream-out how pre-rolling will be done?
+42. How Audio Video sync? and how clock is getting sync, sync=true?
+43. base time ? running time? stream time ?
+44. Latency  of pipeline?
+45. What is appsrc and appsink ?
+46. 720p I422 frame size ?
+47. What is need of tee element ? Please explain using sample pipeline.
+48. Difference between fakesink and fakevideosink
+49. PTS and DTS
+50. On pausing pipeline how is event propagated in pipeline ?
