@@ -330,9 +330,13 @@
     3. Sink: receives data
 35. State of the elements
     >A>
-    1. GST_STATE_NULL: default state; no resources are allocated in this state
-    2. GST_STATE_READY: an element has allocated all of its global resources within the stream, but the stream is NOT open yet.
-    3. GST_STATE_PAUSED: an element has opened the stream, but no actively processing it. (clock does NOT run)
+    1. GST_STATE_NULL: default state; no resources are allocated in this state, not loaded any
+       runtime libraries, and it can obviously not handle data.
+    2. GST_STATE_READY: an element has allocated all of its global/default resources(runtime-libraries,
+       runtime-memory) within the stream, but the stream is NOT open yet(it has not yet allocated
+       or defined anything that is stream-specific).
+    3. GST_STATE_PAUSED: an element has opened the stream, but no actively processing it.
+       (clock does NOT run) i.e. An element is ready to accept and handle data.
     4. GST_STATE_PLAYING: an element maintains the open stream while processing it. (clock starts)
 36. What are types of caps negotiation use cases for the source pads ?
     >A>
@@ -355,3 +359,29 @@
 48. Difference between fakesink and fakevideosink
 49. PTS and DTS
 50. On pausing pipeline how is event propagated in pipeline ?
+51. Which build system does GStreamer uses now ?
+    >A> Meson
+52. What is GStreamer mono repo ? In which GStreamer version it is available ?
+    >A>
+    - In September 2021 all of the main GStreamer modules were merged into a single code
+      repository, the GStreamer mono repo which lives in the main GStreamer git repository, and this
+      is where all GStreamer development happens nowadays for GStreamer version 1.19/1.20 and later.
+    - Before the mono repository merge the different GStreamer modules lived in separate git
+      repositories and there was a separate meta-builder project called gst-build to download and
+      build all the subprojects. This is what you should use if you want to build or develop against
+      older stable branches such as GStreamer 1.16 or 1.18
+53. What should an element do in GST_STATE_CHANGE_NULL_TO_READY & GST_STATE_CHANGE_READY_TO_NULL?
+    >A>
+    - When going from NULL to READY state (GST_STATE_CHANGE_NULL_TO_READY), an element should allocate
+      any non-stream-specific resources and should load runtime-loadable libraries (if any).
+    - When going the other way around (from READY to NULL, GST_STATE_CHANGE_READY_TO_NULL), an element
+      should unload these libraries and free all allocated resources.
+54. Is GST_STATE_PAUSED is same as playing state for sink elements? What does they do in
+    GST_STATE_PLAYING?
+    >A>
+    - No. GST_STATE_PAUSED is the state in which an element is ready to accept and handle/process data.
+      For most elements this state is the same as PLAYING. The only exception to this rule are sink elements.
+      Sink elements only accept one single buffer of data and then block. At this point the pipeline is
+      'prerolled' and ready to render data immediately.
+    - In GST_STATE_PLAYING? state, sink elements actually render incoming data, e.g. output audio to a
+      sound card or render video pictures to an image sink.

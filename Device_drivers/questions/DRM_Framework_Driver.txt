@@ -1,72 +1,363 @@
-1. DRM and KMS - Definition
+01. DRM and KMS - Definition
 >A>
     - DRM stands for Direct Rendering Manager and was introduced to deal with graphic cards embedding GPUs
     - KMS stands for Kernel Mode Setting and is a sub-part of the DRM API
     - KMS provide a way to configure the display pipeline of a graphic card (or an embedded system)
-2. How to display things in the Linux world ?
+02. DRM/KMS Framework introduction, uses, & offerings
 >A>
-    - FBDEV: Framebuffer Device
-    - DRM/KMS: Direct Rendering Manager / Kernel Mode Setting
-    - V4L2: Video for Linux 2
-3. How to choose one from above:
+    - The DRM/KMS framework is dedicated to the management of the display, graphic and composition subsystems.
+    - With the help of other Linux multimedia frameworks and applications, the DRM/KMS framework is typically used:
+	1. to compose animated contents taking advantages of the hardware acceleration.
+	2. to control both display interfaces and external displays including their settings (resolution, frequency, multi-screen...).
+	3. to display this animated contents on display panels or HDMI outputs.
+    - The DRM/KMS framework offers:
+	1. A kernel level interface driver for display, graphic and composition internal and external hardware peripherals.
+	2. A userland level interface, with the help of libdrm/libkms libraries, to get access to the related hardware
+	  features, configuration and hardware acceleration.
+03. How to display things in the Linux world ?
+>A>
+    1. FBDEV: Framebuffer Device
+    2. DRM/KMS: Direct Rendering Manager / Kernel Mode Setting
+    3. V4L2: Video for Linux 2
+04. How to choose one from above:
 >A>
     - Each subsytsem provides its own set of features
     - Different levels of complexity
     - Different levels of activity
-4. Why to choose DRM/KMS over other two ?
+05. Why to choose DRM/KMS over other two ?
 >A>
     - Actively maintained
     - Provides fine grained control on the display pipeline
     - Widely used by user-space graphic stacks
     - Provides a full set of advanced features
-5. Why not FBDEV ?
+06. Why not FBDEV ?
 >A>
     - Less actively maintained
     - Does not provides all the features we needed (overlays, hwcursor, ...)
     - Developers are now encouraged to move to DRM/KMS
-6. Why not V4L2 ?
+07. Why not V4L2 ?
     >A> Well suited for video capture and specific video output devices but not for ”complex” display controllers
-7. GPU vs. Graphics Card: What’s the Difference?
->A>
+08. GPU vs. Graphics Card: What’s the Difference?
+    >A>
     - While the terms GPU and graphics card (or video card) are often used interchangeably, there is a subtle
-    distinction between these terms. Much like a motherboard contains a CPU, a graphics card refers to an add-in board
-    that incorporates the GPU. This board also includes the raft of components required to both allow the GPU to
-    function and connect to the rest of the system.
+      distinction between these terms. Much like a motherboard contains a CPU, a graphics card refers to an add-in board
+      that incorporates the GPU. This board also includes the raft of components required to both allow the GPU to
+      function and connect to the rest of the system.
     - GPUs come in two basic types: integrated and discrete. An integrated GPU does not come on its own separate card
-    at all and is instead embedded alongside the CPU. A discrete GPU is a distinct chip that is mounted on its own
-    circuit board and is typically attached to a PCI Express slot.
-8. What is Framebuffer ?
-9. GEM and TTM - Memory Manager
->A>
+      at all and is instead embedded alongside the CPU. A discrete GPU is a distinct chip that is mounted on its own
+      circuit board and is typically attached to a PCI Express slot.
+09. What is Framebuffer ?
+10. GEM and TTM - Memory Manager
+    >A>
     - TTM stands for Translation Table Manager and is a generic memory-manager provided by the kernel.
-    It does not provide a common user-space API so you need to look at each driver interface if you want to use it.
-    See for instance the radeon manpages for more information on memory-management with radeon and TTM.
+      It does not provide a common user-space API so you need to look at each driver interface if you want to use it.
     - GEM stands for Graphics Execution Manager and is a generic DRM memory-management framework in the kernel,
-    that is used by many different drivers. Gem is designed to manage graphics memory, control access to the graphics
-    device execution context and handle essentially NUMA environment unique to modern graphics hardware. Gem allows multiple
-    applications to share graphics device resources without the need to constantly reload the entire graphics card.
-    Data may be shared between multiple applications with gem ensuring that the correct memory synchronization occurs.
-10. What is FourCC (Four character code) ?
-    >A> is a 4-byte identifier which specifies the format of a video stream
+      that is used by many different drivers. Gem is designed to manage graphics memory, control access to the graphics
+      device execution context and handle essentially NUMA environment unique to modern graphics hardware. Gem allows multiple
+      applications to share graphics device resources without the need to constantly reload the entire graphics card.
+      Data may be shared between multiple applications with gem ensuring that the correct memory synchronization occurs.
+11. What is FourCC (Four character code) ?
+    >A>
+    - It is a 4-byte identifier which specifies the format of a video stream
     - Every codec has its own unique FourCC. Commonly, each byte corresponds to a printable character in the ASCII
-    character set, making the sequence human-readable.
+      character set, making the sequence human-readable.
     - describes the memory buffer organization
-11. What is CRTC (CRT controller) ?
+12. What is CRTC (CRT controller) ?
+    >A>
     - Configure the appropriate display settings:
         Display timings
         Display resolution
     - Scan out frame buffer content to one or more displays
     - Update the frame buffer
     - Implemented through struct drm_crtc funcs and struct drm_crtc_helper funcs
+13. What is Hardware acceleration? definition
+    >A>
+    - Hardware acceleration refers to the use of specialized hardware components or techniques to
+      perform specific tasks or functions more efficiently than general-purpose software running on
+      a CPU (Central Processing Unit).
+    - It involves offloading computationally intensive or repetitive tasks to dedicated hardware
+      units designed to handle those tasks efficiently, resulting in improved performance and
+      reduced workload on the CPU.
+    - This can include things like rendering graphics, processing audio or video, compressing data,
+      encrypting or decrypting information, and running artificial intelligence algorithms.
+14. Architecture of DRM KMS
+    TODO: //Add diagram of DRM KMS 
+15. DRM/KMS Components(1/6): Framebuffer
+    >A>
+    - This is a standard object storing information about the content to be displayed
+    - Information stored
+	- References to memory regions used to store display content
+	- Format of the frames stored in memory
+	- Active area within the memory region (content that will displayed)
+    - DRM Framebuﬀer is a virtual object (relies on a speciﬁc implementation)
+    - Framebuﬀer implementation depends on:
+	- The memory manager in use (GEM or TTM)
+	- The display controller capabilities:
+	    - Supported DMA transfer types (Contiguous Memory or Scatter Gather)
+	    - IOMMU ( Inout Output Memory Management Unit)
+    - Default implementation available for GEM objects using CMA (Contiguous Memory Allocator):
+	drivers/gpu/drm/drm_fb_cma_helper.c
+    - Other implementations usually depend on the Display Controller:
+	Scatter Gather example: drivers/gpu/drm/tegra/
+	IOMMU example: drivers/gpu/drm/exynos/
+    Read Pages #12-#15 for more details: https://bootlin.com/pub/conferences/2014/elce/brezillon-drm-kms/brezillon-drm-kms.pdf
+16. DRM/KMS Components(2/6): CRTC
+    >A>
+    - CRTC stands for CRT Controller, though it’s not only related to CRT displays
+    - Conﬁgure the appropriate display settings:
+	- Display timings
+	- Display resolution
+    - Scan out frame buﬀer content to one or more displays
+    - Update the frame buﬀer
+    - Implemented through struct drm_crtc_funcs and struct drm_crtc_helper_funcs
+17. DRM/KMS Components(3/6): Plane
+    >A>
+    - A plane is an image layer (Be careful: not related to the planes referenced by a framebuﬀer).
+      It refers to a display hardware component that is responsible for composing and displaying a
+      specific image or video source on a screen.
+    - In modern graphics architectures, displays are typically composed of multiple layers or
+      planes. Each plane can represent a separate image or video source, such as a framebuffer or a
+      video overlay, and has its own properties, such as position, size, and format.
+    - The DRM KMS subsystem provides an interface for managing these planes. The planes are
+      associated with the CRTC (Cathode Ray Tube Controller), which represents the display
+      controller hardware. The CRTC controls the scanout process, determining how the pixel data
+      from the planes is mapped to the display output.
+    - The final image displayed by the CRTC is the composition of one or several planes.
+    - Planes in DRM KMS have various properties that can be configured, including the framebuffer
+      source, position on the screen, pixel format, scaling, blending, and other attributes. By
+      manipulating these properties, developers can control how different layers of content are
+      combined and displayed on the screen.
+    - Plane support implemented through struct drm_plane_funcs
+18. Different types of Planes in the context of DRM KMS:
+    >A>
+    1. DRM_PLANE_TYPE_PRIMARY (mandatory, 1 per CRTC)
+       - Used by the CRTC to store its frame buﬀer
+       - Typically used to display a background image or graphics content
+    2. DRM_PLANE_TYPE_CURSOR (optional, 1 per CRTC)
+       - Used to display a cursor (like a mouse cursor)
+    3. DRM_PLANE_TYPE_OVERLAY (optional, 0 to N per CRTC)
+	- Used to beneﬁt from hardware composition
+	- Typically used to display windows with dynamic content (like a video)
+	- In case of multiple CRTCs in the display controller, the overlay planes
+	  can often be dynamically attached to a speciﬁc CRTC when required
+19. DRM Major number in Linux is 226.
+20. struct drm_crtc_funcs
+    >A> To control CRTCs for a given device
 
+    The drm_crtc_funcs structure is the central CRTC management structure in the DRM.
+    Each CRTC controls one or more connectors (note that the name CRTC is simply historical,
+    a CRTC may control LVDS, VGA, DVI, TV out, etc. connectors, not just CRTs).
 
-Related Terms:
-    - GPU and Graphics card
-    - Framebuffer
-    - GEM (Graphics Execution Manager)
-    - TTM (Translation Table Manager )
-    - IOMMU ( Inout Output Memory Management Unit)
-    - FourCC (four-character code)
-    - RGB vs YUV vs C8(Uses a conversion table to map a value to an RGB tuple)
+    These functions provide the necessary functionality and operations for managing and controlling
+    the CRTC, including configuration, page flipping, gamma correction, properties, cursor handling,
+    CRC calculation, and atomic modesetting support.
 
+    Few important functions available in struct drm_crtc_funcs
+    .set_config - Sets the configuration for the CRTC.
+		  Update the frame buffer being scanned out.
+                  Configure the display mode: timings, resolution,
+		  Attach connectors/encoders to the CRTC
+    .page_flip - Performs a page flip operation, updating the CRTC with a new framebuffer.
+    .destroy - Destroys the CRTC, freeing associated resources.
+    .atomic_duplicate_state - Duplicates the state of the CRTC for atomic modesetting.
+    .atomic_destroy_state - Destroys the atomic state of the CRTC.
+    .atomic_set_property - Sets the value of a property associated with the CRTC for atomic modesetting.
+    .atomic_get_property - Retrieves the value of a property associated with the CRTC for atomic modesetting.
+    .gamma_set - Sets the gamma correction values for the CRTC.
+    .reset: Resets the state of the CRTC (Cathode Ray Tube Controller) to its default values.
+    .enable_vblank: Enables vertical blanking interrupts for the CRTC, allowing synchronization with the display's vertical refresh.
+    .disable_vblank: Disables vertical blanking interrupts for the CRTC, stopping synchronization with the display's vertical refresh.
 
+21. struct drm_crtc_helper_funcs
+    >A> helper operations for CRTCs
+
+    These hooks are used by the legacy CRTC helpers, the transitional plane helpers and the new
+    atomic modesetting helpers. These functions provide various essential operations and
+    functionalities for managing and controlling the CRTC. They handle tasks such as fixing up mode
+    parameters, setting display modes, preparing and committing mode settings, handling framebuffer
+    base address changes, managing DPMS state changes, and performing cleanup operations for the
+    CRTC helper
+
+    Few important functions available in struct drm_crtc_funcs
+    .mode_set_nofb - Sets the display mode for the CRTC without changing the framebuffer.
+    .atomic_disable - Disables the CRTC output.
+    .atomic_enable - Enables the CRTC output.
+    .atomic_check - Drivers should check plane-update related CRTC constraints in this hook.
+    .atomic_begin - Drivers should prepare for an atomic update of multiple planes on a CRTC in this hook.
+
+22. What is gamma correction ?
+    >A>
+    - Gamma correction, in the context of DRM KMS (Direct Rendering Manager Kernel Mode Setting),
+      refers to the adjustment of the brightness and contrast of a display to achieve more accurate
+      and consistent color reproduction.
+    - The gamma correction process involves manipulating the relationship between the input signal
+      and the corresponding output luminance of the display
+    - Gamma correction is typically performed using lookup tables (LUTs) that map input color values
+      to output color values. By adjusting the gamma values in the LUT, the display can compensate
+      for the non-linear gamma response curve and produce more accurate color reproduction.
+    - In the DRM KMS subsystem, the struct drm_crtc_funcs includes the .gamma_set function, which
+      allows setting the gamma correction values for a CRTC (Cathode Ray Tube Controller). This
+      function provides the interface to adjust the gamma correction parameters, enabling
+      fine-tuning of the display's brightness and contrast characteristics to achieve more accurate
+      color representation.
+23. struct drm_plane_funcs
+    >A>
+    - It represents a set of function pointers that define the operations and behavior of a DRM
+      plane. The functions defined within this structure are essential for managing and manipulating planes.
+    - Here are some of the important functions defined in struct drm_plane_funcs:
+      .update_plane: Updates the state of the plane with the new configuration.
+      .disable_plane: Disables or turns off the plane.
+      .atomic_get_property: Retrieves the value of a specific property associated with the plane during atomic commit.
+      .atomic_set_property: Sets the value of a specific property associated with the plane during atomic commit.
+      .destroy: Cleans up resources and performs necessary operations when the plane is being destroyed.
+      .reset: Resets the plane to its default state.
+      .atomic_duplicate_state: Duplicates the state of the plane during atomic commit.
+      .atomic_destroy_state: Destroys the state of the plane during atomic commit.
+24. DRM KMS Component(4/6): Connector
+    >A>
+    - Represent a display connector (HDMI, DP, VGA, DVI, ...)
+    - Transmit the signals to the display
+    - Detect display connection/removal
+    - Expose display supported modes
+    - Implemented through struct drm_connector_funcs and struct drm_connector_helper_funcs
+25. struct drm_connector_funcs
+    >A>
+    - Responsible for managing the physical connection between a graphics device and a display.
+    - Below are few important functions of the struct drm_connector_funcs:
+      .detect: Detects the presence of a display connected to the connector and updates its status accordingly.
+      .fill_modes: Populates the list of supported display modes for the connector.
+      .destroy: Cleans up resources and performs necessary operations when the connector is being destroyed.
+      .atomic_duplicate_state: Duplicates the state of the connector during atomic commit.
+      .atomic_destroy_state: Destroys the state of the connector during atomic commit.
+      .reset: Resets the state of the connector to its default values.
+      .atomic_set_property: Sets the value of a specific property associated with the connector during atomic commit.
+      .atomic_get_property: Retrieves the value of a specific property associated with the connector during atomic commit.
+      .dpms: Controls the Display Power Management Signaling (DPMS) state of the connector, allowing
+             for turning the display on/off or setting power-saving modes.
+26. Use of component_add() in device driver
+    >A>
+    - Used to register a component with the Linux kernel's Component Framework
+    - The Component Framework in Linux provides a mechanism for managing and interacting with
+      loadable kernel modules (LKMs) that encapsulate specific functionalities or features. It
+      allows drivers and other kernel components to declare their dependencies on other components
+      and ensures proper initialization and interaction between them.
+    - The component_add function is used by a driver to register itself as a component with the
+      Component Framework. By doing so, the driver specifies its dependencies and enables the
+      framework to handle the initialization, ordering, and interaction of components at runtime
+    - Read more @ https://docs.kernel.org/driver-api/component.html
+27. struct drm_connector_helper_funcs
+    >A>
+    - Assist in various aspects of connector handling and behavior
+    - Are used by the atomic and legacy modeset helpers and by the probe helpers
+    - Few important functions are:
+      .get_modes: Retrieves the supported display modes for the connector. It populates the list of
+	    available modes that the display can support.
+      .best_encoder: Determines the best encoder to be used for the connector. It helps in selecting
+	    the most suitable encoder based on the available options and requirements.
+      .mode_valid: Checks if a given display mode is valid and supported by the connector. This
+	    function validates whether the requested mode can be set on the display.
+28. DRM KMS Component(5/6): Encoder
+    >A>
+    - Directly related to the Connector concept
+    - Responsible for converting a frame into the appropriate format to be transmitted through the connector
+    - Example: HDMI connector is transmiting TMDS encoded data, and thus needs a TMDS encoder
+    - Implemented through struct drm_encoder_funcs and struct drm_encoder_helper_funcs
+    - Few important functions of struct drm_encoder_funcs:
+      .destroy: Cleans up resources and performs necessary operations when the encoder is being destroyed.
+    - Few important functions of struct drm_encoder_helper_funcs:
+      .enable: Enables the encoder, allowing it to start sending data to the connected display.
+      .disable: Disables the encoder, stopping the data transmission to the connected display.
+      .atomic_mode_set: Sets the display mode for the encoder during atomic commit.
+      .atomic_check: Validates the requested mode configuration for the encoder during atomic commit.
+29. DRM KMS Component(6/6): DRM device
+    >A>
+    - Responsible for aggregating the other components
+    - Device exposed to userspace (handles all user-space requests)
+    - Implemented through struct drm_driver
+    - Call drm_dev_alloc() then drm_dev_register() to register a DRM device
+    - driver_features should contain DRIVER_MODESET, DRIVER_ATOMIC, DRIVER_GEM or both depending on the DRM device features
+30. "Bridge" - In the context of DRM KMS
+    >A>
+    - In the context of DRM (Direct Rendering Manager) KMS (Kernel Modesetting), a bridge refers to
+      a hardware component or module that acts as an intermediary between a graphics controller
+      (GPU) and a display device. It is responsible for converting the display data from the GPU
+      into a format compatible with the specific display device.
+    - Bridges are commonly used in scenarios where the display device and the GPU have different
+      signaling or data formats. They facilitate the connection and communication between the GPU
+      and the display device by performing necessary conversions, protocol translations, and signal
+      adaptations.
+    - Some common types of bridges used in DRM KMS include:
+      1. DisplayPort (DP) Bridges: These bridges enable connectivity between a GPU with a
+         DisplayPort output and display devices with different interfaces, such as HDMI or VGA. They
+         handle the necessary protocol conversions and signal adaptations to ensure compatibility.
+      2. HDMI Bridges: HDMI bridges are used when there is a need to connect a GPU with an HDMI
+         output to display devices with different interfaces, such as DisplayPort or DVI. These bridges
+         handle the conversion and adaptation of HDMI signals to the target interface.
+      3. DVI Bridges: DVI bridges serve a similar purpose as HDMI bridges, allowing the connection
+         between a GPU with a DVI output and display devices with different interfaces.
+    - The presence of bridges in DRM KMS enables the utilization of a wide range of display devices
+      with different interfaces and signal requirements. They provide the necessary hardware-level
+      conversions to ensure compatibility and enable seamless communication between the GPU and the
+      display device.
+31. "Encoder Slave" - In the context of DRM KMS
+    >A>
+    - In the context of DRM (Direct Rendering Manager) KMS (Kernel Modesetting), an encoder slave
+      refers to an auxiliary encoder that operates in conjunction with a primary encoder. The
+      primary encoder is responsible for generating the display data, while the encoder slave
+      assists in transmitting or encoding the data to a specific output or display device.
+    - The concept of an encoder slave is primarily used in scenarios where a single GPU (Graphics
+      Processing Unit) has multiple display outputs, each requiring its own dedicated encoder. The primary
+      encoder handles the primary display output, while the encoder slave(s) handle additional display
+      outputs.
+    - The encoder slave operates under the control of the primary encoder and is typically associated with
+      a specific output interface, such as HDMI, DisplayPort, or DVI. It performs the necessary signal
+      encoding and formatting tasks specific to that output interface.
+    - The primary encoder coordinates the overall operation and configuration of both the primary display
+      output and the encoder slave(s). It determines the display data to be sent to each encoder, manages
+      their synchronization, and ensures proper functioning of the multiple display outputs.
+    - By utilizing encoder slaves, DRM KMS enables the support of multiple display outputs from a single
+      GPU, allowing for multi-monitor configurations or driving multiple display devices simultaneously.
+      This capability is crucial in modern computing systems where the demand for multiple displays is
+      common, such as in desktop workstations or multi-screen setups
+32. "DPMS" - In the context of DRM KMS
+    >A>
+    - DPMS stands for Display Power Management Signaling. It refers to a feature that allows control over
+      the power state of a display or monitor connected to a graphics device.
+    - DPMS provides mechanisms to control the display's power modes, including turning the display on or
+      off, and activating power-saving modes such as standby, suspend, or power-off. By controlling the
+      power state of the display, DPMS helps conserve energy, extend the display's lifespan, and manage
+      power consumption in the system.
+    - In DRM KMS, the DPMS feature is typically handled through the dpms function pointer within the
+      struct drm_connector_helper_funcs structure. This function is responsible for controlling the power
+      state of the display associated with the DRM connector.
+    - When the DPMS state is changed, the dpms function is called, allowing the driver to perform the
+      necessary operations to control the power state of the display. For example, when DPMS is set to
+      "off," the driver may turn off the display's backlight or put it into a low-power mode. When DPMS is
+      set to "on," the driver may turn on the display and restore it to its previous state.
+    - The DPMS feature is typically used to implement power-saving functionality in desktop environments
+      or to respond to user-defined power management settings. It enables the operating system or the user
+      to control the display's power state based on inactivity or specific power management policies.
+    - Overall, DPMS in DRM KMS provides a standardized mechanism for controlling the power state of
+      displays connected to a graphics device, allowing for power conservation and efficient
+      management of display resources.
+33. "EDID(Extended Display Identification Data)" - In the context of DRM KMS
+    >A>
+    - EDID in DRM KMS refers to the standardized data format that provides detailed information about a
+      display device. It is used by the graphics driver to identify and configure the display device
+      properly, ensuring optimal display settings and plug-and-play functionality.
+    - EDID is stored in a small EEPROM chip embedded in the display device. It contains vital
+      information such as the display's supported resolutions, refresh rates, color capabilities,
+      aspect ratios, and audio capabilities. Additionally, it may provide information about the
+      display's manufacturer, model, serial number, and supported display timings.
+    - The graphics driver, using the DRM KMS subsystem, retrieves the EDID data from the display
+      device during the initialization process. The EDID information allows the driver to accurately
+      identify and configure the display device according to its capabilities.
+    - The DRM KMS subsystem uses the EDID data to determine the best display mode and timing that is
+      compatible with both the display device and the graphics driver. It ensures that the display
+      device is driven at its optimal settings, including the correct resolution, refresh rate, and
+      color depth.
+    - The EDID data is crucial in enabling plug-and-play functionality, as it provides the necessary
+      information for the graphics driver to automatically detect and configure the display device
+      without manual intervention. It allows the system to adapt to different display devices and
+      ensures optimal compatibility between the graphics driver and the display
+34. 

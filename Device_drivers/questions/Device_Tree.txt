@@ -96,4 +96,4 @@
     >A> https://elinux.org/Device_Tree_Mysteries#Interrupt_Nexus_.2F_Interrupt_Mapping
 26. Nexus node and specifier mapping
     >A> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#nexus-nodes-and-specifier-mapping
-
+27. Why Kernel developers moved to YAML format for device tree binding documentation ? What are the probable reasons ?

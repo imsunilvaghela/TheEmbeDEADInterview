@@ -10,7 +10,8 @@
 4. Progressive vs Interlaced scanning
 5. Chrominance and luminance
 6. What are various image formats? What are 4:4:4, 4:2:2 etc. Sampling ?
-7. What are different color spaces like RGB, YUV ? How would YUV pixel values look like for a green, blue, red, black and white color pixels for suppose 8 bit per color space?
+7. What are different color spaces like RGB, YUV ? How would YUV pixel values look like for a green,
+   blue, red, black and white color pixels for suppose 8 bit per color space?
 8. What is difference between planar, semiplanar and multiplanar ?
   >A>
    - https://stackoverflow.com/questions/22215484/what-is-difference-between-planar-semi-planar-and-interleaved-format
@@ -32,9 +33,48 @@
 14. What's the purpose of encoding & decoding video?
 15. What is stride in video ?
     >A>
-    The stride or pitch is the number of bytes from the first pixel of a line to the first pixel of the next line of video. In the simplest case, the stride equals the width multiplied by the bits per pixel, converted to bytes. For example, AR24 requires 32 BPP which is four bytes per pixel.
+    The stride or pitch is the number of bytes from the first pixel of a line to the first pixel of
+    the next line of video. In the simplest case, the stride equals the width multiplied by the bits
+    per pixel, converted to bytes. For example, AR24 requires 32 BPP which is four bytes per pixel.
     A video buffer with an active area of 1920 x 1080 pixels therefore has a stride of 4 x 1920 = 7,680 bytes.
 16. What is PSNR (peak signal-to-noise ratio)  ?
 17. HDR/HDR10, HDR10+, HLG
 18. Advantage of yuv over RGB format
-
+19. What is VSync (Vertical sync) in the context of video bus timing diagram?
+    >A>
+    The synchronization signal that marks the end of a frame and the beginning of the next frame
+    vertically. It helps maintain proper timing and synchronization between the display and the
+    video source
+20. What is HSync (Horizontal sync) in the context of video bus timing diagram?
+    >A>
+    The synchronization signal that marks the end of a line and the beginning of the next line
+    horizontally within a frame. It ensures proper scanning and synchronization of the video signal
+21. What is VActive (Vertical active) in the context of video bus timing diagram?
+    >A>
+    The portion of a frame where the actual image or content is displayed vertically. It represents
+    the height of the visible area on the screen where the video or graphics are actively displayed
+22. What is HActive (Horizontal active) in the context of video bus timing diagram?
+    >A>
+    The portion of a line where the actual image or content is displayed horizontally. It represents
+    the width of the visible area on the screen where the video or graphics are actively displayed.
+23. What is VBlank (Vertical blank) in the context of video bus timing diagram?
+    >A>
+    The period between frames where no content is displayed vertically. It occurs after the VActive
+    portion and provides time for the display to reset, perform any necessary adjustments, and
+    prepare for the next frame
+24. What is HBlank (Horizontal blank) in the context of video bus timing diagram?
+    >A>
+    The period between lines where no content is displayed horizontally. It occurs after the HActive
+    portion within each line and allows time for the display to reset and prepare for the next line
+25. Front Porch & Back Porch
+    >A>
+    - The back porch is the interval in a video signal that follows the active display area (HActive
+      or VActive) and precedes the synchronization signal (HSync or VSync). It represents a blanking
+      period where no video information is transmitted.
+    - During the back porch, the display hardware
+      typically performs tasks such as resetting or adjusting for the next line or frame.
+    - The front porch is the interval in a video signal that precedes the active display area
+      (HActive or VActive) and follows the synchronization signal (HSync or VSync). Similar to
+      the back porch, it also represents a blanking period.
+    - During the front porch, the display hardware prepares for the next line or frame, such as adjusting
+      circuitry or stabilizing voltages.

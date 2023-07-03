@@ -260,3 +260,5 @@
     An entry point is a function within a device driver that can be called by an external entity to
     get access to some driver functionality or to operate a device. Each device driver provides a standard
     set of functions as entry points
+95. Write a sample platform driver template which enables driver to probe from the compatible string
+    matched from relevant device-tree node.

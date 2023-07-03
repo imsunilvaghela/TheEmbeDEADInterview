@@ -366,3 +366,37 @@
 343. What is Real time clock (RTC).
 344. How busy looping is implemented in linux.
 345. What are likely() and unlikely() macros in Kernel.
+346. What do you understand by all APIs in linux kernel which are starting with atomic_* ?
+>A>
+    - In the context of Linux kernel APIs, the term "atomic" refers to an operation or function that
+      is guaranteed to execute without interruption, providing mutual exclusion or indivisibility of
+      certain operations. Atomic operations are designed to ensure consistency and prevent race
+      conditions in concurrent or multi-threaded programming environments.
+
+    - Atomic operations typically provide the following guarantees:
+      1. Indivisibility: An atomic operation appears to occur instantaneously and cannot be interrupted
+         by other concurrent operations. It either completes entirely or not at all.
+      2. Mutual Exclusion: Atomic operations provide mutual exclusion, ensuring that only one thread or
+         process can perform the operation at a time. This prevents race conditions and ensures data consistency.
+      3. Ordering Constraints: Atomic operations can also impose ordering constraints on memory accesses.
+         They ensure that memory operations performed before or after the atomic operation are correctly
+	 ordered with respect to other threads or processes.
+347. Can you explain wait_event_interruptible_timeout() API of Linux Kernel ?
+>A>
+    - The wait_event_interruptible_timeout function is a blocking wait function provided by the
+      Linux kernel. It is commonly used in device drivers and other kernel code to wait for a
+      certain condition to be satisfied, with a specified timeout period.
+    - The purpose of wait_event_interruptible_timeout is to put the calling process or thread to
+      sleep until the specified condition becomes true or until a specified timeout period elapses.
+      It allows the process or thread to wait in a sleep state, conserving CPU resources, until the
+      condition is met or the timeout occurs.
+    - The function takes two parameters: a wait queue condition to wait for and a timeout value. The
+      wait queue condition is typically a predicate that evaluates to true when the desired
+      condition is satisfied. The timeout value specifies the maximum time in which the
+      process/thread is willing to wait for the condition to be met.
+    - During the waiting period, the process/thread can be woken up by a signal, allowing it to be
+      interrupted and resume execution. This is indicated by the return value of wait_event_interruptible_timeout,
+      which can indicate whether the condition was satisfied or a timeout occurred.
+    - It is useful in scenarios where a driver or kernel code needs to wait for a certain event or
+      condition to occur before proceeding. It provides a way to efficiently wait for a condition
+      while still allowing the process/thread to be responsive to signals and timeouts

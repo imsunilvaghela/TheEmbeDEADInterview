@@ -1,87 +1,214 @@
-01. Describe the different types of GStreamer plugins and their functionalities.
-02. How do plugins extend the capabilities of GStreamer? Provide examples.
-03. Have you developed custom GStreamer plugins? If so, describe the process and challenges faced.
-04. Discuss the different types of GStreamer plugins and their functionalities 
-    (such as source, sink, filter, codec, and element-specific plugins).
-05. Explain the concept of GStreamer's plugin API and its key components
-    (such as plugin initialization, plugin metadata, and plugin features).
-06. Describe the process of creating a custom GStreamer plugin and the necessary steps involved.
-07. What are the common challenges faced during GStreamer plugin development and how do you overcome them?
-08. How do GStreamer plugins extend the capabilities of the framework?
-    Provide examples of plugins that enhance GStreamer functionality.
-09. Discuss the role of GStreamer's element factories in creating and managing instances of plugins.
-10. Explain the concept of GStreamer's pad templates and how they define the capabilities and properties of plugin pads.
-11. What are some techniques for optimizing and improving the performance of GStreamer plugins?
-12. Describe your experience in developing custom GStreamer plugins. What functionalities did they provide?
-13. How do GStreamer plugins handle media data processing, such as encoding, decoding, filtering, or other transformations?
-14. Discuss the concept of GStreamer's dynamic loading mechanism and how it enables the use of plugins at runtime.
-15. What debugging techniques or tools do you use for troubleshooting issues in GStreamer plugins?
-16. Describe your approach to testing and validating GStreamer plugins, including unit testing and functional testing.
-17. Have you contributed to the GStreamer open-source community by developing or maintaining plugins? Share your experience.
-18. Explain the GStreamer plugin API and its key elements.
-19. How do you handle data flow and processing within a custom GStreamer plugin?
-20. What are some techniques for optimizing and improving the performance of a GStreamer plugin?
-21. What is the purpose of the GStreamer plugin registry and how does it manage the available plugins?
-22. Describe the process of installing and registering a custom GStreamer plugin.
-23. What are the advantages and disadvantages of developing a GStreamer plugin in C compared to other languages?
-24. Discuss the role of GStreamer's element factories in creating instances of plugins and managing their properties.
-25. Explain the concept of GStreamer's pad linking and how it enables data flow between different elements.
-26. How do you handle plugin dependencies in GStreamer? Discuss any experience you have with resolving plugin dependency issues.
-27. Describe your experience with implementing custom element properties in GStreamer plugins.
-28. What techniques do you use to ensure backward compatibility of GStreamer plugins across different versions of the framework?
-29. Explain the process of negotiating media formats between plugins in a GStreamer pipeline.
-30. Discuss the concept of GStreamer's base classes and how they can be utilized in plugin development.
-31. Describe your approach to optimizing GStreamer plugins for better performance and efficiency.
-32. Have you worked with GStreamer's audio or video codec plugins? Share your experience.
-33. How do you handle error handling and recovery in GStreamer plugins?
-    Provide examples of error handling techniques you have implemented.
-34. Discuss the concept of GStreamer's clocking system and how it is utilized in plugin development.
-35. Explain the purpose and usage of GStreamer's metadata and tags in plugin development.
-36. Describe your experience with developing GStreamer plugins for specific hardware or platform requirements.
-37. How do GStreamer plugins handle synchronization between audio and video streams?
-38. Discuss the role of GStreamer's element messages in plugin communication and control.
-39. Explain the process of handling dynamic configuration changes in GStreamer plugins.
-40. What are the best practices for memory management in GStreamer plugin development?
-41. Describe the role of GStreamer's base classes and interfaces in plugin development.
-42. How do you handle timestamping and synchronization of data in GStreamer plugins?
-43. Explain the concept of GStreamer's event system and its usage in plugin development.
-44. Have you implemented custom serialization and deserialization logic in GStreamer plugins?
-    Discuss your experience.
-45. Describe your experience with implementing custom pad probes in GStreamer plugins.
-46. How do you handle resource allocation and deallocation in GStreamer plugins?
-47. Discuss the role of GStreamer's buffer pool in managing media data in plugins.
-48. Explain the concept of GStreamer's dynamic pipelines and how plugins can be dynamically added or removed.
-49. Describe the process of adding support for new media formats or codecs in GStreamer plugins.
-50. How do GStreamer plugins handle synchronization across different threads or processes?
-51. Discuss the concept of GStreamer's plugin states and how they impact the behavior of plugins.
-52. Describe your experience with developing GStreamer plugins for streaming applications.
-53. Explain the purpose and usage of GStreamer's element queries in plugin development.
-54. Discuss the role of GStreamer's typefind element in automatically detecting media formats in plugins.
-55. How do you handle interoperability between GStreamer plugins and other multimedia frameworks or libraries?
-56. Describe the process of debugging and profiling GStreamer plugins for performance optimization.
-57. Explain the concept of GStreamer's plugin metadata and how it provides information about plugins.
-58. Have you implemented custom buffer manipulation or processing algorithms in GStreamer plugins? Share your experience.
-59. Discuss the role of GStreamer's plugin features and how they enable runtime plugin selection and configuration.
-60. How do GStreamer plugins handle seeking operations within a media stream?
-61. Explain the purpose and usage of GStreamer's element states and how plugins respond to state changes.
-62. Describe your experience with developing GStreamer plugins for real-time audio or video processing applications.
-63. How do GStreamer plugins handle inter-plugin communication and data sharing?
-64. Discuss the concept of GStreamer's preset handling and how it can be utilized in plugin development.
-65. Explain the process of adding support for hardware acceleration in GStreamer plugins.
-66. Describe your experience with implementing custom sink or source plugins in GStreamer.
-67. How do GStreamer plugins handle resource sharing and synchronization in a multi-instance environment?
-68. Discuss the role of GStreamer's element base classes in providing common functionality for plugins.
-69. Explain the concept of GStreamer's plugin rank system and how it influences the plugin selection process.
-70. Describe your approach to testing GStreamer plugins, including unit testing and integration testing.
-71. How do GStreamer plugins handle data rate control and buffering?
-72. Discuss the concept of GStreamer's dynamic parameters and how they can be used in plugin development.
-73. Explain the purpose and usage of GStreamer's plugin metadata file and how it provides information about plugins.
-74. Describe your experience with developing GStreamer plugins for multimedia streaming protocols (e.g., RTP, RTSP).
-75. How do GStreamer plugins handle data serialization and deserialization for network transmission?
-76. Discuss the concept of GStreamer's plugin load time optimization techniques (e.g., lazy loading, fastpath optimization).
-77. Explain the purpose and usage of GStreamer's profiling and tracing tools in plugin development.
-78. Describe your experience with implementing custom media format negotiation strategies in GStreamer plugins.
-79. How do GStreamer plugins handle dynamic bitrate adaptation and quality control?
-80. Discuss the role of GStreamer's plugin documentation and how it helps developers in plugin integration and usage.
-81. Assume you have developed a plugin. Now, on what basis you decide its location in gstreamer
-    plugins repositories: which are gst-plugins-good, *-bad, *-base, *-ugly etc.
+01. Two ways to develop a new GStreamer plugin
+    >A>
+    - You can write the entire plugin by hand, or
+    - You can copy an existing plugin template and write the plugin code you need (which is
+      gst-template git repository)
+02. What is boilerplate with respect to GStreamer plugin?
+    >A>
+    The first thing to do when making a new element is to specify some basic details about it: what
+    its name is, who wrote it, what version number it is, etc. We also need to define an object to
+    represent the element and to store the data the element needs. These details are collectively
+    known as the boilerplate.
+03. How to create boilerplate code for GStreamer plugin? Is there any tool available for it ? where
+    does it resides? How to use that tool ?
+    >A>
+    The standard way of defining the boilerplate is simply to write some code, and fill in some
+    structures. The easiest way to do this is to copy a template and add functionality according to your
+    needs. To help you do so, there is a tool in the ./gst-plugin/tools/ directory.
+
+    This tool, make_element, is a command line utility that
+    creates the boilerplate code for you.
+
+    To use make_element, first open up a terminal window. Change to the gst-template/gst-plugin/src directory,
+    and then run the make_element command. The arguments to the make_element are:
+     - the name of the plugin, and
+     - the source file that the tool will use. By default, gstplugin is used.
+
+     For example, the following commands create the MyFilter plugin based on the plugin template and
+     put the output files in the gst-template/gst-plugin/src directory:
+      $ cd gst-template/gst-plugin/src
+      $ ../tools/make_element MyFilter
+      The last command creates two files: gstmyfilter.c and gstmyfilter.h.
+04. What are GST_ELEMENT_REGISTER_DEFINE and GST_ELEMENT_REGISTER_DECLARE macros?
+    >A>
+    The macro GST_ELEMENT_REGISTER_DEFINE in combination with GST_ELEMENT_REGISTER_DECLARE allows to
+    register the element from within the plugin or from any other plugin/application by calling
+    GST_ELEMENT_REGISTER (your_plugin).
+    e.g. GST_ELEMENT_REGISTER_DECLARE(your_plugin)
+	 G_DEFINE_TYPE (GstYourPlugin, gst_your_plugin, GST_TYPE_ELEMENT);
+	 GST_ELEMENT_REGISTER_DEFINE(your_plugin, "your-plugin", GST_RANK_NONE, GST_TYPE_YOUR_PLUGIN)
+05. Example code to add static sink pad template to your plugin
+    >A>
+    static GstStaticPadTemplate sink_factory =
+    GST_STATIC_PAD_TEMPLATE (
+      "sink",
+      GST_PAD_SINK,
+      GST_PAD_ALWAYS,
+      GST_STATIC_CAPS ("ANY")
+    );
+
+    static void
+    gst_your_plugin_class_init (GstYourPLuginClass * klass)
+    {
+	GstElementClass *element_class = GST_ELEMENT_CLASS (klass);
+	gst_element_class_add_pad_template (element_class,
+        gst_static_pad_template_get (&sink_factory));
+    }
+06. Create a static sink pad template for below example:
+    - An audio filter that supports raw integer 16-bit audio, mono or stereo at any sample-rate.
+    >A>
+    static GstStaticPadTemplate sink_factory =
+    GST_STATIC_PAD_TEMPLATE (
+      "sink",
+      GST_PAD_SINK,
+      GST_PAD_ALWAYS,
+      GST_STATIC_CAPS (
+        "audio/x-raw, "
+          "format = (string) " GST_AUDIO_NE (S16) ", "
+          "channels = (int) { 1, 2 }, "
+          "rate = (int) [ 8000, 96000 ]"
+      )
+    );
+    In which, Values surrounded by curly brackets (“{” and “}”) are lists, values surrounded by
+    square brackets (“[” and “]”) are ranges. Multiple sets of types are supported too, and should
+    be separated by a semicolon (“;”).
+07. Which are two Constructor Functions of any element in GStreamer ?
+    >A>
+    Each element has two functions which are used for construction of an element:
+    - The _class_init() function, which is used to initialise the class only once (specifying what
+      signals, arguments and virtual functions the class has and setting up global state);
+    - And the _init() function, which is used to initialise a specific instance of this type.(It initialize
+      the new element, instantiate pads and add them to element, set pad callback functions, initialize
+      instance structure)
+08. What is GST_PAD_SET_PROXY_CAPS ? and what is the condition to use that ?
+    >A>
+    #define GST_PAD_SET_PROXY_CAPS(pad) (GST_OBJECT_FLAG_SET (pad, GST_PAD_FLAG_PROXY_CAPS))
+
+    - Using it, all caps-related events and queries are proxied down- or upstream to
+      the other side of the element automatically.
+    - Set this if the element always outputs data in the exact same format as it
+      receives as input. This is just for convenience to avoid implementing some
+      standard event and query handling code in an element.
+09. What is role of <plugin_name>_init function in the plugin?
+    >A>
+    This is a special function, which is called as soon as the plugin is loaded, and should return
+    TRUE or FALSE depending on whether it loaded initialized any dependencies correctly.
+    Also, in this function, any supported element type in the plugin should be registered.
+    in brief, it
+    - Is entry point to initialize the plug-in
+    - Initialize the plug-in itself
+    - Register the element factories and other features
+10. What does *_chain function do in the plugin? How you can register it?
+    >A>
+    - The chain function is the function in which all data processing takes place.
+    - You can register it using gst_pad_set_chain_function()
+      e.g. gst_pad_set_chain_function (filter->sinkpad, gst_your_plugin_chain);
+11. What does *_event function do in the plugin? How to register it?
+    >A>
+    - The event function notifies you of special events that happen in the datastream (such as caps,
+      end-of-stream, newsegment, tags, etc.).
+    - Events can travel both upstream and downstream, so you can receive them on sink pads as well
+      as source pads.
+    - You can register it using gst_pad_set_event_function()
+      e.g. gst_pad_set_event_function (filter->sinkpad, gst_your_plugin_sink_event);
+12. What gst_pad_event_default() do, and when to use it?
+    >A>
+    - In case of *_event function, it is a good idea to call the default event handler
+      gst_pad_event_default () for unknown events.
+    - Depending on the event type, the default handler will forward the event or simply unref it.
+13. What is role of *_query function in the plugin? How to register it?
+    >A>
+    - Through the query function, your element will receive queries that it has to reply to. These are
+      queries like position, duration but also about the supported formats and scheduling modes your
+      element supports.
+    - Queries can travel both upstream and downstream, so you can receive them on sink pads as well
+      as source pads.
+    - You can register it using gst_pad_set_query_function()
+      e.g. gst_pad_set_query_function (filter->srcpad, gst_your_plugin_src_query);
+14. Describe the different types of GStreamer plugins and their functionalities.
+15. How do plugins extend the capabilities of GStreamer? Provide examples.
+16. Have you developed custom GStreamer plugins? If so, describe the process and challenges faced.
+17. Discuss the different types of GStreamer plugins and their functionalities 
+18. (such as source, sink, filter, codec, and element-specific plugins).
+19. Explain the concept of GStreamer's plugin API and its key components
+20. (such as plugin initialization, plugin metadata, and plugin features).
+21. Describe the process of creating a custom GStreamer plugin and the necessary steps involved.
+22. What are the common challenges faced during GStreamer plugin development and how do you overcome them?
+23. How do GStreamer plugins extend the capabilities of the framework?
+24. Provide examples of plugins that enhance GStreamer functionality.
+25. Discuss the role of GStreamer's element factories in creating and managing instances of plugins.
+26. Explain the concept of GStreamer's pad templates and how they define the capabilities and properties of plugin pads.
+27. What are some techniques for optimizing and improving the performance of GStreamer plugins?
+28. Describe your experience in developing custom GStreamer plugins. What functionalities did they provide?
+29. How do GStreamer plugins handle media data processing, such as encoding, decoding, filtering, or other transformations?
+30. Discuss the concept of GStreamer's dynamic loading mechanism and how it enables the use of plugins at runtime.
+31. What debugging techniques or tools do you use for troubleshooting issues in GStreamer plugins?
+32. Describe your approach to testing and validating GStreamer plugins, including unit testing and functional testing.
+33. Have you contributed to the GStreamer open-source community by developing or maintaining plugins? Share your experience.
+34. Explain the GStreamer plugin API and its key elements.
+35. How do you handle data flow and processing within a custom GStreamer plugin?
+36. What are some techniques for optimizing and improving the performance of a GStreamer plugin?
+37. What is the purpose of the GStreamer plugin registry and how does it manage the available plugins?
+38. Describe the process of installing and registering a custom GStreamer plugin.
+39. What are the advantages and disadvantages of developing a GStreamer plugin in C compared to other languages?
+40. Discuss the role of GStreamer's element factories in creating instances of plugins and managing their properties.
+41. Explain the concept of GStreamer's pad linking and how it enables data flow between different elements.
+42. How do you handle plugin dependencies in GStreamer? Discuss any experience you have with resolving plugin dependency issues.
+43. Describe your experience with implementing custom element properties in GStreamer plugins.
+44. What techniques do you use to ensure backward compatibility of GStreamer plugins across different versions of the framework?
+45. Explain the process of negotiating media formats between plugins in a GStreamer pipeline.
+46. Discuss the concept of GStreamer's base classes and how they can be utilized in plugin development.
+47. Describe your approach to optimizing GStreamer plugins for better performance and efficiency.
+48. Have you worked with GStreamer's audio or video codec plugins? Share your experience.
+49. How do you handle error handling and recovery in GStreamer plugins?
+50. Provide examples of error handling techniques you have implemented.
+51. Discuss the concept of GStreamer's clocking system and how it is utilized in plugin development.
+52. Explain the purpose and usage of GStreamer's metadata and tags in plugin development.
+53. Describe your experience with developing GStreamer plugins for specific hardware or platform requirements.
+54. How do GStreamer plugins handle synchronization between audio and video streams?
+55. Discuss the role of GStreamer's element messages in plugin communication and control.
+56. Explain the process of handling dynamic configuration changes in GStreamer plugins.
+57. What are the best practices for memory management in GStreamer plugin development?
+58. Describe the role of GStreamer's base classes and interfaces in plugin development.
+59. How do you handle timestamping and synchronization of data in GStreamer plugins?
+60. Explain the concept of GStreamer's event system and its usage in plugin development.
+61. Have you implemented custom serialization and deserialization logic in GStreamer plugins?
+62. Discuss your experience.
+63. Describe your experience with implementing custom pad probes in GStreamer plugins.
+64. How do you handle resource allocation and deallocation in GStreamer plugins?
+65. Discuss the role of GStreamer's buffer pool in managing media data in plugins.
+66. Explain the concept of GStreamer's dynamic pipelines and how plugins can be dynamically added or removed.
+67. Describe the process of adding support for new media formats or codecs in GStreamer plugins.
+68. How do GStreamer plugins handle synchronization across different threads or processes?
+69. Discuss the concept of GStreamer's plugin states and how they impact the behavior of plugins.
+70. Describe your experience with developing GStreamer plugins for streaming applications.
+71. Explain the purpose and usage of GStreamer's element queries in plugin development.
+72. Discuss the role of GStreamer's typefind element in automatically detecting media formats in plugins.
+73. How do you handle interoperability between GStreamer plugins and other multimedia frameworks or libraries?
+74. Describe the process of debugging and profiling GStreamer plugins for performance optimization.
+75. Explain the concept of GStreamer's plugin metadata and how it provides information about plugins.
+76. Have you implemented custom buffer manipulation or processing algorithms in GStreamer plugins? Share your experience.
+77. Discuss the role of GStreamer's plugin features and how they enable runtime plugin selection and configuration.
+78. How do GStreamer plugins handle seeking operations within a media stream?
+79. Explain the purpose and usage of GStreamer's element states and how plugins respond to state changes.
+80. Describe your experience with developing GStreamer plugins for real-time audio or video processing applications.
+81. How do GStreamer plugins handle inter-plugin communication and data sharing?
+82. Discuss the concept of GStreamer's preset handling and how it can be utilized in plugin development.
+83. Explain the process of adding support for hardware acceleration in GStreamer plugins.
+84. Describe your experience with implementing custom sink or source plugins in GStreamer.
+85. How do GStreamer plugins handle resource sharing and synchronization in a multi-instance environment?
+86. Discuss the role of GStreamer's element base classes in providing common functionality for plugins.
+87. Explain the concept of GStreamer's plugin rank system and how it influences the plugin selection process.
+88. Describe your approach to testing GStreamer plugins, including unit testing and integration testing.
+89. How do GStreamer plugins handle data rate control and buffering?
+90. Discuss the concept of GStreamer's dynamic parameters and how they can be used in plugin development.
+91. Explain the purpose and usage of GStreamer's plugin metadata file and how it provides information about plugins.
+92. Describe your experience with developing GStreamer plugins for multimedia streaming protocols (e.g., RTP, RTSP).
+93. How do GStreamer plugins handle data serialization and deserialization for network transmission?
+94. Discuss the concept of GStreamer's plugin load time optimization techniques (e.g., lazy loading, fastpath optimization).
+95. Explain the purpose and usage of GStreamer's profiling and tracing tools in plugin development.
+96. Describe your experience with implementing custom media format negotiation strategies in GStreamer plugins.
+97. How do GStreamer plugins handle dynamic bitrate adaptation and quality control?
+98. Discuss the role of GStreamer's plugin documentation and how it helps developers in plugin integration and usage.
+99. Assume you have developed a plugin. Now, on what basis you decide its location in gstreamer plugins
+    repositories: which are gst-plugins-good, *-bad, *-base, *-ugly etc.
