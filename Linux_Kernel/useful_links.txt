@@ -1,0 +1,6 @@
+DMA:
+- https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/DMA-API-HOWTO.txt
+- https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/DMA-API.txt
+- https://lwn.net/Articles/396702/
+- https://lwn.net/Articles/486301/
+- https://www.brainkart.com/article/DMA-controller-models_7674/

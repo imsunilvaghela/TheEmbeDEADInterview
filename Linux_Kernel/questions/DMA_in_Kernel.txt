@@ -1,0 +1,40 @@
+01. What is DMA in the context of the Linux kernel?
+02. How does DMA work in the Linux kernel?
+03. Explain the purpose of DMA in a computer system.
+04. What are the advantages of using DMA over CPU-based data transfers?
+05. Describe the main components involved in DMA transfers in the Linux kernel.
+06. How does the Linux kernel manage DMA transfers?
+07. What is a DMA controller, and how is it used in the Linux kernel?
+08. Discuss the different types of DMA transfers supported in the Linux kernel.
+09. Explain the concept of DMA channels and their significance in the Linux kernel.
+10. How does the Linux kernel handle virtual addressing and physical addressing during DMA transfers?
+11. What are the potential challenges or issues that can arise when using DMA in the Linux kernel?
+12. Describe the steps involved in setting up a DMA transfer in the Linux kernel.
+13. What is the role of DMA mapping functions in the Linux kernel?
+14. How does the Linux kernel ensure data integrity and synchronization during DMA transfers?
+15. Discuss the methods available in the Linux kernel for handling DMA errors or failures.
+16. What is importance of dma_set_mask()?
+17. What is difference between dma_set_mask() and dma_set_coherent_mask()?
+18. What do you understand by coherent in the context of DMA?
+19. What is CMA(Continuous memory allocator)? Was is the need of it ?
+20. What is Dual(/Double)-Address Cycle(DAC) and Single-Address Cycle(SAC) in DMA?
+21. What are different modes or models that DMA controller can support?
+    >A> Single-adress, Dual-Address, 1D, 2D, 3D
+22. What are the types of DMA Mappings are avaialble ?
+    >A>
+    1. Consistence DMA mappings ("synchronous" or "coherent")
+       Consistent DMA mappings which are usually mapped at driver initialization, unmapped at
+       the end and for which the hardware should guarantee that the device and the CPU can
+       access the data in parallel and will see updates made by each other without any explicit
+       software flushing.
+    2. Streaming DMA mappings ("asynchronous" or "outside the coherency domain")
+       Streaming DMA mappings which are usually mapped for one DMA transfer, unmapped right after it
+       (unless you use dma_sync_* below) and for which hardware can optimize for sequential accesses.
+23. What is use of struct dma_pool & dma_pool_* APIs ?
+24. DMA directions
+    >A>
+    1. DMA_NONE			no direction (used for debugging)
+    2. DMA_TO_DEVICE		data is going from the memory to the device
+    3. DMA_FROM_DEVICE		data is coming from the device to the memory
+    4. DMA_BIDIRECTIONAL	direction isn't known
+25. How CMA memory reserved in the Kernel ?

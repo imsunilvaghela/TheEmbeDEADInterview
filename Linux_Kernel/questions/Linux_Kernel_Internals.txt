@@ -400,3 +400,4 @@
     - It is useful in scenarios where a driver or kernel code needs to wait for a certain event or
       condition to occur before proceeding. It provides a way to efficiently wait for a condition
       while still allowing the process/thread to be responsive to signals and timeouts
+19. What is cache coherence ?

@@ -360,4 +360,29 @@
       information for the graphics driver to automatically detect and configure the display device
       without manual intervention. It allows the system to adapt to different display devices and
       ensures optimal compatibility between the graphics driver and the display
-34. 
+34. Page flipping
+    >A>
+    - Page flipping is a technique that uses multiple buffers in the framebuffer to achieve smooth
+      and tear-free updates on a display. It involves swapping the front and back buffers during the
+      display's vertical blanking interval to ensure seamless rendering without visible artifacts.
+    - The page flipping process involves rendering graphics or updating the image in a hidden back
+      buffer. Once the updates are complete, a page flip operation is performed, synchronizing it
+      with the display's vertical blanking interval. This swaps the front buffer with the updated
+      back buffer, displaying the new image without tearing or visual artifacts.
+35. Page flipping process with example
+    >A> Here's a simplified example illustrating the page flipping process:
+    1. Initially, we have a front buffer (Buffer A) and a back buffer (Buffer B). Buffer A is
+       currently being displayed on the screen, while Buffer B is hidden.
+    2. The rendering process performs graphics operations and updates the image in Buffer B.
+    3. Once the rendering operations in Buffer B are completed, a page flip request is made to the
+       graphics driver or the DRM subsystem.
+    4. The page flip operation is synchronized with the display's vertical blanking interval. During
+       this period, the screen is not actively refreshing.
+    5. When the vertical blanking interval occurs, the front and back buffers are swapped. Buffer B
+       becomes the new front buffer and Buffer A becomes the new back buffer.
+    6. The updated image in Buffer B is now displayed on the screen, providing a smooth transition
+       without any visible tearing.
+    7. The rendering process can continue its operations on the new back buffer (Buffer A) without
+       affecting the image displayed on the screen.
+    8. The process repeats, with the rendering operations being performed on the back buffer and the
+       page flip operation swapping the buffers during subsequent vertical blanking intervals.

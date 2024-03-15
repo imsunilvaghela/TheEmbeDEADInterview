@@ -1,4 +1,4 @@
-1. Kernel Debugging techniques. ?
+1. What are available Kernel Debugging techniques ?
 2. What is Oops and kernel panic?
 3. Does all Oops result in kernel panic?
 4. What are the tools that you have used for debugging the Linux kernel?

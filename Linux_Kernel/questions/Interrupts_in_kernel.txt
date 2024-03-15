@@ -1,0 +1,76 @@
+01. What is an interrupt in the context of the Linux kernel?
+02. How does the Linux kernel handle interrupts?
+03. What is the purpose of interrupt handlers in the Linux kernel?
+04. Explain the difference between hardware and software interrupts.
+05. How does the Linux kernel prioritize interrupts?
+06. What is the role of interrupt request lines (IRQs) in the Linux kernel?
+07. How does the Linux kernel manage shared interrupts?
+08. Describe the process of registering an interrupt handler in the Linux kernel.
+09. What is the role of bottom halves (BHs) and tasklets in interrupt handling?
+10. Explain the concept of deferred interrupt processing in the Linux kernel.
+11. How does the Linux kernel handle nested interrupts?
+12. What are the steps involved in handling an interrupt in the Linux kernel?
+13. Describe the differences between top halves and bottom halves in interrupt handling.
+14. How does the Linux kernel prevent interrupt storms or interrupt thrashing?
+15. What are the potential issues that can arise from interrupt handling in the Linux kernel, and
+    how can they be mitigated?
+16. Explain the concept of interrupt affinity and how it is managed in the Linux kernel.
+17. What is the purpose of disabling interrupts and how is it done in the Linux kernel?
+18. How does interrupt handling differ in real-time and non-real-time Linux kernels?
+19. Describe the relationship between interrupts and device drivers in the Linux kernel.
+20. Can you explain how to handle shared resources within interrupt handlers in the Linux kernel?
+21. What are all bottom half handling mechanisms available in Kernel ? which to use - when ?
+22. Where to get IRQ number in request_irq API() ?
+23. What is the difference between static and dynamic initilization of work queue ?
+    >A>
+    Static initialization:
+    - Initialized using DECLARE_WORK macro
+    - is more straightforward and simpler to implement. It is suitable when the work queue is
+      required throughout the lifetime of the program or module.
+    Dynamic initialization:
+    - Created using a specific function call, such as alloc_workqueue() or create_workqueue()
+    - It allows for more dynamic control over the lifetime of the work queue. It is useful when the
+      work queue is needed only for a specific period or when there is a requirement to create and
+      destroy work queues dynamically.
+24. Difference between Tasklet vs Softirq ? When to use which?
+25. Can you explain how to register an interrupt handler for a specific device in your device driver?
+26. How would you handle a shared interrupt that is shared by multiple devices in your driver?
+27. Describe the steps you would take to enable and disable interrupts for your device in the
+    driver's initialization and cleanup routines.
+28. How would you handle nested interrupts in your device driver?
+29. Explain how you would implement interrupt handling to ensure that critical sections of code are
+    executed atomically.
+30. How would you handle the case where an interrupt occurs while your interrupt handler is already executing?
+31. Describe the mechanisms you would use to synchronize access to shared data between your
+    interrupt handler and other parts of your driver.
+32. How would you prioritize interrupts from different devices or sources in your driver?
+33. Can you explain how to handle interrupt storms or interrupt thrashing in your device driver?
+34. What techniques would you use to measure the latency of your interrupt handling routine?
+35. How would you handle spurious interrupts that may occur in your device driver?
+36. Describe the steps you would take to handle error conditions or exceptional situations within
+    your interrupt handler.
+37. Explain how you would handle interrupt sharing conflicts or resource contention between different drivers.
+38. How would you implement interrupt coalescing or batching in your device driver to reduce the
+    overhead of frequent interrupts?
+39. Can you describe any techniques or optimizations you would use to improve the performance of
+    your interrupt handling routine?
+40. Can you describe the differences between tasklets, workqueues, and softirqs in bottom half handling?
+41. How are bottom halves scheduled and executed in the Linux kernel?
+42. What is the role of the bottom half handler function?
+43. Explain how the Tasklet mechanism works for bottom half handling.
+44. What are the advantages and disadvantages of using Tasklets compared to other bottom half mechanisms?
+45. How does the Workqueue mechanism provide a different approach to bottom half handling?
+46. Can you explain the steps involved in creating and scheduling work items in a workqueue?
+47. What is the purpose of softirqs in bottom half handling?
+48. How are softirqs prioritized and scheduled in the Linux kernel?
+49. Describe the process of registering and executing a softirq handler.
+50. What are the considerations for choosing between tasklets, workqueues, and softirqs for bottom half handling?
+51. How do bottom halves interact with interrupt handlers and device drivers?
+52. Explain the concept of deferred interrupt processing and its relationship with bottom halves.
+53. What are the potential issues that can arise from bottom half handling, and how can they be mitigated?
+54. How does bottom half handling differ in real-time and non-real-time Linux kernels?
+55. Describe the relationship between bottom halves and interrupt affinity in the Linux kernel.
+56. Can you provide examples of practical scenarios where bottom half handling mechanisms are used
+    in device drivers or kernel subsystems?
+57. What is difference between process context and interrupt context ? Which bottom half mechanisms
+    running in process context and which are in interrupt context ?

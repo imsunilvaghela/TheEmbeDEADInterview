@@ -18,16 +18,16 @@
    - https://docs.kernel.org/userspace-api/media/v4l/pixfmt-yuv-planar.html
 9. What are Integer and Fractional framerate ? What is the need for fractional framerate ?
 10. Video formats and its understanding: e.g. NV12/YUV420 - How pixels are arranged
-11. YUV420, YUV422, YUV444 format understanding and single frame size calculation
+11. YUV420, YUV422, YUV444 chroma subsampling schemes understanding and single frame size calculation
     >A>
     YUV420 - 1 Cb & 1 Cr samples per 4 luma samples
     YUV422 - 2 Cb & 2 Cr samples per 4 luma samples
     YUV444 - 4 Cb & 4 Cr samples per 4 luma samples
 
     Size of 1920 * 1080
-    YUV420 ==> 1920 * 1080 * (1 + 2/4) ==> 1920 * 1080 * 1.5
-    YUV422 ==> 1920 * 1080 * (1 + 4/4) ==> 1920 * 1080 * 2
-    YUV444 ==> 1920 * 1080 * (1 + 8/4) ==> 1920 * 1080 * 3
+    YUV420 8-bit ==> 1920 * 1080 * (1 + 2/4) ==> 1920 * 1080 * 1.5
+    YUV422 8-bit ==> 1920 * 1080 * (1 + 4/4) ==> 1920 * 1080 * 2
+    YUV444 8-bit ==> 1920 * 1080 * (1 + 8/4) ==> 1920 * 1080 * 3
 12. What is I, P, B frames
 13. Difference between codec and container
 14. What's the purpose of encoding & decoding video?
@@ -78,3 +78,9 @@
       the back porch, it also represents a blanking period.
     - During the front porch, the display hardware prepares for the next line or frame, such as adjusting
       circuitry or stabilizing voltages.
+26. What is Chroma Subsampling? Explain.
+27. What is significance of A, B & C in YUVA:B:C chroma-subsampling formats ?
+28. What is difference between YUV420 and YUV411 chroma-subsampling schemes?
+
+
+
