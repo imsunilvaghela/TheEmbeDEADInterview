@@ -77,7 +77,10 @@ Your contributions will help make this repository more valuable and beneficial f
 
 This repository is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute the content for personal or commercial purposes. However, we kindly request you to acknowledge the source and provide a link to this repository if you choose to share or publish the content elsewhere.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=imsunilvaghela/TheEmbeDEADInterview&type=Date)](https://star-history.com/#imsunilvaghela/TheEmbeDEADInterview&Date)
+
 Author: Sunil Vaghela
 
 LinkedIn: https://www.linkedin.com/in/sunil-vaghela-870683170/
-
