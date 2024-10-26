@@ -1,0 +1,34 @@
+01. You have 8 balls, all are idential in looks, however one of them is few grams lighter.
+    Using a balance scale, find the lighter ball in exactly 2 weighings.
+02. You have a 5-liter and a 3-liter mug. Measure exactly 4 liters using these two mugs.
+03. You need to cross a bridge at night in 15 minutes. Four people must cross with one flashlight:
+    A takes 1 minute, B takes 2 minutes, C takes 5 minutes, and D takes 8 minutes. Only two people
+    can cross at once, and they must share the flashlight. How can all four people cross in time?
+04. A car has four tires and one spare tire. Each tire can travel a maximum of 20,000 kilometers.
+    What is the maximum distance the car can travel if tires can be interchanged as needed?
+05. You have 15 rupees. Each chocolate costs 1 rupee, and for every 3 chocolate wrappers, you can
+    get one more chocolate. What is the maximum number of chocolates you can get?
+06. A man falls into a 50-meter-deep well. He climbs 4 meters up each day but slips back 3 meters
+    each night. How many days will it take for him to get out of the well?
+07. You have a room with a lightbulb inside and three switches outside the room. You can flip the
+    switches any way you want, but you can only enter the room once. How can you determine which
+    switch controls the lightbulb?
+08. How can you cut a round cake into 8 equal pieces using only 3 cuts?
+09. You have 25 horses and want to find the 3 fastest ones. You can race only 5 horses at a time,
+    and there’s no way to measure their actual speed. What is the minimum number of races required
+    to determine the 3 fastest horses?
+10. A prisoner is asked to make a statement. If his statement is true, he will be hanged; if it’s
+    false, he will be shot. What statement can he make to stay alive?
+11. How many times can you subtract the number 5 from 35?
+12. Before the days of motor vehicles, a man rode into town on his horse and arrived on Sunday. He
+    spent three days in town and left on Sunday. How is this possible?
+13. A man drove his car all the way from Shimla to Delhi only to discover at the end of the trip that
+    he had a flat tire from the very start. Yet, his car was unaffected. How is this possible?
+14. There are three containers. One has only red marbles, one has only yellow marbles, and the third
+    has both red and yellow marbles. All the containers are mislabeled. If you can take only one marble
+    from one container to examine, how can you correctly label each container?
+15. You have two ropes, each of which takes an hour to burn, but they burn at inconsistent rates. How
+    can you measure 45 minutes using only these ropes?
+16. You need to cross a river with a lion, a goat, and some grass. You can take only one across at a
+    time. If left alone, the lion will eat the goat, and the goat will eat the grass. How can you get
+    all three across the river safely?

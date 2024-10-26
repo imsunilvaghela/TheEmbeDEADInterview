@@ -1,51 +1,93 @@
-1. When Volatile is needed ? 
+1. When Volatile is needed ?
 2. What is an advantage of having .bss section ?
 3. Function pointer and example, use-cases
 4. Double pointers
 5. Memory allocation / free
   5.1. Return value of malloc(0)  (A: NULL)
-  5.2. Have you fixed any memory leakage issues ? Which tools are available to check memory leakage ? 
+  5.2. Have you fixed any memory leakage issues ? Which tools are available to check memory leakage ?
   5.3. Use of Valgrind to check memory leakage
 6. Structure and Union
   6.1. What is practical Use of structure and Union?
 7. Data types in C
-  7.1. Does integer size varies per platform or remains constant ? Is it dependent on compiler as well ? What could be the size of integer when I use 32 bit compiler in 64 bit OS ?
-  7.2. When I say 64 bit OS – what does that 64 represents ? 
+  7.1. Does integer size varies per platform or remains constant ? Is it dependent on compiler as well ?
+       What could be the size of integer when I use 32 bit compiler in 64 bit OS ?
+  7.2. When I say 64 bit OS – what does that 64 represents ?
   7.3. Is it possible to use 32 bit OS with more than 4GB of RAM ? NO: Why is it not possible?
 8. Pointers
   8.1. What is a void pointer? Can you dereference a void pointer without knowing its type?
-  >A> 
-  A void pointer is a pointer that can be used to point to any data of any arbitrary type. A void pointer can be dereferenced only after explicit casting.    e.g.:
+  >A>
+  A void pointer is a pointer that can be used to point to any data of any arbitrary type. A void pointer
+  can be dereferenced only after explicit casting.    e.g.:
       int a = 5;
       void *b = &a;
       printf(“%d\n”, *((int*)b));
 9. Difference between following declarations:
-   - const int *p / int const *p; 
+   - const int *p / int const *p;
    - int *const p;
    - const int* const p;
-10. What is stack overflow ? Why does it happens and how to avoid it ? OR If recursive function can't return then what happens ? 
+10. What is stack overflow ? Why does it happens and how to avoid it ? / If recursive function
+    can't return then what happens ?
 11. Can a C program be compiled or executed in the absence of a main()?
 12. Storage classes
-  12.1. Can we use register variable as Global ? 
+  12.1. Can we use register variable as Global ?
   12.2. Can we use pointer on register variable? Why ?
 13. Can a variable be volatile & const? In which scenario this will happen?
   >A> Yes, When we want to read external GPIO memory.
 14. Can we define macro inside structure definition?
 15. Difference between static function, static inline function & macro.
-How 32 bit system differs from 64 bit system. What about the address space. Does pointer size differs? What kind of things we need to take care to obtain portability? What code would you write for it to be non-functional on 64 bit system.
-
+16. How 32 bit system differs from 64 bit system. What about the address space. Does pointer
+    size differs? What we need to take care to obtain portability? What code would you write
+    for it to be non-functional on 64 bit system.
 
 
 Programs:
 ------------
 1. Implement custom malloc() function – pseudo code and approach understanding
 2. Pattern
-    1
-   232 
-  34543 
- 4567654 
-567898765 
+       1
+      232
+     34543
+    4567654
+   567898765
 3. Decimal to Hexadecimal / Float to Binary
-4. Write custom macro for sizeof 
-5. Implement your own itoa function.
-6. Implement your own strcspn().  Given 2 strings strcspn(), calculates the length of the number of characters before the 1st occurrence of character present in both the string.
+4. Write custom macro for sizeof
+5. Implement itoa function. Integer to ascii conversion.
+6. Implement strcspn().  Given 2 strings, strcspn() calculates the length of the
+   number of characters before the 1st occurrence of the character present in both
+   the string. Return -1, if no match found.
+   e.g. str1="theembedeadinterview", str2="test" -> 0
+        str1="theembedeadinterview", str2="west" -> 2
+        str1="theembedeadinterview", str2="fly" -> -1
+7. #define GENMASK(high, low)
+   e.g. GENMASK(7,0) ->  11111111
+        GENMASK(1,0) ->  00000011
+        GENMASK(4,3) ->  00011000
+8. Given a string, Return a char which has occured a maximum times. If found two
+   or more characters, return last occurance of the last one found. If found only
+   one occurance of a character, then return the last char found.
+   e.g. str="program" -> r
+        str="programming" -> g
+        str="print" -> t
+9. Given a string of paranthesis, return if it is balanced or not.
+   e.g. str="[()]{<>}{[()()]()}" -> Balanced
+        str="[(])" -> Not Balanced
+10. Given a string s, find the length of longest substring without repeating characters.
+    e.g. str="theembedeadinterview" -> 8 (adinterv)
+11. Print below pattern for the given string. if the string is of even
+    characters add x in the middle.
+    e.g.str="program"
+         p     m
+          r   a
+           o r
+            g
+           r o
+          a   r
+         m     p
+        str="even"
+         e   n
+          v e
+           x
+          e v
+         n   e
+12. Implement a stack using array. Push, Pop and peek operations
+13. Search the Nth node to the end of a singly-linked-list? Two-pass? Or Single-pass?

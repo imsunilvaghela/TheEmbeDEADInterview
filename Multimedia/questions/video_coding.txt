@@ -1,68 +1,145 @@
-1. Ask him to explain: project, his role, design, coding implement, unit test, any challenges and how to handle them?
-2. Explain working of a encoder and decoder in simple terms(*preferably with a diagram)?
-   >A> Predict image based on previous image, create residual & motion vectors, gives residual to spatial model, which gives coefficient by transforming & quantization process of residual samples, motion vectors & quantized coefficient provide to entropy encoder to compress further
-3. AVC vs HEVC. Which one is better. And why ?
-   What are the main differences between HEVC and H.264? How does HEVC make it better?
-   H.264: Macroblock block size?(16X16). Macroblock partition? (down to 4X4) HEVC: Coding Tree Unit(CTUs) size? (up to 64X64)
+1. What is stride in video ?
+    >A>
+    The stride or pitch is the number of bytes from the first pixel of a line to the first pixel of
+    the next line of video. In the simplest case, the stride equals the width multiplied by the bits
+    per pixel, converted to bytes. For example, AR24 requires 32 BPP which is four bytes per pixel.
+    A video buffer with an active area of 1920 x 1080 pixels therefore has a stride of 4 x 1920 = 7,680 bytes.
+2. What is VSync (Vertical sync) in the context of video bus timing diagram?
+    >A>
+    The synchronization signal that marks the end of a frame and the beginning of the next frame
+    vertically. It helps maintain proper timing and synchronization between the display and the
+    video source
+3. What is HSync (Horizontal sync) in the context of video bus timing diagram?
+    >A>
+    The synchronization signal that marks the end of a line and the beginning of the next line
+    horizontally within a frame. It ensures proper scanning and synchronization of the video signal
+4. What is VActive (Vertical active) in the context of video bus timing diagram?
+    >A>
+    The portion of a frame where the actual image or content is displayed vertically. It represents
+    the height of the visible area on the screen where the video or graphics are actively displayed
+5. What is HActive (Horizontal active) in the context of video bus timing diagram?
+    >A>
+    The portion of a line where the actual image or content is displayed horizontally. It represents
+    the width of the visible area on the screen where the video or graphics are actively displayed.
+6. What is VBlank (Vertical blank) in the context of video bus timing diagram?
+    >A>
+    The period between frames where no content is displayed vertically. It occurs after the VActive
+    portion and provides time for the display to reset, perform any necessary adjustments, and
+    prepare for the next frame
+7. What is HBlank (Horizontal blank) in the context of video bus timing diagram?
+    >A>
+    The period between lines where no content is displayed horizontally. It occurs after the HActive
+    portion within each line and allows time for the display to reset and prepare for the next line
+8. Front Porch & Back Porch
+    >A>
+    - The back porch is the interval in a video signal that follows the active display area (HActive
+      or VActive) and precedes the synchronization signal (HSync or VSync). It represents a blanking
+      period where no video information is transmitted.
+    - During the back porch, the display hardware
+      typically performs tasks such as resetting or adjusting for the next line or frame.
+    - The front porch is the interval in a video signal that precedes the active display area
+      (HActive or VActive) and follows the synchronization signal (HSync or VSync). Similar to
+      the back porch, it also represents a blanking period.
+    - During the front porch, the display hardware prepares for the next line or frame, such as adjusting
+      circuitry or stabilizing voltages.
+9. What is I, P, B frames
+10. Coding tree unit
+11. Explain working of a encoder and decoder in simple terms(preferably with a diagram)?
    >A>
-
+   Predict image based on previous image, create residual & motion vectors, gives residual to
+   spatial model, which gives coefficient by transforming & quantization process of residual
+   samples, motion vectors & quantized
+   coefficient provide to entropy encoder to compress further
+12. AVC vs HEVC. Which one is better. And why ?
+   What are the main differences between HEVC and H.264? How does HEVC make it better?
+   H.264: Macroblock block size?(16X16). Macroblock partition? (down to 4X4)
+   HEVC: Coding Tree Unit(CTUs) size? (up to 64X64)
+   >A>
    AVC:
-   - H.264 (also called AVC, or Advanced Video Coding) is an industry standard for video compression that allows for the recording, compression, and distribution of digital video content.
-   - It works by processing frames of video using a block-oriented, motion-compensation-based video compression standard. Those units are called macroblocks. Macroblocks typically consist of 16x16 pixel samples that can be subdivided into transform blocks, and may be further subdivided into what are known as prediction blocks. See the example below.
-   - The H.264 algorithm can substantially lower bitrates better than previous standards, and is widely used by streaming internet sources like Vimeo, YouTube, iTunes, and more.
-
+   - H.264 (also called AVC, or Advanced Video Coding) is an industry standard
+     for video compression that allows for the recording, compression, and
+     distribution of digital video content.
+   - It works by processing frames of video using a block-oriented,
+     motion-compensation-based video compression standard. Those units are
+     called macroblocks. Macroblocks typically consist of 16x16 pixel samples
+     that can be subdivided into transform blocks, and may be further subdivided
+     into what are known as prediction blocks. See the example below.
+   - The H.264 algorithm can substantially lower bitrates better than previous
+     standards, and is widely used by streaming internet sources like Vimeo,
+     YouTube, iTunes, and more.
    HEVC:
-   - H.265 is newer and more advanced than H.264 in several ways. H.265 (also called HEVC, or High Efficiency Video Coding) allows for further reduced file size, and therefore reduced required bandwidth, of your live video streams.
-   - Unlike H.264 macroblocks, H.265 processes information in what’s called coding tree units (CTUs). Whereas macroblocks can span 4x4 to 16x16 block sizes, CTUs can process as many as 64x64 blocks, giving it the ability to compress information more efficiently.
-   - In addition to the larger CTU sizes, HEVC also has better motion compensation and spatial prediction than AVC does. This means that HEVC requires more advanced hardware, to be able to compress the data. Fortunately, however, it also means that viewers with H.265 compatible devices will require less bandwidth and processing power to decompress that data and watch a high-quality stream.
-4. How does the encoder select encoding block size either 4X4 or 32X32? Based on what? What is the outcome? Detailed areas or smooth areas.
-5. AVC and HEVC stream packet
-6. Can you draw a block diagram of HEVC or H.264 encoder? What is “Synthesis by Analysis” in video encoder? Why? How does it work?
-7. Should I stream in H.264 or H.265?
-   >A> Live streaming in H.265 will provide you with a higher-quality image while using less bandwidth. So, if possible, stream in H.265.
-8. Does H.265 reduce quality?
+   - H.265 is newer and more advanced than H.264 in several ways. H.265 (also
+     called HEVC, or High Efficiency Video Coding) allows for further reduced
+     file size, and therefore reduced required bandwidth, of your live video
+     streams.
+   - Unlike H.264 macroblocks, H.265 processes information in what’s called
+     coding tree units (CTUs). Whereas macroblocks can span 4x4 to 16x16 block
+     sizes, CTUs can process as many as 64x64 blocks, giving it the ability to
+     compress information more efficiently.
+   - In addition to the larger CTU sizes, HEVC also has better motion
+     compensation and spatial prediction than AVC does. This means that HEVC
+     requires more advanced hardware, to be able to compress the data.
+     Fortunately, however, it also means that viewers with H.265 compatible
+     devices will require less bandwidth and processing power to decompress that
+     data and watch a high-quality stream.
+13. How does the encoder select encoding block size either 4X4 or 32X32? Based on what? What is the
+    outcome? Detailed areas or smooth areas.
+14. AVC and HEVC stream packet
+15. Can you draw a block diagram of HEVC or H.264 encoder? What is “Synthesis by Analysis” in video
+    encoder? Why? How does it work?
+16. Should I stream in H.264 or H.265?
+   >A> Live streaming in H.265 will provide you with a higher-quality image while using less
+       bandwidth. So, if possible, stream in H.265.
+17. Does H.265 reduce quality?
    >A> No. It will give you higher quality when the network speed is lower.
-9. Does H.265 use more CPU?
+18. Does H.265 use more CPU?
    >A> Yes. You'll use more CPU when you try to stream in H.265 from a computer.
-10. Which is better for YouTube, H.264 or H.265?
-   >A> If your encoder can stream in H.265, we recommend streaming with that. A third-party service like YouTube may transcode or process your video data differently from time to time depending on a variety factors, so streaming at the highest quality you can achieve on your own is always a safe bet.
-11. Is H.264 high quality?
-   >A> Yes. You can create high-quality streams with H.264 — just make sure you have the correct network speeds to do so (5-10mbps upload).
-12. What do u mean by inter prediction & intra prediction?
+19. Which is better for YouTube, H.264 or H.265?
+   >A>
+   If your encoder can stream in H.265, we recommend streaming with that. A third-party service like
+   YouTube may transcode or process your video data differently from time to time depending on a
+   variety factors, so streaming at the highest quality you can achieve on your own is always a safe
+   bet.
+20. Is H.264 high quality?
+   >A> Yes.
+   You can create high-quality streams with H.264 — just make sure you have the correct network
+   speeds to do so (5-10mbps upload).
+21. What do u mean by inter prediction & intra prediction?
    >A>
    Inter prediction --> prediction based on previously encoded frames
    Intra prediction --> prediction based on previously encoded macroblocks
-13. What is entropy encoding (CABAC, CAVLC)
-14. Which is the lossy part in encoding process.
-15. What is constant bit-rate/constant quality encoding?
-16. What is deblocking/loop filters.
-17. Why do we need to reconstruct some frames in encoder?
-18. What is Fast DCT. Is it lossy ? If yes explain.
-19. Difference between key frame and I frame.
-20. What do u mean by Gradual Decoder Refresh (GDR), how it is advantageous than inserting whole I frame?
-21. What is GoP?
-22. Open and closed GOPs.
-23. Bitrate calculation
-24. Difference between I frame and IDR frame ?
-25. What is cpb ?
-26. Relation between bitrate and cpb ?
-27. Quality metrics
-28. SPS, PPS, VPS, AUD in video stream
-29. What do u mean by slices?
-30. What is loop filter ?
-31. Difference between display order & decoding order.
-32. What do u mean by key frame(IDR frame - Instantaneous Decoder Refresh)? Why it is needed?
-    >A> When decoder recives IDR, it discard all previous reference frames from DPB(Decoder picture buffer/reference picture buffer)
-33. Type of video coding scalability one can achieve.
+22. What is entropy encoding (CABAC, CAVLC)
+23. Which is the lossy part in encoding process.
+24. What is constant bit-rate/constant quality encoding?
+25. What is deblocking/loop filters.
+26. Why do we need to reconstruct some frames in encoder?
+27. What is Fast DCT. Is it lossy ? If yes explain.
+28. Difference between key frame and I frame.
+29. What do u mean by Gradual Decoder Refresh (GDR), how it is advantageous than inserting whole I frame?
+30. What is GoP?
+31. Open and closed GOPs.
+32. Bitrate calculation
+33. Difference between I frame and IDR frame ?
+34. What is cpb ?
+35. Relation between bitrate and cpb ?
+36. Quality metrics
+37. SPS, PPS, VPS, AUD in video stream
+38. What do u mean by slices?
+39. What is loop filter ?
+40. Difference between display order & decoding order.
+41. What do u mean by key frame(IDR frame - Instantaneous Decoder Refresh)? Why it is needed?
+    >A> When decoder recives IDR, it discard all previous reference frames from DPB(Decoder picture
+        buffer/reference picture buffer)
+42. Type of video coding scalability one can achieve.
     >A> Temporal scalability - frame rate scalability
         Spatial scalability - resolution scalability
         Fidelity scalability - quality scalability
-34. What are the most important steps in encoder to achieve high compression efficiency?
+43. What are the most important steps in encoder to achieve high compression efficiency?
     (1) Motion compensation?
     (2) DCT transform?
     (3) Quantization?
     (4) Entropy encode? Which one is #1? Why? How does it work?
-35. I-frame? Intra-frame prediction.
+44. I-frame? Intra-frame prediction.
     P-frame? Inter-frame prediction.
     How does the encoder select I-frame or P-frame prediction?
     Based on what?
@@ -70,16 +147,16 @@
         Packet lost?
         IDR?
         Prediction residual?
-36. What is the difference between I-frame and IDR-frame? How often do they occur?
+45. What is the difference between I-frame and IDR-frame? How often do they occur?
     IDR-frame: How does it work? The reference frame buffer gets cleared out in encoder or in decoder or in both?
-37. Motion estimation & compensation?
-    Processing block size?
+46. Motion estimation & compensation? Processing block size?
     Macroblock and microblock-partition.
     How to decide the best motion estimation/compensation block?
         Minimize the prediction residual.
     What are the outputs?
         Prediction residual frame and the motion vector.
-38. How does the encoder control the tradeoff between the output bitrate (lower for better compression efficiency) and the video quality?
+38. How does the encoder control the tradeoff between the output bitrate (lower for better
+    compression efficiency) and the video quality?
     By adjusting what parameter(s)? Rate-distortion performance?
 39. “In-loop De-blocking filter” in video encoder? Why is it needed?
     Block based encoding has blocking or ringing distortion. How does it work?
@@ -92,16 +169,3 @@
     Independent decoding without reference to any previous slices.
     (1) Error resilience. Re-sync decoder with encoder in case of packet loss.
     (2) Parallel encoding/decoding in multi-cores CPU and GPU.
-41. What are color spaces? RGB? YCbCr? YUV? Why YCbCr or YUV?
-        Human eye and brain are less sensitive to color than luminance, so we can represent color in lower resolution to save bandwidth.
-    YUV sampling formats? YUV420, YUV422 and YUV444? How do they look like? Can you draw a picture?
-42. (Video) FRC(Frame Rate Conversion) Can you convert 30FPS(NTSC) or 25FPS(PAL) to 24FPS(Cinema screen)?
-    >A> 30FPS up-sampling by 4 ->120FPS down-sampling by 5 -> 24FPS  - Either drop frames or slow down the playback
-43. (Streaming) Any streaming experience? How does Adaptive Bitrate Streaming(ABR) work?
-    Is it in the source side, server side or in the receiver(player) side? What are the ABR streaming protocols? HLS? DASH?
-44. (Camera) Camera ISP pipeline? Can you draw a block diagram?
-    >A>
-    Image sensor(raw-bayer 1920X1080 pixels at 12-bits)-> Debayer(device-rgb)-> 3X3 matrix(device-rgb to sensor- rgb)-> Gamma correction(sensor rgb to display rgb)-> 3X3 matrix(rgb to YUV)-> Chroma down-sampling(YUV444 to YUV420)-> JPG encoder.
-45. (Camera) Mosaic patterns or Bayer format? CFA(Color Filter Array)? Demosaicing algorithms? Interpolation: Biliner, Cubic, or AHD(Adaptive Homogeneity-Directed: industry standard)?
-46. (Camera) AWB(Auto-White-Balance)? What problem here? How does it work?
-47. (Camera) Auto-Exposure? What problem here? How does it work?

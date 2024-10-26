@@ -1,0 +1,11 @@
+01. How do you approach a complex problem when you don't have all the necessary information?
+02. Describe a project where you had to analyze a large dataset. How did you approach
+    the analysis, and what tools did you use?
+03. Can you give an example of a time when you identified a problem before it
+    became a major issue? How did you use analytical thinking to address it?
+04. Describe a project where you had to analyze various options to make a decision.
+    How did you weigh the pros and cons of each option?
+05. Can you share an example of a time when you used analytical thinking to optimize
+    a process or workflow?
+06. Tell us about a time when you had to analyze risk factors before making a decision.
+    How did you mitigate potential risks?

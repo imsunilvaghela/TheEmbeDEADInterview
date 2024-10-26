@@ -1,15 +1,29 @@
-Questions/Topics:
+Questions:
 -----------------
 
-1. Have you mostly coded from scratch, or have you also had to maintain code written by others?  What makes C code maintainable or not? 2. When you have had to deal with multiple instances of a structure, how did you organize them?  What factors were involved in your decision to do it that way? 3. How to you know when it is time to break a function down? 4. Have you had to work directly with special memory such as memory-mapped device I/O? (volatile) 5. How do you deal with fundamental data types like int having different sizes on different platforms? const (constexpr, etc.) 
-6. Approaches to making assertions about program logic (assert()? static_assert()? other?) 
 
-  
 Programs:
 ---------
-1. Reverse a string: void reverse(char *ptr)? time-complexity = O(?), space-complexity = O(?), in-place? 
-2. Write a function to find the index of the third largest item in the array. time-complexity = O(?), space-complexity = O(?) 
-3. Merge two sorted arrays? time-complexity = O(?), space-complexity = O(?), in-place? 
-4. Merge two sorted singly linked lists? time-complexity = O(?), space-complexity = O(?), in-place? 
-5. Search the Nth node to the end of a singly-linked-list? Two-pass? Or Single-pass? 
-6. How to detect the cycle in a singly linked list? Two-pointers? 
+1. Implement a tic-tac-toe game for single player
+2. sudoku puzzle: Given a partially filled 9×9 2D array sudoku[9][9], the goal is to assign
+   digits (from 1 to 9) to the empty cells so that every row, column, and subgrid of size
+   3×3 contains exactly one instance of the digits from 1 to 9.
+3. An expression will be given which can contain open and close parentheses and optionally
+   some characters, No other operator will be there in string. We need to remove minimum number
+   of parentheses to make the input string valid. If more than one valid output are possible
+   removing same number of parentheses then print all such output
+   Input: str = "()())()" -
+   Output : ()()()
+            (())()
+   Input: str = "(()"
+   Output : ()
+4. Given a number n, the task is to generate n bit Gray codes. i.e. generate bit patterns from
+   0 to 2^n-1 such that successive patterns differ by one bit)
+   Input : 2
+   Output : 0 1 3 2
+   Explanation : 00 -> 01 -> 11 -> 10
+   Input : 3
+   Output : 000 -> 001 -> 011 -> 010 -> 110 -> 111 -> 101 -> 100
+
+
+
