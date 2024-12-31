@@ -5,16 +5,20 @@
         Semiplanar: One memory region for Y component and one for UV components
         Planar: One memory region for each component
     Each memory region storing a frame component (Y, U or V) is called a plane
-2. What are different color spaces like RGB, YUV ? How would YUV pixel values look like for a green,
+2. NTSC, PAL, SD, HD, Full HD, 4K, DCI 4K and 8K – Give me exact width x height for each one.
+3. Difference between NTSC and PAL , 4K and DCI4K resolutions. ?
+4. Progressive vs Interlaced scanning
+5. Chrominance and luminance
+6. What are various image formats? What are 4:4:4, 4:2:2 etc. Sampling ?
+7. What are different color spaces like RGB, YUV ? How would YUV pixel values look like for a green,
    blue, red, black and white color pixels for suppose 8 bit per color space?
-3. Chrominance and Luminance
-4. What are various image formats? What are 4:4:4, 4:2:2 etc. Sampling ?
-5. What is difference between planar, semiplanar and multiplanar ?
+8. What is difference between planar, semiplanar and multiplanar ?
   >A>
    - https://stackoverflow.com/questions/22215484/what-is-difference-between-planar-semi-planar-and-interleaved-format
    - https://docs.kernel.org/userspace-api/media/v4l/pixfmt-yuv-planar.html
-6. Advantage of YUV over RGB format
-7. YUV420, YUV422, YUV444 chroma subsampling schemes understanding and single frame size calculation
+9. What are Integer and Fractional framerate ? What is the need for fractional framerate ?
+10. Video formats and its understanding: e.g. NV12/YUV420 - How pixels are arranged
+11. YUV420, YUV422, YUV444 chroma subsampling schemes understanding and single frame size calculation
     >A>
     YUV420 - 1 Cb & 1 Cr samples per 4 luma samples
     YUV422 - 2 Cb & 2 Cr samples per 4 luma samples
@@ -24,17 +28,59 @@
     YUV420 8-bit ==> 1920 * 1080 * (1 + 2/4) ==> 1920 * 1080 * 1.5
     YUV422 8-bit ==> 1920 * 1080 * (1 + 4/4) ==> 1920 * 1080 * 2
     YUV444 8-bit ==> 1920 * 1080 * (1 + 8/4) ==> 1920 * 1080 * 3
-8. YUV sampling formats? YUV420, YUV422 and YUV444? How do they look like? Can you draw a picture?
-9. What is Framerate in Video ? Can you convert 30FPS(NTSC) or 25FPS(PAL) to 24FPS(Cinema screen)?
-    >A> 30FPS up-sampling by 4 ->120FPS down-sampling by 5 -> 24FPS  - Either drop frames or slow
-        down the playback
-10. What is significance of A, B & C in YUVA:B:C chroma-subsampling formats ?
-11. What is difference between YUV420 and YUV411 chroma-subsampling schemes ?
-12. What are Integer and Fractional framerate ? What is the need for fractional framerate ?
-13. What is Chroma sub-sampling ?
-14. What are color spaces? RGB? YCbCr? YUV? Why YCbCr or YUV?
-15. Progressive vs Interlaced scanning
-16. NTSC, PAL, SD, HD, Full HD, 4K, DCI 4K and 8K – Exact width x height for each one.
-17. Analog video vs Digital Video
-18. Aspect Ratio
-19. What is PSNR (peak signal-to-noise ratio)?
+12. What is I, P, B frames
+13. Difference between codec and container
+14. What's the purpose of encoding & decoding video?
+15. What is stride in video ?
+    >A>
+    The stride or pitch is the number of bytes from the first pixel of a line to the first pixel of
+    the next line of video. In the simplest case, the stride equals the width multiplied by the bits
+    per pixel, converted to bytes. For example, AR24 requires 32 BPP which is four bytes per pixel.
+    A video buffer with an active area of 1920 x 1080 pixels therefore has a stride of 4 x 1920 = 7,680 bytes.
+16. What is PSNR (peak signal-to-noise ratio)  ?
+17. HDR/HDR10, HDR10+, HLG
+18. Advantage of yuv over RGB format
+19. What is VSync (Vertical sync) in the context of video bus timing diagram?
+    >A>
+    The synchronization signal that marks the end of a frame and the beginning of the next frame
+    vertically. It helps maintain proper timing and synchronization between the display and the
+    video source
+20. What is HSync (Horizontal sync) in the context of video bus timing diagram?
+    >A>
+    The synchronization signal that marks the end of a line and the beginning of the next line
+    horizontally within a frame. It ensures proper scanning and synchronization of the video signal
+21. What is VActive (Vertical active) in the context of video bus timing diagram?
+    >A>
+    The portion of a frame where the actual image or content is displayed vertically. It represents
+    the height of the visible area on the screen where the video or graphics are actively displayed
+22. What is HActive (Horizontal active) in the context of video bus timing diagram?
+    >A>
+    The portion of a line where the actual image or content is displayed horizontally. It represents
+    the width of the visible area on the screen where the video or graphics are actively displayed.
+23. What is VBlank (Vertical blank) in the context of video bus timing diagram?
+    >A>
+    The period between frames where no content is displayed vertically. It occurs after the VActive
+    portion and provides time for the display to reset, perform any necessary adjustments, and
+    prepare for the next frame. Page-flipping typically occurs during the this time interval.
+24. What is HBlank (Horizontal blank) in the context of video bus timing diagram?
+    >A>
+    The period between lines where no content is displayed horizontally. It occurs after the HActive
+    portion within each line and allows time for the display to reset and prepare for the next line
+25. Front Porch & Back Porch
+    >A>
+    - The back porch is the interval in a video signal that follows the active display area (HActive
+      or VActive) and precedes the synchronization signal (HSync or VSync). It represents a blanking
+      period where no video information is transmitted.
+    - During the back porch, the display hardware
+      typically performs tasks such as resetting or adjusting for the next line or frame.
+    - The front porch is the interval in a video signal that precedes the active display area
+      (HActive or VActive) and follows the synchronization signal (HSync or VSync). Similar to
+      the back porch, it also represents a blanking period.
+    - During the front porch, the display hardware prepares for the next line or frame, such as adjusting
+      circuitry or stabilizing voltages.
+26. What is Chroma Subsampling? Explain.
+27. What is significance of A, B & C in YUVA:B:C chroma-subsampling formats ?
+28. What is difference between YUV420 and YUV411 chroma-subsampling schemes?
+
+
+

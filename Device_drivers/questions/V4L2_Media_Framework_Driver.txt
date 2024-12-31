@@ -1,22 +1,47 @@
-1. What do you know about VL42
-2. Why V4L2 Was introduced?
-3. how to create a video node using v4l2?
-4. V4l2 video capture application flow
-5. What is V4l2 dev and v4l2 subdev ?
-6. Difference between struct video_device and struct v4l2_device ?
-7. What are the core functionalities supported by video nodes?
-8. How you can negotiate the data format using v4l2?
-9. How you can negotiate Input/Output Method ?
-10. What are the sequence of IOCTLs you need to initiate before starting camera sensor capturing?
-11. How memory is allocated and mapped using V4L2?
-12. How v4l2 Sub devices are created ?
-13. Which IOCTL is used to query the capabilities of devices?
-14. V4l2 related Project (In this case, camera sensor implementation)
-    14.1. Explain camera sensor driver project
-    14.2. Explain in brief about your project (Camera device driver)?
-    14.3. where the camera driver resided in kernel
-    14.4. What is the communication protocol used to communicate with camera sensor?
-    14.5. How to write data to camera sensor address?
-    14.6. What are the design issues/considerations that was taken care for your camera project.
-    14.7. How the data is transferred from camera sensor to LCD display
-    14.8. Do u know about IOCTL operations? And have they been used in your camera sensor project.
+1. What are the specific sequence of IOCTL calls follow to capture a video using
+   v4l2 device?
+>A> After opening the device follow below IOCTLs in order to capture a video:
+    1. VIDIOC_QUERYCAP: check capabilities of the video device
+    2. VIDIOC_S_FMT: Configure the desired video format, including resolution
+       and pixel format
+    3. VIDIOC_REQBUFS: Request a set number of buffers for memory mapping.
+       This sets up the memory for storing captured frames
+    4. VIDIOC_QUERYBUF: Request a pointer for each buffer that can be mapped
+       into the application’s memory space
+    5. VIDIOC_QBUF: Queue the buffers to prepare them for use in capturing
+       video frames
+    6. VIDIOC_STREAMON: Begin the video capture process, allowing the device
+       to start filling buffers with video data.
+    7. VIDIOC_DQBUF: Capture video frames by dequeuing filled buffers,
+       processing the data, and then re-queueing the buffers again using
+       VIDIOC_QBUF.
+    8. VIDIOC_STREAMOFF: End the video capture process, stopping the device
+       from filling buffers with video data.
+    and, at last, unmap the buffers and close the device.
+2. Which IOCTL is used to query the capabilities of devices?
+>A> VIDIOC_QUERYCAP
+3. Difference between struct video_device, v4l2_subdev and struct v4l2_device ?
+>A> struct video_device:
+    - Lower-level, represents a single video device(e.g. /dev/video0)
+    - Used to register and manage individual video devices
+    - Handles device-specific operations, file I/O, and capabilities for an
+      individual video device node
+    struct v4l2_subdev:
+    - Lower-level, represents a specific component or peripheral within the
+      video device system
+    - Provides specific functionality within the video device system, such as
+      handling image sensors, video scaler, or other components
+    - Used for implementing and managing specific functionalities within a
+      larger video device system
+    struct v4l2_device:
+    - Higher-level, manages multiple video devices and sub-devices within a
+      driver
+    - Provides a framework for initializing, registering, and managing the
+      overall state of video devices in a driver
+    - Used for coordinating multiple devices and sub-devices, managing
+      driver-level resources
+
+
+
+4. How v4l2 Sub devices are created ?
+>A> using v4l2_device_register_subdev

@@ -370,7 +370,8 @@
       with the display's vertical blanking interval. This swaps the front buffer with the updated
       back buffer, displaying the new image without tearing or visual artifacts.
 35. Page flipping process with example
-    >A> Here's a simplified example illustrating the page flipping process:
+    >A>
+    Here's a simplified example illustrating the page flipping process:
     1. Initially, we have a front buffer (Buffer A) and a back buffer (Buffer B). Buffer A is
        currently being displayed on the screen, while Buffer B is hidden.
     2. The rendering process performs graphics operations and updates the image in Buffer B.
@@ -386,3 +387,11 @@
        affecting the image displayed on the screen.
     8. The process repeats, with the rendering operations being performed on the back buffer and the
        page flip operation swapping the buffers during subsequent vertical blanking intervals.
+36. In the context of video bus timing, at which point in time does the page-flip occur?
+    >A> during vblank interval
+37. In the context of video bus timing, which signal marks end of the frame and beginning of the new frame?
+    >A> vsync
+38. In the context of video bus timing, which signal marks end of the line and beginning of the new line?
+    >A> hsync
+39. DRM KMS sequence diagram of mode setting
+40. 

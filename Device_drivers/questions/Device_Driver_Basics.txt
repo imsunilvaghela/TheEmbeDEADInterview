@@ -262,3 +262,9 @@
     set of functions as entry points
 95. Write a sample platform driver template which enables driver to probe from the compatible string
     matched from relevant device-tree node.
+96. If I declare a global array in a device driver, will this array be shared among instances of the
+    driver probed by different device-tree nodes?
+    >A> Yes
+    96.1 How can you maintain seperate data for each driver instances ?
+    >A> Declare the data in your driver structre and initialize/alloc it in your probe function.
+    Use dev_set_drvdata/dev_get_drvdata to set/get driver specific data.

@@ -385,3 +385,7 @@
       'prerolled' and ready to render data immediately.
     - In GST_STATE_PLAYING? state, sink elements actually render incoming data, e.g. output audio to a
       sound card or render video pictures to an image sink.
+55. What is PTS, DTS and duration of the gstreamer buffer?
+56. Assuming 60 fps pipeline, explain what would be PTS,DTS and duration values of each five frames
+    which are following IPPPP and IBPPP frame patterns.
+

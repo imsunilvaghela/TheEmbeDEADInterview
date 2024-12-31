@@ -20,14 +20,11 @@ Whether you are a beginner or an experienced professional, this repository aims 
 
 To access the interview questions and resources in this repository, you can either clone the repository to your local machine or explore the content directly on the GitHub web interface.
 
-To clone the repository, use the following command:
-
-https://github.com/imsunilvaghela/TheEmbeDEADInterview.git
-
 ## Topics Covered
 
 The interview questions in this repository are organized into folders based on the various embedded verticals. Here's an overview of the topics covered:
 
+NOTE: Questions are not yet added for some of below topics, star/watch/fork the repository and stay tuned for future updates.
 - ATF and ARM TrustZone
 - BSP Porting Bringup
 - Bootloader
@@ -81,6 +78,3 @@ This repository is licensed under the [MIT License](LICENSE). You are free to us
 
 [![Star History Chart](https://api.star-history.com/svg?repos=imsunilvaghela/TheEmbeDEADInterview&type=Date)](https://star-history.com/#imsunilvaghela/TheEmbeDEADInterview&Date)
 
-Author: Sunil Vaghela
-
-LinkedIn: https://www.linkedin.com/in/sunil-vaghela-870683170/
