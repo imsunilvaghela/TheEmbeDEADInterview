@@ -138,3 +138,8 @@ Programs:
 19. Program to check whether given string is Palindrome  / number is palindrome
 20. Check if given number is prime or not
 21. Program to find endianness of the system – I.e. Little endian or Big endian ?
+22. Program to check if given string has all unique characters
+23. Write code to remove the duplicate characters in a string
+24. Write a program to swap odd and even bits in an integer - with as few instructions as possible.
+    (e.g. bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, etc).
+25. 

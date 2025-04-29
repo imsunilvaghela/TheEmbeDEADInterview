@@ -155,17 +155,18 @@
         Minimize the prediction residual.
     What are the outputs?
         Prediction residual frame and the motion vector.
-38. How does the encoder control the tradeoff between the output bitrate (lower for better
+47. How does the encoder control the tradeoff between the output bitrate (lower for better
     compression efficiency) and the video quality?
     By adjusting what parameter(s)? Rate-distortion performance?
-39. “In-loop De-blocking filter” in video encoder? Why is it needed?
+48. “In-loop De-blocking filter” in video encoder? Why is it needed?
     Block based encoding has blocking or ringing distortion. How does it work?
         Smooths the block edges by Extrapolation.
     Which region of a frame/picture is this De-blocking filter applied to?
         Microblock boundaries.
     Why is it called “In-loop”?
         It is placed inside the encoding and decoding loops.
-40. “Slices” in H.264 & HEVC? “Tiles” in HEVC? Why? What purpose?
+49. “Slices” in H.264 & HEVC? “Tiles” in HEVC? Why? What purpose?
     Independent decoding without reference to any previous slices.
     (1) Error resilience. Re-sync decoder with encoder in case of packet loss.
     (2) Parallel encoding/decoding in multi-cores CPU and GPU.
+

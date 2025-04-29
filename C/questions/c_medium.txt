@@ -91,3 +91,20 @@ Programs:
          n   e
 12. Implement a stack using array. Push, Pop and peek operations
 13. Search the Nth node to the end of a singly-linked-list? Two-pass? Or Single-pass?
+14. Design an algorithm and write code to remove the duplicate characters in a string
+    without using any additional buffer.
+    NOTE: One or two additional variables are fine. An extra copy of the array is not.
+15. You are given two 32-bit numbers, N and M, and two bit positions, i and j. Write a
+    method to set all bits between i and j in N equal to M (e.g., M becomes a substring of
+    N located at i and starting at j).
+    e.g.
+    Input: N = 10000000000, M = 10101, i = 2, j = 6
+    Output: N = 10001010100
+16. Given an integer, print the next smallest and next largest number that have the same
+    number of 1 bits in their binary representation.
+17. Write a function to determine the number of bits required to convert integer A to integer B.
+    e.g.
+    Input: 31, 14
+    Output: 2
+18. Write a program to figure out if someone has won in a game of tic-tac-toe.
+19. 

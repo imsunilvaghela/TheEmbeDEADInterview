@@ -8,7 +8,7 @@ Welcome to TheEmbeDEADInterview questions repository! This repository is a colle
 - [Getting Started](#getting-started)
 - [Topics Covered](#topics-covered)
 - [Contributing](#contributing)
-- [License](#license)
+- [Similar sources](#similar-sources)
 
 ## Introduction
 
@@ -70,11 +70,16 @@ Contributions to this repository are highly encouraged. If you have additional i
 
 Your contributions will help make this repository more valuable and beneficial for the entire embedded community.
 
-## License
+## Similar sources
 
-This repository is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute the content for personal or commercial purposes. However, we kindly request you to acknowledge the source and provide a link to this repository if you choose to share or publish the content elsewhere.
+1. [TheEmbeddedNewTestament](https://github.com/theEmbeddedGeorge/theEmbeddedNewTestament.github.io/tree/master)
+2. [AwesomeEmbedded](https://github.com/nhivp/Awesome-Embedded)
+3. [Awesome-C](https://github.com/uhub/awesome-c)
+4. [Awesome Embedded Systems](https://github.com/embedded-boston/awesome-embedded-systems)
+
 
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=imsunilvaghela/TheEmbeDEADInterview&type=Date)](https://star-history.com/#imsunilvaghela/TheEmbeDEADInterview&Date)
+
 

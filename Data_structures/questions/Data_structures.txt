@@ -1,32 +1,52 @@
-1. Difference between array and Linkedlist ? when to use which ?  
-2. What is Linkedlist ? types of Linkedlist and difference between them.  
-3. How does a linkedlist work ? How to insert / delete nodes from Linkedlist?  
-4. How to traverse from Linkedlist ? and count the number of Linked List elements.  
-5. What is the difference between singly linked list and doubly linked list. 
-6. What is the difference between tree and graph 
-7. What is the complexity of searching in binary tree 
-8. What is stack and queue data structures ? difference between them.  
-9. Real time examples of stack and queue  
-10. What is the difference between binary search and normal search ? How binary search works? Time complexity of both ? 
-11. searching algorithms and its time/space complexity 
-12. sorting algorithms and its time/space complexity 
-13. What is binary search tree and its advantages? 
-14. Hashing. Use of hashing. 
-  
-Programs: 
- 
-1. Implement Stack using array. 
-2. Convert program implemented in 1 from stack to queue 
-3. Implement Stack using singly linked list 
-4. Convert program implemented in 3 from stack to queue. (Make sure complexity is O(1) ) 
-5. Given a string, find character with maximum repetition. (Acceptable complexity is O(n) ) 
-6. Given head pointer of singly linked list, find 4th last element of linked list. (Acceptable complexity is O(n) ) 
-7. Given a head of sorted linked list of integers, write a routine to insert new element in linked list. 
-8. Given a pointer to the root of a binary search tree and a value to be inserted into the tree. Insert this value into its appropriate position in the binary search tree and return the root of the updated binary tree. 
-9. Given a root of binary tree, write a function for preorder traversal of the tree 
-10. Given a root of binary tree, write a function to find height of the tree. 
-11. Given a sorted array, write a function to find given element in array. 
-12. Write a program to delete a given node number in Single linked list.  
-13. How to search a book in one million books.  
-14. How to check whether a linked list is circular.  
- 
+1. What is Linkedlist ? types of Linkedlist and difference between them.
+2. Difference between array and Linkedlist ? when to use which ?
+3. How does a linkedlist work ? How to insert / delete nodes from Linkedlist?
+4. How to traverse from Linkedlist ? and count the number of Linked List elements.
+5. What is the difference between singly linked list and doubly linked list.
+6. What is the difference between tree and graph
+7. What is the complexity of searching in binary tree
+8. What is stack and queue data structures ? difference between them.
+9. Real time examples of stack and queue
+10. What is the difference between binary search and normal search ? How binary search works? Time complexity of both ?
+11. searching algorithms and its time/space complexity
+12. sorting algorithms and its time/space complexity
+13. What is binary search tree and its advantages?
+14. Hashing. Use of hashing.
+
+Programs:
+
+1. Implement Stack using array.
+2. Convert program implemented in 1 from stack to queue
+3. Implement Stack using singly linked list
+4. Convert program implemented in 3 from stack to queue. (Make sure complexity is O(1) )
+5. Given a string, find character with maximum repetition. (Acceptable complexity is O(n) )
+6. Given head pointer of singly linked list, find 4th last element of linked list. (Acceptable complexity is O(n) )
+7. Given a head of sorted linked list of integers, write a routine to insert new element in linked list.
+8. Given a pointer to the root of a binary search tree and a value to be inserted into the tree.
+   Insert this value into its appropriate position in the binary search tree and return the root 
+   of the updated binary tree.
+9. Given a root of binary tree, write a function for preorder traversal of the tree
+10. Given a root of binary tree, write a function to find height of the tree.
+11. Given a sorted array, write a function to find given element in array.
+12. Write a program to delete a given node number in Single linked list.
+13. How to search a book in one million books.
+14. How to check whether a linked list is circular.
+15. Write code to remove duplicates from an unsorted linked list. How would you solve
+    this problem if a temporary buffer is not allowed?
+16. Implement an algorithm to delete a node in the middle of a single linked list, given only access to that node.
+    e.g.
+    Input: the node ‘c’ from the linked list a->b->c->d->e
+    Result: nothing is returned, but the new linked list looks like a->b->d->e
+17. You have two numbers represented by a linked list, where each node contains a single
+    digit. The digits are stored in reverse order, such that the 1’s digit is at the head of
+    the list. Write a function that adds the two numbers and returns the sum as a linked list.
+    e.g.
+    Input: (3 -> 1 -> 5) + (5 -> 9 -> 2)
+    Output: 8 -> 0 -> 8
+18. Imagine a stack of plates. If the stack gets too high, it might topple. Therefore,
+    in real life, we would likely start a new stack when the previous stack exceeds some threshold.
+    Implement a data structure that mimics this. It should be composed of several stacks,
+    and should create a new stack once the previous one exceeds capacity. push() and pop()
+    should behave identically to a single stack(that is, pop() should return the same values
+    as it would if there were just a single stack).
+19. 

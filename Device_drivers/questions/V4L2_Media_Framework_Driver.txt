@@ -40,8 +40,5 @@
       overall state of video devices in a driver
     - Used for coordinating multiple devices and sub-devices, managing
       driver-level resources
-
-
-
 4. How v4l2 Sub devices are created ?
 >A> using v4l2_device_register_subdev

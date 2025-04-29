@@ -1,4 +1,4 @@
-1. How logs are printed in linux kernel and what are the logs level available in linux.
+001. How logs are printed in linux kernel and what are the logs level available in linux.
    >A>
    printk used to print kernel logs. One can also use pr_ APIs. e.g. pr_debug, pr_warning, pr_err etc
    e.g. printk(KERN_DEBUG "Hello World\n");
@@ -13,9 +13,9 @@
    KERN_DEBUG   7 - Debug: Kernel debugging messages, output by the kernel if the developer enabled debugging at compile time
 
    Trick to remember above sequence:
-   Everyone Always Complains Even When Nothing Is Different
+   "Everyone Always Complains Even When Nothing Is Different"
                       OR
-   Every Awesome Cisco Engineer Will Need Icecream Daily
+   "Every Awesome Cisco Engineer Will Need Icecream Daily"
    1.1 Which kernel log messages has the highest priority ?
        >A> KERN_EMERG  - Emergency messages when system is about to crash or is unstable
    1.2 Which kernel log messages has the lowest priority ?
@@ -25,103 +25,103 @@
        Use KERN_CONT with printk.
        printk(KERN_ERR "Driver Probe ");      >> Don't use \n at the end
        printk(KERN_CONT "Failed!\n");         >> will print "Driver probe Failed!"
-2. What is difference between a library function and  system call ?
-3. What is context switching?
-4. What is virtual memory?
-5. Monolithic kernel vs Microlithic kernel
-6. Explain about about ksets, kobjects and ktypes. How are they related?
-7. As kernel can access user space memory, why should copy_from_user is needed?
-8. What is udev (Unique device identification) ?
-9. User application will block on IOCTL, in kernel until interrupt arrives this IOCTL will be blocked. When interrupt comes IOCTL should return. Desing this mechanism.
-10. What is IOCTL, how it is used in user and kernel driver code ?
-11. What is difference between sleep_on() and interruptible_sleep_on() APIs in linux kernel ? When should use which one, how it should be decided ?
-12. Explain about Kconfig build system?
-13. Explain about the init call mechanism.
-14. What is the difference between early init and late init?
-15. Early init functions are called when only the boot processor is online.
-16. Run before initializing SMP.
-17. Only for built-in code, not modules.
-18. Late init functions are called _after_ all the CPUs are online.
-19. How are the atomic functions implemented in case of ARM architecture?
-20. How is container_of( ) macro implemented?
-21. Explain about system call flow in case of ARM Linux.
-22. Main Advantages and disadvantages of having separate user space and kernel space?
-23. What is re-entrant function
-24. How User space buffer can be accessed from kernel level and vice versa?
-25. Diff SLAB and Vmalloc
-26. What are the best synchronization techniques used in linux kernel?
-27. How SpinkLocks work in SMP and UP architectures. what happens when a interrupt is received ? what is contained inside an interrupt handler What is the process of system call ,what happens exactly and how the mode toggles between user/kernel mode and vice versa?
-28. What are spin locks, are they better then mutex ?
-29. What are the differences between spinlock and mutex?
-30. What is difference between wake_up() and wake_up_interruptible() APIs in linux kernel ?
-31. When should should use which one, how it should be decided ?
-32. Why do we need synchronization mechanisms in Linux kernel?
-33. What are the different synchonization mechanisms present in Linux kernel?
-34. What is lockdep?
-35. Which synchronization mechanism is safe to use in interrupt context and why?
-36. Explain about the implementation of spinlock in case of ARM architecture.
-37. Explain about the implementation of mutex in case of ARM architecture.
-38. Explain about the notifier chains.
-39. Explain about RCU locks and when are they used?
-40. Explain about RW spinlocks locks and when are they used?
-41. Which are the synchronization technoques you use 'between processes', 'between processes and interrupt' and 'between interrupts'; why and how ?
-43. What are the differences between semaphores and spinlocks?
-44. Diff between mutex and semaphore? Can semaphore be used for data synchronisation purpose?
-45. What is deadlock? How to come out of deadlock?
-46. About Synchronization mechanism where you used in real time(examples)
-47. what happen if you use mutex in ISR, how you over come with that problem ?
-48. what is critical section?
-49. Semaphore internal code behavior in a way semaphore implementation ?
-50. spinlock vs mutex vs semaphore
-51. Working of spinlocks
-52. Can Spinlocks works on mutliprocessor system.
-53. In what scenarios mutex is used and semaphore is used.
-54. What is the difference between Mutex and Binary semaphore
-55. When a Mutex lock is aquired by a low priority task and High priority trys to acquires the lock will the low priority task will be pre emitted .
-56. The same above scenario is with sema and spinlock
-57. How do you establish a sync mechanism in above hard disk scenarios.
-58. Write a simple with crtical section, mutex lock and mutex unlock.
-59. Spin locks behavior?
-60. If spin locks what flavor of spin locks will you use.
-61. Explain Shared memory, Message Queue Synchronization techniques in Linux
-62. How can you make part of driver code is allowed to be executed and not executed depending upon condition?
-63. Different synchronization techniquies ?how do you chose the best sync mechanisam fits the scenario?
-64. how to divided critical work and non critcal work based on top half and bottom Half
-65. What is task_struct and how are task states maintained ?
-66. What is rwlock and spinlock ? Briefly explain about both of them ?
-67. When will you use rwlock instead of spinlock ?
-68. Can spinlock/rwlock be used in Interrupt handler ?
-69. What are jiffies and HZ?
-70. What is the initial value of jiffies when the system has started?
-71. Explain about HR timers and normal timers?On what hardware timers, does the HR timers are based on?
-72. How to declare that a specific hardware timers is used for kernel periodic timer interrupt used by the scheduler?
-73. How software timers are implemented?
-74. how to manage memory in linux kernel?
-75. what is bus error? common causes of bus errors?
-76. what is memory leak ?
-77. Write code for page fault handler in Linux
-78. What is cache ? How it is used and mapped the physical address cache and virtual address cache ?
-79. DMA controller.
-80. Write a pseudo code for page fault handler.
-81. What is virtual memory ? What is the pre-requisite in hardware for supporting virtual memory ?
-82. What are the differences between vmalloc and kmalloc? Which is preferred to use in device drivers?
-83. What are the differences between slab allocator and slub allocator?
-84. What is boot memory allocator?
-85. How do you reserve block of memory?
-86. What is virtual memory and what are the advanatages of using virtual memory?
-87. What's paging and swapping?
-88. Is it better to enable swapping in embedded systems? and why?
-89. What is the page size in Linux kernel in case of 32-bit ARM architecture?
-90. What is page frame?
-91. What are the different memory zones and why does different zones exist?
-92. What is high memory and when is it needed?
-93. Why is high memory zone not needed in case of 64-bit machine?
-94. How to allocate a page frame from high memory?
-95. In ARM, an abort exception if generated, if the page table doesn't contain a virtual to physical map for a particular page. How exactly does the MMU know that a virtual to physical map is present in the pagetable or not?
-96. What's a segementation fault and what are the scenarios in which segmentation fault is triggered?
-97. If the scenarios which triggers the segmentation fault has occurred, how the kernel identifies it and what
-98. are the actions that the kernel takes?
-99. memory leak deduction and various ways of handling
+002. What is difference between a library function and a system call ?
+003. What is context switching?
+004. What is virtual memory?
+005. Monolithic kernel vs Microlithic kernel
+006. Explain about about ksets, kobjects and ktypes. How are they related?
+007. As kernel can access user space memory, why should copy_from_user is needed?
+008. What is udev (Unique device identification) ?
+009. User application will block on IOCTL, in kernel until interrupt arrives this IOCTL will be blocked. When interrupt comes IOCTL should return. Desing this mechanism.
+010. What is IOCTL, how it is used in user and kernel driver code ?
+011. What is difference between sleep_on() and interruptible_sleep_on() APIs in linux kernel ? When should use which one, how it should be decided ?
+012. Explain about Kconfig build system?
+013. Explain about the init call mechanism.
+014. What is the difference between early init and late init?
+015. Early init functions are called when only the boot processor is online.
+016. Run before initializing SMP.
+017. Only for built-in code, not modules.
+018. Late init functions are called _after_ all the CPUs are online.
+019. How are the atomic functions implemented in case of ARM architecture?
+020. How is container_of( ) macro implemented?
+021. Explain about system call flow in case of ARM Linux.
+022. Main Advantages and disadvantages of having separate user space and kernel space?
+023. What is re-entrant function
+024. How User space buffer can be accessed from kernel level and vice versa?
+025. Diff SLAB and Vmalloc
+026. What are the best synchronization techniques used in linux kernel?
+027. How SpinkLocks work in SMP and UP architectures. what happens when a interrupt is received ? what is contained inside an interrupt handler What is the process of system call ,what happens exactly and how the mode toggles between user/kernel mode and vice versa?
+028. What are spin locks, are they better then mutex ?
+029. What are the differences between spinlock and mutex?
+030. What is difference between wake_up() and wake_up_interruptible() APIs in linux kernel ?
+031. When should should use which one, how it should be decided ?
+032. Why do we need synchronization mechanisms in Linux kernel?
+033. What are the different synchonization mechanisms present in Linux kernel?
+034. What is lockdep?
+035. Which synchronization mechanism is safe to use in interrupt context and why?
+036. Explain about the implementation of spinlock in case of ARM architecture.
+037. Explain about the implementation of mutex in case of ARM architecture.
+038. Explain about the notifier chains.
+039. Explain about RCU locks and when are they used?
+040. Explain about RW spinlocks locks and when are they used?
+041. Which are the synchronization technoques you use 'between processes', 'between processes and interrupt' and 'between interrupts'; why and how ?
+043. What are the differences between semaphores and spinlocks?
+044. Diff between mutex and semaphore? Can semaphore be used for data synchronisation purpose?
+045. What is deadlock? How to come out of deadlock?
+046. About Synchronization mechanism where you used in real time(examples)
+047. what happen if you use mutex in ISR, how you over come with that problem ?
+048. what is critical section?
+049. Semaphore internal code behavior in a way semaphore implementation ?
+050. spinlock vs mutex vs semaphore
+051. Working of spinlocks
+052. Can Spinlocks works on mutliprocessor system.
+053. In what scenarios mutex is used and semaphore is used.
+054. What is the difference between Mutex and Binary semaphore
+055. When a Mutex lock is aquired by a low priority task and High priority trys to acquires the lock will the low priority task will be pre emitted .
+056. The same above scenario is with sema and spinlock
+057. How do you establish a sync mechanism in above hard disk scenarios.
+058. Write a simple with crtical section, mutex lock and mutex unlock.
+059. Spin locks behavior?
+060. If spin locks what flavor of spin locks will you use.
+061. Explain Shared memory, Message Queue Synchronization techniques in Linux
+062. How can you make part of driver code is allowed to be executed and not executed depending upon condition?
+063. Different synchronization techniquies ?how do you chose the best sync mechanisam fits the scenario?
+064. how to divided critical work and non critcal work based on top half and bottom Half
+065. What is task_struct and how are task states maintained ?
+066. What is rwlock and spinlock ? Briefly explain about both of them ?
+067. When will you use rwlock instead of spinlock ?
+068. Can spinlock/rwlock be used in Interrupt handler ?
+069. What are jiffies and HZ?
+070. What is the initial value of jiffies when the system has started?
+071. Explain about HR timers and normal timers?On what hardware timers, does the HR timers are based on?
+072. How to declare that a specific hardware timers is used for kernel periodic timer interrupt used by the scheduler?
+073. How software timers are implemented?
+074. how to manage memory in linux kernel?
+075. what is bus error? common causes of bus errors?
+076. what is memory leak ?
+077. Write code for page fault handler in Linux
+078. What is cache ? How it is used and mapped the physical address cache and virtual address cache ?
+079. DMA controller.
+080. Write a pseudo code for page fault handler.
+081. What is virtual memory ? What is the pre-requisite in hardware for supporting virtual memory ?
+082. What are the differences between vmalloc and kmalloc? Which is preferred to use in device drivers?
+083. What are the differences between slab allocator and slub allocator?
+084. What is boot memory allocator?
+085. How do you reserve block of memory?
+086. What is virtual memory and what are the advanatages of using virtual memory?
+087. What's paging and swapping?
+088. Is it better to enable swapping in embedded systems? and why?
+089. What is the page size in Linux kernel in case of 32-bit ARM architecture?
+090. What is page frame?
+091. What are the different memory zones and why does different zones exist?
+092. What is high memory and when is it needed?
+093. Why is high memory zone not needed in case of 64-bit machine?
+094. How to allocate a page frame from high memory?
+095. In ARM, an abort exception if generated, if the page table doesn't contain a virtual to physical map for a particular page. How exactly does the MMU know that a virtual to physical map is present in the pagetable or not?
+096. What's a segementation fault and what are the scenarios in which segmentation fault is triggered?
+097. If the scenarios which triggers the segmentation fault has occurred, how the kernel identifies it and what
+098. are the actions that the kernel takes?
+099. memory leak deduction and various ways of handling
 100. How to write own malloc call
 101. About memory mapped files
 102. what is cache coherence?
