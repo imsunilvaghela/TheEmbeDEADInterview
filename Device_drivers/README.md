@@ -2,6 +2,7 @@
 
 ### Device Drivers
 - [Oracle Documentation on Device Drivers](https://docs.oracle.com/cd/E23824_01/html/819-3196/eqbvu.html#scrolltoc)
+- [Platform drivers](https://www.kernel.org/doc/Documentation/driver-model/platform.txt)
 
 ### V4L2 / Media Framework
 - [Video4Linux V4L2 Design Specification](https://www.linuxtv.org/downloads/legacy/video4linux/v4l2dwgNew.html)

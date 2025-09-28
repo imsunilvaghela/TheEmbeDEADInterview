@@ -7,3 +7,6 @@
 - [Bootlin: Linux Kernel Graphics Training Slides](https://bootlin.com/doc/training/graphics/graphics-slides.pdf)
 - [Embedded Wizard: Framebuffer Concepts](https://doc.embedded-wizard.de/framebuffer-concepts)
 - [Digital Video Introduction - GitHub (Leandro Moreira)](https://github.com/leandromoreira/digital_video_introduction#intro)
+
+### GStreamer
+- [GStreamer articles](https://www.programmersought.com/article/23997677691/)

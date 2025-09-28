@@ -18,7 +18,8 @@ Questions/Topics:
 6. Useful C library functions - strlen, strcpy, strstr, strncpy, atoi, itoa, sprintf, sscanf etc etc...
   6.1. Difference between memcpy and strcpy
   6.2. I want to search a string in another string – which string function I can use ?
-  6.3. Which library function you will use to parse this data in "Name : marks" format ? Where Name is in string form, and marks is in integer ...e.g "Sunil : 50"
+  6.3. Which library function you will use to parse this data in "Name : marks" format ?
+       Where Name is in string form, and marks is in integer ...e.g "Sunil : 50"
 7. C Variables
   7.1. What is lifetime and scope of variable ?
   7.2. Scope of a variables in c – Global, Local and function scope
@@ -100,46 +101,170 @@ Questions/Topics:
 
 Programs:
 ---------
-
-1. Patterns programs using loops
-*
-* *
-* * *
-* * * *
-* * * * *
-
-    *
-   * *
-  * * *
- * * * *
-* * * * *
-
-2. write a program to check if given number is even or odd
-3. write a program to count the number of 1's in a given number.
-4. what is output of below programs
-   for(unsigned char i=0; i<256; i++)
-   {
-     printf("Hello world\n");
-   }
-5. Write a code to check MSB of a integer is 1 or not
-6. Write a program to find factorial of given number using recursion / w/o using recursion
-7. Program to copy a string from one char array to another char array (without using strcpy)
-8. Program to count number of characters in C / string length. (without using strlen)
-9. Program to search a string from one char array in another char array. return 0 on match, else return -1. (Don't use inbuilt string library APIs)
-10. Program to sort a given int array into ascending order / descending order
-11. Program to reverse a given string
-12. Swap two variables without using third variable
-13. Program to convert a decimal number to binary / or vice-versa
-14. Program to check if the given year is leap year or not
-15. Program to print prime numbers from 1 to 100
-16. Custom atoi implementation
-17. Implement ARRAY_LEN(array) macro - which returns length of array
-18. Implement macros for SET_BIT(data, pos), RESET_BIT(data, pos), and TOGGLE_BIT(data, pos)
-19. Program to check whether given string is Palindrome  / number is palindrome
-20. Check if given number is prime or not
-21. Program to find endianness of the system – I.e. Little endian or Big endian ?
-22. Program to check if given string has all unique characters
-23. Write code to remove the duplicate characters in a string
-24. Write a program to swap odd and even bits in an integer - with as few instructions as possible.
+01. write a program to check if given number is even or odd
+02. write a program to count the number of 1's in a given number.
+03. Write a code to check MSB of a integer is 1 or not
+04. Write a program to find factorial of given number using recursion / w/o using recursion
+05. Program to copy a string from one char array to another char array (without using strcpy)
+06. Program to count number of characters in C / string length. (without using strlen)
+07. Program to search a string from one char array in another char array.
+    return 0 on match, else return -1. (Don't use inbuilt string library APIs)
+08. Program to sort a given int array into ascending order / descending order
+09. Program to reverse a given string
+10. Swap two variables without using third variable
+11. Program to convert a decimal number to binary / or vice-versa
+12. Program to check if the given year is leap year or not
+13. Program to print prime numbers from 1 to 100
+14. Custom atoi implementation
+15. Implement ARRAY_LEN(array) macro - which returns length of array
+16. Implement macros for SET_BIT(data, pos), RESET_BIT(data, pos), and TOGGLE_BIT(data, pos)
+17. Program to check whether given string is Palindrome  / number is palindrome
+18. Check if given number is prime or not
+19. Program to find endianness of the system – I.e. Little endian or Big endian ?
+20. Program to check if given string has all unique characters
+21. Write code to remove the duplicate characters in a string
+22. Write a program to swap odd and even bits in an integer - with as few instructions as possible.
     (e.g. bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, etc).
-25. 
+23. Given two integer numbers A and B, find a nearest number from B which is in
+    multiple of A. Assume A will always be less than B.
+
+Patterns
+--------
+01. n > 0
+    n = 5
+      *
+      * *
+      * * *
+      * * * *
+      * * * * *
+
+02. n > 0
+    n = 5
+      * * * * *
+      * * * *
+      * * *
+      * *
+      *
+
+03. n > 0
+    n = 5
+      * * * * *
+        * * * *
+          * * *
+            * *
+              *
+
+04. n > 0
+    n = 5
+          *
+         * *
+        * * *
+       * * * *
+      * * * * *
+
+05. n > 0
+    n = 5
+      * * * * *
+       * * * *
+        * * *
+         * *
+          *
+
+06.
+      1 2 3 4 5
+       6 7 8 7
+        6 5 4
+         3 2
+          1
+
+07.
+      1 3 5 7 9
+        2 4 6 8
+          1 3 5
+            2 4
+              1
+
+08. n > 0
+    n = 5
+          *
+         * *
+        *   *
+       *     *
+      * * * * *
+
+09. n > 0 && n < 10
+    n = 5
+          1
+         1 1
+        1 2 1
+       1 3 3 1
+      1 4 4 4 1
+
+10. n > 0
+    n = 5
+      * * * * *
+      *       *
+      *       *
+      *       *
+      * * * * *
+
+11. n > 0
+    n = 5
+      * * * * *
+       * * * * *
+        * * * * *
+         * * * * *
+          * * * * *
+
+12. n > 0
+    n = 5
+              1
+            0 1
+          0 1 0
+        1 0 1 0
+      1 0 1 0 1
+
+13. n > 0
+    n = 5
+      1 0 1 0 1
+       0 1 0 1
+        0 1 0
+         1 0
+          1
+
+14. n > 0 && n < 10
+    n = 5
+      1        1
+      12      21
+      123    321
+      1234  4321
+      1234554321
+
+15. n > 0 && n <= 26
+    n = 5
+          A
+         ABA
+        ABCBA
+       ABCDCBA
+      ABCDEDCBA
+
+16. n > 0
+    n = 4
+      * *
+      * *
+      * * * *
+      * * * *
+      * * * * * *
+      * * * * * *
+      * * * * * * * *
+      * * * * * * * *
+
+Output of programs
+------------------
+
+01.
+      for(unsigned char i=0; i<256; i++)
+      {
+        printf("Hello world\n");
+      }
+

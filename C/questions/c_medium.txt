@@ -38,57 +38,37 @@
 16. How 32 bit system differs from 64 bit system. What about the address space. Does pointer
     size differs? What we need to take care to obtain portability? What code would you write
     for it to be non-functional on 64 bit system.
+17. How does free() call frees memory even when we don't provide number of bytes to free it ?
 
 
 Programs:
-------------
-1. Implement custom malloc() function – pseudo code and approach understanding
-2. Pattern
-       1
-      232
-     34543
-    4567654
-   567898765
-3. Decimal to Hexadecimal / Float to Binary
-4. Write custom macro for sizeof
-5. Implement itoa function. Integer to ascii conversion.
-6. Implement strcspn().  Given 2 strings, strcspn() calculates the length of the
-   number of characters before the 1st occurrence of the character present in both
-   the string. Return -1, if no match found.
-   e.g. str1="theembedeadinterview", str2="test" -> 0
+---------
+01. Implement custom malloc() function – pseudo code and approach understanding
+02. Decimal to Hexadecimal / Float to Binary
+03. Write custom macro for sizeof
+04. Implement itoa function. Integer to ascii conversion.
+05. Implement strcspn().  Given 2 strings, strcspn() calculates the length of the
+    number of characters before the 1st occurrence of the character present in both
+    the string. Return -1, if no match found.
+    e.g. str1="theembedeadinterview", str2="test" -> 0
         str1="theembedeadinterview", str2="west" -> 2
         str1="theembedeadinterview", str2="fly" -> -1
-7. #define GENMASK(high, low)
-   e.g. GENMASK(7,0) ->  11111111
-        GENMASK(1,0) ->  00000011
-        GENMASK(4,3) ->  00011000
-8. Given a string, Return a char which has occured a maximum times. If found two
-   or more characters, return last occurance of the last one found. If found only
-   one occurance of a character, then return the last char found.
-   e.g. str="program" -> r
+06. #define GENMASK(high, low)
+    e.g. GENMASK(7,0) ->  11111111 i.e. 255
+        GENMASK(1,0) ->  00000011 i.e. 3
+        GENMASK(5,3) ->  00111000 i.e. 56
+        GENMASK(15,11) ->  11111000 00000000 i.e. 63488
+07. Given a string, Return a char which has occured a maximum times. If found two
+    or more characters, return last occurance of the last one found. If found only
+    one occurance of a character, then return the last char found.
+    e.g. str="program" -> r
         str="programming" -> g
         str="print" -> t
-9. Given a string of paranthesis, return if it is balanced or not.
-   e.g. str="[()]{<>}{[()()]()}" -> Balanced
+08. Given a string of paranthesis, return if it is balanced or not.
+    e.g. str="[()]{<>}{[()()]()}" -> Balanced
         str="[(])" -> Not Balanced
-10. Given a string s, find the length of longest substring without repeating characters.
+09. Given a string s, find the length of longest substring without repeating characters.
     e.g. str="theembedeadinterview" -> 8 (adinterv)
-11. Print below pattern for the given string. if the string is of even
-    characters add x in the middle.
-    e.g.str="program"
-         p     m
-          r   a
-           o r
-            g
-           r o
-          a   r
-         m     p
-        str="even"
-         e   n
-          v e
-           x
-          e v
-         n   e
 12. Implement a stack using array. Push, Pop and peek operations
 13. Search the Nth node to the end of a singly-linked-list? Two-pass? Or Single-pass?
 14. Design an algorithm and write code to remove the duplicate characters in a string
@@ -107,4 +87,234 @@ Programs:
     Input: 31, 14
     Output: 2
 18. Write a program to figure out if someone has won in a game of tic-tac-toe.
-19. 
+    Input will be char array of 9 bytes. e.g. "xoxxxooxo", "xoxxxooox"
+
+Patterns
+--------
+01. Print below pattern for the given string. if the string is of even
+    characters add x in the middle.
+    e.g. str="program"
+       p     m
+        r   a
+         o r
+          g
+         r o
+        a   r
+       m     p
+
+    e.g. str="colour"
+       c     r
+        o   u
+         l o
+          x
+         o l
+        u   o
+       r     c
+02.
+           A
+          B C
+         D E F
+        G H I J
+       K L M N O
+        P Q R S
+         T U V
+          W X
+           Y
+03. n > 0 && n % 2 == 1 
+    n = 7
+       * * * * * * *
+       * * *   * * *
+       * *       * *
+       *           *
+       * *       * *
+       * * *   * * *
+       * * * * * * *
+04.
+               1
+             2 3 2
+           3 4 5 4 3
+         4 5 6 7 6 5 4
+       5 6 7 8 9 8 7 6 5
+
+05. n > 0 && n % 2 == 1
+    n = 4
+       *           *
+       * *       * *
+       * * *   * * *
+       * * * * * * *
+       * * *   * * *
+       * *       * *
+       *           *
+06. n >=6 && n % 2 == 0
+       n = 10
+       **********
+       **      **
+       * *    * *
+       *  *  *  *
+       *   **   *
+       *   **   *
+       *  *  *  *
+       * *    * *
+       **      **
+       **********
+
+       n = 8
+       ********
+       **    **
+       * *  * *
+       *  **  *
+       *  **  *
+       * *  * *
+       **    **
+       ********
+
+       n = 6
+       ******
+       **  **
+       * ** *
+       * ** *
+       **  **
+       ******
+
+07. n > 0 && n < 10
+    n = 4
+      4 4 4 4 4 4 4
+      4 3 3 3 3 3 4
+      4 3 2 2 2 3 4
+      4 3 2 1 2 3 4
+      4 3 2 2 2 3 4
+      4 3 3 3 3 3 4
+      4 4 4 4 4 4 4
+
+08. n > 0 && n <= 26
+    n = 5
+      A B C D E D C B A
+      A B C D   D C B A
+      A B C       C B A
+      A B           B A
+      A               A
+
+09. n > 0 && n < 10
+    n = 5
+          1
+         212
+        32123
+       4321234
+      543212345
+       4321234
+        32123
+         212
+          1
+
+10. n > 0 && n < 10
+    n = 7
+      1 2 3 4 5 6 7
+       2 3 4 5 6 7
+        3 4 5 6 7
+         4 5 6 7
+          5 6 7
+           6 7
+            7
+           6 7
+          5 6 7
+         4 5 6 7
+        3 4 5 6 7
+       2 3 4 5 6 7
+      1 2 3 4 5 6 7
+
+11. n >= 5 && n % 2 == 1
+      n = 7
+      *     * * * *
+      *     *
+      *     *
+      * * * * * * *
+            *     *
+            *     *
+      * * * *     *
+
+      n = 5
+      *   * * *
+      *   *
+      * * * * *
+          *   *
+      * * *   *
+12. 
+          **********
+         *        *
+        *        *
+       *        *
+      *        *
+     **********
+
+13. n >= 4 && n % 4 == 0
+      n = 4
+        *
+       * *
+      *   *
+     * * * *
+
+     n = 8
+            *
+           * *
+          *   *
+         * * * *
+        *       *
+       * *     * *
+      *   *   *   *
+     * * * * * * * *
+
+    n = 12
+                *
+               * *
+              *   *
+             * * * *
+            *       *
+           * *     * *
+          *   *   *   *
+         * * * * * * * *
+        *       *       *
+       * *     * *     * *
+      *   *   *   *   *   *
+     * * * * * * * * * * * *
+
+14. n > 0
+    n = 7
+     *
+      **
+       ***
+        ****
+         *****
+          ******
+           *******
+          ******
+         *****
+        ****
+       ***
+      **
+     *
+
+15. n >=5 && n % 2 == 1
+    n = 9
+             *
+           * * *
+         * * * * *
+       * * * * * * *
+     * * * * * * * * *
+       * * * * * * *
+         * * * * *
+           * * *
+             *
+           * * *
+         * * * * *
+
+16.
+    * * * * * * * * * * * * * * * * *
+      * * * * * * *   * * * * * * *
+        * * * * *       * * * * *
+          * * *           * * *
+            * * * * * * * * *
+              * * * * * * *
+                * * * * *
+                  * * *
+                    *
+

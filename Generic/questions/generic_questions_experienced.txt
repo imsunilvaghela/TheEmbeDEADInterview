@@ -1,0 +1,38 @@
+01. tell me about time management
+02. tell me your best/worst time with a team
+03. what was the most painful lesson you've learned on a project
+04. what's your process for keeping organized if you have lots of things to switch to
+05. most rewarding thing you've worked on
+06. tell me about your project management
+07. why do you think you are self-sufficient in debugging concepts?
+08. what was the worst team you've worked on.  why was it the worst
+09. what was the best team you've worked on.  why was it the best.
+10. whats an example of a time you realized there was a communication problem, and what did you do to fix it?
+11. you need help from another group.  they ignore your emails. what do you do ?
+12. give me a 2 minute summary of the XYZ project
+13. give me an example of a project you had to research, plan out and schedule tasks for other engineers
+    to accomplish. how did you explain and summarize it to managers in meetings?
+14. How do you handle stress and pressure in job?
+15. What can you do for us that other candidates can't?
+16. When were you most satisfied in your job?
+17. Why should we hire you?
+18. Describe your work style.
+19. What have you been doing since your last job?
+20. How are you different from the competition?
+21. How would your co-workers describe your personality?
+22. Why are you leaving your job?
+23. Why have you been out of work so long?
+24. Where do you see yourself 5 years from now?
+25. What will you do if you don't get this position?
+26. How does this job fit in with your career plan?
+27. What motivates you?
+28. What is your dream job?
+29. Describe a time when your workload was heavy and how you handled it.
+30. Describe a difficult work situation or project and how you overcame it.
+31. What type of work environment do you prefer?
+32. What problems have you encountered at work?
+33. What is the biggest criticism you received from your boss?
+34. What do people most often criticize about you?
+35. Do you prefer to work independently or on a team?
+36. What challenges are you looking for in a position?
+37. Do you have any questions for me?
